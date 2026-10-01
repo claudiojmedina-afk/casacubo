@@ -54,7 +54,25 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .category{min-height:158px;border-radius:8px;padding:17px 16px;display:flex;flex-direction:column;transition:.25s ease}
 .category:hover{transform:translateY(-4px)}
 .cat-pink{background:#f8dfe4}.cat-green{background:#dbece4}.cat-yellow{background:#f8edc8}
-.cat-icon{width:48px;height:48px;border:1px solid rgba(0,0,0,.16);border-radius:50%;display:grid;place-items:center;font-size:25px;margin-bottom:17px}
+.cat-icon{
+  width:48px;
+  height:48px;
+  border:1px solid rgba(0,0,0,.16);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  margin-bottom:17px;
+}
+
+.cat-icon svg{
+  width:32px;
+  height:32px;
+  fill:none;
+  stroke:var(--ink);
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
 .category strong{font-size:14px;margin-bottom:7px}.category small{font-size:11px;line-height:1.4;color:#45423e}.category b{margin-top:auto;font-size:19px;font-weight:400}
 
 .workshops{position:relative;display:grid;grid-template-columns:290px 1fr;gap:42px;padding-top:35px;padding-bottom:60px;border-top:1px solid var(--line)}
