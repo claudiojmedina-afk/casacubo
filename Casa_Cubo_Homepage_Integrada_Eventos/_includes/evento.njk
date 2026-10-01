@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} | Casa Cubo</title>
+  <meta name="description" content="{{ excerpt }}">
+  <meta property="og:title" content="{{ title }} | Casa Cubo">
+  <meta property="og:description" content="{{ excerpt }}">
+  <meta property="og:image" content="{{ image }}">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/evento.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">CASA <span>CUBO</span></a>
+    <nav>
+      <a href="/eventos/">Eventos</a>
+      <a href="https://casacubo.empretienda.com.ar/" target="_blank" rel="noopener">Tienda online</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="event-hero">
+      <div class="hero-image"><img src="{{ image }}" alt="{{ title }}"></div>
+      <div class="hero-copy">
+        <span class="pill">{{ category }}</span>
+        <p class="eyebrow">CASA CUBO / EXPERIENCIAS</p>
+        <h1>{{ title }}</h1>
+        <p class="lead">{{ excerpt }}</p>
+        <div class="hero-meta">
+          <div><small>CUÁNDO</small><strong>{{ sort_date | date_es }}</strong><span>{{ time }}</span></div>
+          <div><small>DÓNDE</small><strong>{{ location }}</strong><span>{{ duration }}</span></div>
+          <div><small>VALOR</small><strong>{{ price | money_ar }}</strong><span>{{ audience }}</span></div>
+        </div>
+        <a class="cta" href="#inscripcion">Reservar mi lugar <span>↘</span></a>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <article class="article-copy">
+        {{ content | safe }}
+      </article>
+
+      <aside class="info-card">
+        <p class="eyebrow">ESTA EXPERIENCIA INCLUYE</p>
+        <ul>
+          {% for item in include %}<li>{{ item }}</li>{% endfor %}
+        </ul>
+        {% if bring and bring.length %}
+        <p class="eyebrow second">TENÉS QUE TRAER</p>
+        <ul>{% for item in bring %}<li>{{ item }}</li>{% endfor %}</ul>
+        {% endif %}
+      </aside>
+    </section>
+
+    <section class="instructor-section">
+      <div class="instructor-photo"><img src="{{ instructor_image }}" alt="{{ instructor }}"></div>
+      <div>
+        <p class="eyebrow">QUIÉN GUÍA EL ENCUENTRO</p>
+        <h2>{{ instructor }}</h2>
+        <p>{{ instructor_role }}</p>
+      </div>
+    </section>
+
+    <section id="inscripcion" class="registration">
+      <div class="registration-head">
+        <div>
+          <p class="eyebrow">RESERVÁ TU LUGAR</p>
+          <h2>Nos vemos en Casa Cubo.</h2>
+        </div>
+        <p>Completá el formulario y tus datos quedarán registrados para este evento.</p>
+      </div>
+      <div class="form-frame">
+        <iframe src="{{ form_url }}" title="Formulario de inscripción: {{ title }}" loading="lazy">Cargando formulario…</iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="/">CASA <span>CUBO</span></a>
+    <p>Arte · diseño · talleres · comunidad</p>
+    <a href="/eventos/">Ver todos los eventos ↗</a>
+  </footer>
+</body>
+</html>

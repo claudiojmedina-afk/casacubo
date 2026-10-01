@@ -1,0 +1,184 @@
+---
+permalink: /
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Casa Cubo — Arte, diseño, talleres y comunidad.">
+  <title>Casa Cubo — Arte, diseño, talleres y comunidad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Casa Cubo, inicio">
+    <span class="brand-mark" aria-hidden="true">◇</span>
+    <span>CASA<br>CUBO</span>
+  </a>
+
+  <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menú</button>
+
+  <nav id="main-nav" class="main-nav">
+    <a class="active" href="#inicio">Inicio</a>
+    <a href="#talleres">Talleres</a>
+    <a href="#eventos">Eventos</a>
+    <a href="#galeria">Galería</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <div class="header-actions">
+    <a href="#" aria-label="Instagram">◎</a>
+    <a href="#" aria-label="Facebook">●</a>
+    <a class="store-link" href="https://casacubo.empretienda.com.ar/" target="_blank" rel="noopener">
+      Tienda online ↗
+    </a>
+    <small>en Empretienda.com</small>
+  </div>
+</header>
+
+<main>
+  <section id="inicio" class="hero section-shell">
+    <div class="hero-copy">
+      <span class="eyebrow">CASA CUBO</span>
+      <h1>Arte,<br> diseño,<br> talleres y<br> comunidad.</h1>
+      <p>Un espacio para crear, aprender, compartir y disfrutar. Talleres, eventos, exposiciones y mucho más.</p>
+      <a class="button button-pink" href="#nosotros">Conocé más <span>→</span></a>
+    </div>
+
+    <div class="hero-photo photo-frame">
+      <img src="assets/img/hero.jpg" alt="Mesa de trabajo de Casa Cubo">
+    </div>
+
+    <div class="hero-note">Crear<br>también es<br>una forma<br>de vivir
+      <span class="scribble">⌁</span>
+    </div>
+
+    <div class="hero-index"><strong>01</strong><span>02</span><span>03</span></div>
+    <div class="cube-watermark" aria-hidden="true">◇</div>
+  </section>
+
+  <section class="categories section-shell">
+    <a class="category cat-pink" href="#talleres">
+      <span class="cat-icon">◉</span><strong>Arte</strong><small>Pintura, técnicas mixtas<br>y arte.</small><b>→</b>
+    </a>
+    <a class="category cat-green" href="#talleres">
+      <span class="cat-icon">⌁</span><strong>Diseño</strong><small>Objetos que inspiran<br>y decoran.</small><b>→</b>
+    </a>
+    <a class="category cat-yellow" href="#talleres">
+      <span class="cat-icon">♢</span><strong>Mecánica de bicis</strong><small>Talleres y mantenimiento.</small><b>→</b>
+    </a>
+    <a class="category cat-pink" href="#talleres">
+      <span class="cat-icon">⌕</span><strong>Carpintería</strong><small>Herramientas y proyectos.</small><b>→</b>
+    </a>
+    <a class="category cat-green" href="#talleres">
+      <span class="cat-icon">◌</span><strong>Cerámica</strong><small>Modelado y esmaltado.</small><b>→</b>
+    </a>
+    <a class="category cat-yellow" href="https://casacubo.empretienda.com.ar/" target="_blank" rel="noopener">
+      <span class="cat-icon">✿</span><strong>Regalos</strong><small>Objetos únicos y especiales.</small><b>→</b>
+    </a>
+  </section>
+
+  <span id="eventos" class="anchor-target" aria-hidden="true"></span>
+  <section id="talleres" class="workshops section-shell">
+    <div class="section-intro">
+      <span class="eyebrow">TALLERES Y EVENTOS</span>
+      <h2>Aprendé,<br>creá, compartí</h2>
+      <p>Descubrí nuestra propuesta de talleres, eventos y experiencias creativas. Desde técnicas tradicionales hasta propuestas contemporáneas, todo en un ambiente cálido y relajado.</p>
+      <a class="button button-dark" href="#eventos">Ver todos los talleres <span>→</span></a>
+    </div>
+
+    <div class="workshop-grid">
+      {% set proximos = collections.eventos | sort(attribute='data.sort_date') %}
+      {% for evento in proximos %}
+        {% if evento.data.status == 'publicado' %}
+          <article class="workshop-card">
+            <div class="card-image"><img src="{{ evento.data.image }}" alt="{{ evento.data.title }}"></div>
+            <span class="pill pill-pink">{{ evento.data.category }}</span>
+            <h3>{{ evento.data.title }}</h3>
+            <p class="date">▣ {{ evento.data.sort_date | date_short }} · {{ evento.data.time }}</p>
+            <p>{{ evento.data.excerpt }}</p>
+            <a href="{{ evento.url }}">Ver más →</a>
+          </article>
+        {% endif %}
+      {% endfor %}
+      {% if collections.eventos | length == 0 %}
+        <article class="workshop-card workshop-empty">
+          <h3>Próximamente</h3>
+          <p>Estamos preparando nuevas experiencias en Casa Cubo.</p>
+        </article>
+      {% endif %}
+    </div>
+
+    <button class="slider-arrow" aria-label="Ver más eventos" onclick="window.location.href='/eventos/'">→</button> aria-label="Ver más talleres">→</button>
+  </section>
+
+  <section id="nosotros" class="about section-shell">
+    <div class="about-photo photo-frame">
+      <img src="assets/img/about.jpg" alt="Espacio creativo de Casa Cubo">
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow">SOBRE CASA CUBO</span>
+      <h2>Más que una tienda,<br>una comunidad creativa</h2>
+      <p>Casa Cubo es un espacio donde el arte, el diseño y la creatividad se encuentran. Organizamos talleres, eventos y experiencias para todas las edades, con materiales incluidos y acompañamiento.</p>
+      <a class="button button-outline" href="#contacto">Conocé nuestra historia <span>→</span></a>
+      <div class="about-doodle">◇<br><em>La creatividad<br>también se<br>comparte ♥</em></div>
+    </div>
+  </section>
+
+  <section id="galeria" class="instagram section-shell">
+    <div class="instagram-copy">
+      <span class="eyebrow">SEGUINOS EN INSTAGRAM</span>
+      <h2>@casacubo</h2>
+      <p>Compartimos procesos, talleres, obras, ideas y mucho más.</p>
+      <a class="button button-outline" href="#" target="_blank" rel="noopener">Seguinos&nbsp; ◎</a>
+    </div>
+    <div class="instagram-grid">
+      <img src="assets/img/insta-pinceles.jpg" alt="Pinceles y materiales">
+      <img src="assets/img/insta-taller.jpg" alt="Actividad en Casa Cubo">
+      <img src="assets/img/insta-taza.jpg" alt="Objeto de Casa Cubo">
+      <img src="assets/img/insta-galeria.jpg" alt="Galería y obras">
+      <img src="assets/img/insta-plantas.jpg" alt="Espacio creativo">
+    </div>
+  </section>
+
+  <section id="contacto" class="newsletter section-shell">
+    <div class="newsletter-icon">✉</div>
+    <div>
+      <strong>Suscribite a nuestro newsletter</strong>
+      <p>Recibí novedades, talleres, eventos y mucho más.</p>
+    </div>
+    <form id="newsletter-form">
+      <input type="email" placeholder="Tu correo electrónico" required aria-label="Tu correo electrónico">
+      <button type="submit">Suscribirme</button>
+    </form>
+    <div class="newsletter-note">Ideas, proyectos<br>y más en tu mail →</div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main section-shell">
+    <div class="footer-brand">
+      <div class="brand footer-logo"><span class="brand-mark">◇</span><span>CASA<br>CUBO</span></div>
+      <p>Arte · Diseño · Talleres · Comunidad</p>
+    </div>
+    <nav class="footer-nav">
+      <a href="#inicio">Inicio</a><a href="#talleres">Talleres</a><a href="#eventos">Eventos</a><a href="#galeria">Galería</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a>
+    </nav>
+    <div class="footer-location">⌖<br><strong>Benavidez 111</strong><br>Tigre, Buenos Aires</div>
+    <div class="footer-store">La tienda online funciona a través de<br><a href="https://casacubo.empretienda.com.ar/" target="_blank" rel="noopener">Empretienda.com ↗</a></div>
+  </div>
+  <div class="footer-bottom section-shell">
+    <span>Términos y condiciones &nbsp; | &nbsp; Privacidad</span>
+    <span>Gracias por ser parte ♡</span>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

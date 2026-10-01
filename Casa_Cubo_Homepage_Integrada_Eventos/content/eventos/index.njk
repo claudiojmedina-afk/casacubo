@@ -1,0 +1,41 @@
+---
+title: Eventos | Casa Cubo
+permalink: /eventos/
+---
+{% set eventos = collections.eventos | sort(attribute='data.sort_date') %}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eventos | Casa Cubo</title>
+  <meta name="description" content="Talleres, experiencias y eventos de Casa Cubo.">
+  <link rel="stylesheet" href="/css/evento.css">
+</head>
+<body class="listing-page">
+  <header class="site-header">
+    <a class="brand" href="/">CASA <span>CUBO</span></a>
+    <nav><a href="/eventos/">Eventos</a><a href="https://casacubo.empretienda.com.ar/">Tienda online</a></nav>
+  </header>
+  <main class="listing-wrap">
+    <p class="eyebrow">CASA CUBO / AGENDA</p>
+    <h1>Próximas experiencias.</h1>
+    <p class="listing-intro">Talleres, encuentros y experiencias para crear, aprender y compartir.</p>
+    <section class="event-grid">
+      {% for evento in eventos %}
+        {% if evento.data.status != 'finalizado' %}
+        <a class="event-card" href="{{ evento.url }}">
+          <div class="event-card-image"><img src="{{ evento.data.image }}" alt="{{ evento.data.title }}"></div>
+          <div class="event-card-copy">
+            <span class="pill">{{ evento.data.category }}</span>
+            <h2>{{ evento.data.title }}</h2>
+            <p>{{ evento.data.excerpt }}</p>
+            <div class="event-card-meta">{{ evento.data.sort_date | date_es }} · {{ evento.data.time }}</div>
+          </div>
+        </a>
+        {% endif %}
+      {% endfor %}
+    </section>
+  </main>
+</body>
+</html>
