@@ -27,7 +27,20 @@ module.exports = function (eleventyConfig) {
       year: "numeric"
     });
   });
+  eleventyConfig.addFilter("money_ar", function (value) {
+    if (value === null || value === undefined || value === "") return "";
 
+    const number = Number(value);
+
+    if (isNaN(number)) return "";
+
+    return number.toLocaleString("es-AR", {
+      style: "currency",
+      currency: "ARS",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    });
+  });
   return {
     dir: {
       input: "content",
