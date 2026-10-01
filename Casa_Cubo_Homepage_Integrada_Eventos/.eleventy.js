@@ -44,6 +44,18 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("css");
 
   eleventyConfig.addPassthroughCopy("assets");
+
+  module.exports = function(eleventyConfig) {
+  // Copia la carpeta admin y las redirecciones al compilar
+  eleventyConfig.addPassthroughCopy("admin");
+  eleventyConfig.addPassthroughCopy("_redirects");
+
+  return {
+    dir: {
+      output: "_site"
+    }
+  };
+};
   
   return {
     dir: {
