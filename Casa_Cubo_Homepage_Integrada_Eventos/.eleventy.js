@@ -41,6 +41,7 @@ module.exports = function (eleventyConfig) {
       maximumFractionDigits: 0
     });
   });
+    eleventyConfig.addPassthroughCopy("css");
   return {
     dir: {
       input: "content",
