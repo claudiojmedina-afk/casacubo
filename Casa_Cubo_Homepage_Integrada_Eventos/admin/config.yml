@@ -50,6 +50,7 @@ collections:
         widget: "string"
         hint: "Pegá la URL de Google Forms. Se recomienda terminar con ?embedded=true. Las respuestas quedan en la Hoja de cálculo vinculada al formulario."
       - { label: "Contenido", name: "body", widget: "markdown" }
-      include:
+     include:
   - admin
   - _redirects
+  - .nojekylls
