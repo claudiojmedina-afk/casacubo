@@ -1,0 +1,52 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "eventos"
+    label: "Eventos"
+    label_singular: "Evento"
+    folder: "content/eventos"
+    create: true
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    sortable_fields: ["sort_date", "title", "status"]
+    summary: "{{title}} — {{sort_date}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "Será parte de la URL. Ej.: taller-de-ceramica" }
+      - { label: "Categoría", name: "category", widget: "select", options: ["Taller", "Experiencia", "Evento", "Exposición"] }
+      - { label: "Estado", name: "status", widget: "select", options: ["borrador", "publicado", "finalizado"], default: "borrador" }
+      - { label: "Fecha principal", name: "sort_date", widget: "datetime", date_format: "DD/MM/YYYY", time_format: "HH:mm" }
+      - { label: "Horario", name: "time", widget: "string" }
+      - { label: "Duración", name: "duration", widget: "string", required: false }
+      - { label: "Lugar", name: "location", widget: "string", default: "Casa Cubo" }
+      - { label: "Precio", name: "price", widget: "number", value_type: "int", required: false }
+      - { label: "Imagen principal", name: "image", widget: "image" }
+      - { label: "Resumen", name: "excerpt", widget: "text" }
+      - { label: "Público", name: "audience", widget: "string", required: false }
+      - { label: "Instructor/a", name: "instructor", widget: "string", required: false }
+      - { label: "Rol / profesión", name: "instructor_role", widget: "string", required: false }
+      - { label: "Foto del instructor/a", name: "instructor_image", widget: "image", required: false }
+      - label: "Qué incluye"
+        name: "include"
+        widget: "list"
+        field: { label: "Ítem", name: "item", widget: "string" }
+      - label: "Qué traer"
+        name: "bring"
+        widget: "list"
+        required: false
+        field: { label: "Ítem", name: "item", widget: "string" }
+      - label: "Formulario de inscripción"
+        name: "form_url"
+        widget: "string"
+        hint: "Pegá la URL de Google Forms. Se recomienda terminar con ?embedded=true. Las respuestas quedan en la Hoja de cálculo vinculada al formulario."
+      - { label: "Contenido", name: "body", widget: "markdown" }
