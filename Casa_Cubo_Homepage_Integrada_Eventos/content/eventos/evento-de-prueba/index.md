@@ -3,7 +3,7 @@ title: Evento de prueba
 slug: evento-de-prueba
 category: Experiencia
 status: publicado
-sort_date: 03/06/2027T21:30
+sort_date: 2027-06-03T21:30:00
 time: 21:30
 duration: 3 horas
 location: Casa Cubo
