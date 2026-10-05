@@ -1,5 +1,5 @@
 ---
-title: Evento de prueba
+title: Evento de prueba prueba
 slug: evento-de-prueba
 category: Experiencia
 status: publicado
