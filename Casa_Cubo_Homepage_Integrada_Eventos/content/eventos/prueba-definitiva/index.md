@@ -8,7 +8,7 @@ time: 15:00 a 18:00
 duration: 3 horas
 location: Casa Cubo
 price: 4000
-image: https://drive.google.com/file/d/1QDOX2lPuKdfVjV-w9ezuVpmGBslGwPwE/view?usp=drive_link
+image: https://res.cloudinary.com/ehdrvuyd/image/upload/v1791219650/f1fc2cf1617f5c3d99a720b0738d79dbe3a72bd0a58e52da606a164555b4d633272539.png
 excerpt: |-
   este es un evento de prueba
 
@@ -26,7 +26,7 @@ excerpt: |-
 audience: No hace falta experiencia previa.
 instructor: clau
 instructor_role: profe
-instructor_image: captura-de-pantalla-2026-10-05-a-la-s-00.06.52.png
+instructor_image: https://res.cloudinary.com/ehdrvuyd/image/upload/v1791219650/f1fc2cf1617f5c3d99a720b0738d79dbe3a72bd0a58e52da606a164555b4d633272539.png
 include:
   - cosas
 bring:
