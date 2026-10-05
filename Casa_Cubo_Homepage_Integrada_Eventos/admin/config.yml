@@ -10,7 +10,7 @@ local_backend: true
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
-publish_mode: editorial_workflow
+publish_mode: simple
 
 collections:
   - name: "eventos"
