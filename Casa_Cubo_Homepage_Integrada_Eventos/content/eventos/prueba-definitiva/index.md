@@ -24,9 +24,13 @@ excerpt: |-
 
   este es un evento de prueba
 audience: No hace falta experiencia previa.
-instructor: clau
-instructor_role: profe
-instructor_image: https://res.cloudinary.com/ehdrvuyd/image/upload/v1791219650/f1fc2cf1617f5c3d99a720b0738d79dbe3a72bd0a58e52da606a164555b4d633272539.png
+instructors:
+  - name: karin
+    role: profe
+    image: https://res.cloudinary.com/ehdrvuyd/image/upload/v1791219650/f1fc2cf1617f5c3d99a720b0738d79dbe3a72bd0a58e52da606a164555b4d633272539.png
+  - name: Clau
+    role: profe
+    image: https://res.cloudinary.com/ehdrvuyd/image/upload/v1791219650/f1fc2cf1617f5c3d99a720b0738d79dbe3a72bd0a58e52da606a164555b4d633272539.png
 include:
   - cosas
 bring:
@@ -34,7 +38,10 @@ bring:
 form_url: https://docs.google.com/forms/d/e/1FAIpQLScRhGpwD1LzGAuRk34JRt132DHxYMuyBBTm5SRZKck_mjc7bg/viewform?usp=dialog
 layout: evento.njk
 permalink: /eventos/{{slug}}/
+instructor_role: profe
 tags: eventos
+instructor_image: https://res.cloudinary.com/ehdrvuyd/image/upload/v1791219650/f1fc2cf1617f5c3d99a720b0738d79dbe3a72bd0a58e52da606a164555b4d633272539.png
+instructor: clau
 ---
 este es un evento de prueba
 
