@@ -8,7 +8,7 @@ time: 15:00 a 18:00
 duration: 3 horas
 location: Casa Cubo
 price: 4000
-image: captura-de-pantalla-2026-10-05-a-la-s-00.06.52.png
+image: https://drive.google.com/file/d/1QDOX2lPuKdfVjV-w9ezuVpmGBslGwPwE/view?usp=drive_link
 excerpt: |-
   este es un evento de prueba
 
