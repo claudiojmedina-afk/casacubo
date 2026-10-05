@@ -1,6 +1,6 @@
 ---
 title: Taller de cerámica prueba
-slug: taller-de-ceramica
+slug: taller-de-ceramica-prueba
 category: Taller
 status: publicado
 sort_date: 2026-11-14T15:00:00-03:00
