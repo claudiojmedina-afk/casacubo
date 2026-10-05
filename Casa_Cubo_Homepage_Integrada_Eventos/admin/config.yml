@@ -16,7 +16,7 @@ collections:
   - name: "eventos"
     label: "Eventos"
     label_singular: "Evento"
-    folder: "content/eventos"
+    folder: "Casa_Cubo_Homepage_Integrada_Eventos/content/eventos"
     create: true
     path: "{{slug}}/index"
     media_folder: ""
