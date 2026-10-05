@@ -1,5 +1,5 @@
 ---
-title: prueba 2
+title: prueba 2k
 slug: www
 category: Experiencia
 status: publicado
