@@ -146,3 +146,106 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 
 /* Agenda administrable */
 .anchor-target{display:block;position:relative;top:-100px;visibility:hidden}.workshop-empty{min-height:260px;display:flex;flex-direction:column;justify-content:center}
+
+/* =========================================
+   LOGO CASA CUBO
+   ========================================= */
+
+.brand-logo{
+  display:flex;
+  align-items:center;
+  width:118px;
+  height:58px;
+}
+
+.brand-logo img{
+  width:100%;
+  height:auto;
+  max-height:58px;
+  object-fit:contain;
+}
+
+.footer-logo{
+  width:125px;
+  height:auto;
+}
+
+.footer-logo img{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
+
+
+/* =========================================
+   MENÚ MÓVIL
+   ========================================= */
+
+@media(max-width:650px){
+
+  .site-header{
+    position:sticky;
+    top:0;
+  }
+
+  .brand-logo{
+    width:92px;
+    height:50px;
+  }
+
+  .brand-logo img{
+    max-height:50px;
+  }
+
+  .menu-toggle{
+    display:block;
+    margin-left:auto;
+    border:1px solid var(--ink);
+    border-radius:20px;
+    padding:7px 12px;
+    font-size:12px;
+    cursor:pointer;
+    background:var(--paper);
+    color:var(--ink);
+    position:relative;
+    z-index:30;
+  }
+
+  .main-nav{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    right:0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    padding:15px 22px 22px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+    z-index:25;
+  }
+
+  .main-nav.open{
+    display:flex;
+  }
+
+  .main-nav a{
+    width:100%;
+    padding:12px 0;
+  }
+
+  .header-actions{
+    margin-left:0;
+  }
+
+  .header-actions > a:not(.store-link){
+    display:none;
+  }
+
+  .store-link{
+    padding:8px 11px;
+    font-size:11px;
+  }
+
+}
