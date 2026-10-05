@@ -54,14 +54,31 @@
       </aside>
     </section>
 
-    <section class="instructor-section">
-      <div class="instructor-photo"><img src="{{ instructor_image }}" alt="{{ instructor }}"></div>
-      <div>
-        <p class="eyebrow">QUIÉN GUÍA EL ENCUENTRO</p>
-        <h2>{{ instructor }}</h2>
-        <p>{{ instructor_role }}</p>
+    {% if instructors and instructors.length %}
+<section class="instructor-section">
+  <div>
+    <p class="eyebrow">QUIÉN GUÍA EL ENCUENTRO</p>
+
+    {% for instructor in instructors %}
+      <div class="instructor-item">
+        {% if instructor.image %}
+          <div class="instructor-photo">
+            <img src="{{ instructor.image }}" alt="{{ instructor.name }}">
+          </div>
+        {% endif %}
+
+        <div>
+          <h2>{{ instructor.name }}</h2>
+
+          {% if instructor.role %}
+            <p>{{ instructor.role }}</p>
+          {% endif %}
+        </div>
       </div>
-    </section>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
 
     <section id="inscripcion" class="registration">
       <div class="registration-head">
