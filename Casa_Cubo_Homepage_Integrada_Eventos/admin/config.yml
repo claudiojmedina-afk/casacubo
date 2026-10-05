@@ -36,9 +36,14 @@ collections:
       - { label: "Imagen principal", name: "image", widget: "image" }
       - { label: "Resumen", name: "excerpt", widget: "text" }
       - { label: "Público", name: "audience", widget: "string", required: false }
-      - { label: "Instructor/a", name: "instructor", widget: "string", required: false }
-      - { label: "Rol / profesión", name: "instructor_role", widget: "string", required: false }
-      - { label: "Foto del instructor/a", name: "instructor_image", widget: "image", required: false }
+      - label: "Instructores"
+  name: "instructors"
+  widget: "list"
+  required: false
+  fields:
+    - { label: "Nombre", name: "name", widget: "string" }
+    - { label: "Rol / profesión", name: "role", widget: "string", required: false }
+    - { label: "Foto", name: "image", widget: "image", required: false }
       - label: "Qué incluye"
         name: "include"
         widget: "list"
