@@ -1,16 +1,20 @@
 :root{
   --ink:#171717;
-  --paper:#f7f3ec;
+
+  --paper:#e7eae0;
   --white:#fff;
-  --pink:#efb9c8;
-  --green:#c6d5b2;
-  --yellow:#eadf9b;
+
+  --pink:#d16a5b;
+  --green:#a5c0bb;
+  --yellow:#f3f1bc;
+  --turquoise:#79c8c5;
+
   --muted:#6f6b64;
-  --line:#d8d0c5;
+  --line:#cfd3ca;
+
   --radius:28px;
   --max:1240px;
 }
-
 *{
   box-sizing:border-box;
 }
