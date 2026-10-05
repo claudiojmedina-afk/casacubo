@@ -53,4 +53,7 @@ collections:
         widget: "string"
         hint: "Pegá la URL de Google Forms. Se recomienda terminar con ?embedded=true. Las respuestas quedan en la Hoja de cálculo vinculada al formulario."
       - { label: "Contenido", name: "body", widget: "markdown" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "evento.njk" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/eventos/{{slug}}/" }
+      - { label: "Tags", name: "tags", widget: "hidden", default: "eventos" }
     
