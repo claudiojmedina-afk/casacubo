@@ -179,9 +179,7 @@ permalink: /
     </div>
 
     <div class="workshop-grid">
-      {% set proximos = collections.eventos | sort(attribute='data.sort_date') %}
-      {% for evento in proximos %}
-        {% if evento.data.status == 'publicado' %}
+      {% for evento in collections.eventos %}
           <article class="workshop-card">
             <div class="card-image"><img src="{{ evento.data.image }}" alt="{{ evento.data.title }}"></div>
             <span class="pill pill-pink">{{ evento.data.category }}</span>
@@ -190,7 +188,7 @@ permalink: /
             <p>{{ evento.data.excerpt }}</p>
             <a href="{{ evento.url }}">Ver más →</a>
           </article>
-        {% endif %}
+        
       {% endfor %}
       {% if collections.eventos | length == 0 %}
         <article class="workshop-card workshop-empty">
