@@ -1,5 +1,6 @@
 backend:
   name: github
+  repo: claudiojmedina-afk/casacubo
   branch: main
 
 local_backend: true
