@@ -10,5 +10,8 @@ price: -1
 image: img_9697.jpeg
 excerpt: wwwwwwww
 form_url: ww
+layout: evento.njk
+permalink: /eventos/www/
+tags: eventos
 ---
 wwwww
