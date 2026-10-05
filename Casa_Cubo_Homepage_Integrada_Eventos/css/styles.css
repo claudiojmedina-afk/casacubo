@@ -1,14 +1,22 @@
 :root{
-  --ink:#111011;
-  --paper:#faf9f5;
-  --pink:#f7c8d2;
-  --pink-strong:#f6b8c5;
-  --green:#d6eadf;
-  --green-dark:#1d3027;
-  --yellow:#f7e7b5;
-  --line:#dcdad3;
-  --muted:#55524e;
-  --max:1200px;
+  --ink:#171717;
+
+  --paper:#e7eae0;
+  --white:#ffffff;
+
+  --coral:#d16a5b;
+  --yellow:#f3f1bc;
+  --sage:#a5c0bb;
+  --turquoise:#79c8c5;
+
+  --pink:#d16a5b;
+  --green:#a5c0bb;
+
+  --muted:#6f6b64;
+  --line:#cfd3ca;
+
+  --radius:28px;
+  --max:1240px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -496,4 +504,138 @@ img{display:block;width:100%;height:100%;object-fit:cover}
     grid-column:2;
     grid-row:11 / span 3;
   }
+}
+
+/* =========================================
+   PALETA CASA CUBO — OPCIÓN 1
+   ========================================= */
+
+body{
+  background:var(--paper);
+}
+
+/* BOTONES */
+
+.button-pink{
+  background:var(--coral);
+  color:var(--ink);
+}
+
+.button-pink:hover{
+  background:#c55d50;
+}
+
+.button-dark{
+  background:var(--ink);
+  color:#fff;
+}
+
+.button-outline{
+  border-color:var(--ink);
+}
+
+
+/* CATEGORÍAS */
+
+.cat-pink{
+  background:var(--coral);
+}
+
+.cat-green{
+  background:var(--sage);
+}
+
+.cat-yellow{
+  background:var(--yellow);
+}
+
+/* Cerámica más destacada */
+
+.categories .category:nth-child(5){
+  background:var(--turquoise);
+}
+
+
+/* EXPERIENCIAS */
+
+.workshops{
+  background:transparent;
+}
+
+.workshop-card{
+  background:rgba(255,255,255,.72);
+}
+
+.workshop-card .pill-pink{
+  background:var(--coral);
+}
+
+
+/* COMUNIDAD */
+
+.about-copy{
+  background:var(--sage);
+}
+
+.about .button-outline{
+  background:var(--turquoise);
+  border-color:transparent;
+}
+
+
+/* GALERÍA / MIRÁ */
+
+.look-section{
+  background:transparent;
+}
+
+.look-item{
+  background:var(--sage);
+}
+
+
+/* NEWSLETTER */
+
+.newsletter{
+  background:var(--coral);
+}
+
+.newsletter button{
+  background:var(--ink);
+  color:#fff;
+}
+
+
+/* HEADER */
+
+.store-link{
+  background:var(--coral);
+  color:var(--ink);
+}
+
+.main-nav a.active::after{
+  background:var(--coral);
+}
+
+
+/* DETALLES */
+
+.eyebrow{
+  color:#5e655f;
+}
+
+.hero-note{
+  color:var(--ink);
+}
+
+.slider-arrow{
+  background:var(--turquoise);
+  border-color:var(--ink);
+}
+
+
+/* FOOTER */
+
+.site-footer{
+  background:transparent;
 }
