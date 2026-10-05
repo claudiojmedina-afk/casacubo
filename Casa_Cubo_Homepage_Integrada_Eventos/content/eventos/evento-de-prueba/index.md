@@ -23,6 +23,11 @@ include:
 bring:
   - algo
 form_url: https://docs.google.com/forms/d/e/1FAIpQLScRhGpwD1LzGAuRk34JRt132DHxYMuyBBTm5SRZKck_mjc7bg/viewform?usp=dialog
+
+layout: evento.njk
+permalink: /eventos/evento-de-prueba/
+tags: eventos
+
 ---
 
 
