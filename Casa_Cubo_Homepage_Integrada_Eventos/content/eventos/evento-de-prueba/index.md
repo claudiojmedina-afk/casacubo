@@ -1,6 +1,6 @@
 ---
 title: Evento de prueba
-slug: evento de prueba
+slug: evento-de-prueba
 category: Experiencia
 status: publicado
 sort_date: 03/06/2027T21:30
