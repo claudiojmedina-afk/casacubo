@@ -28,7 +28,7 @@ collections:
       - { label: "Slug", name: "slug", widget: "string", hint: "Será parte de la URL. Ej.: taller-de-ceramica" }
       - { label: "Categoría", name: "category", widget: "select", options: ["Taller", "Experiencia", "Evento", "Exposición"] }
       - { label: "Estado", name: "status", widget: "select", options: ["borrador", "publicado", "finalizado"], default: "borrador" }
-      - { label: "Fecha principal", name: "sort_date", widget: "datetime", date_format: "DD/MM/YYYY", time_format: "HH:mm" }
+      - { label: "Fecha principal", name: "sort_date", widget: "datetime", date_format: "DD/MM/YYYY", time_format: "HH:mm", format: "YYYY-MM-DDTHH:mm:ss" }
       - { label: "Horario", name: "time", widget: "string" }
       - { label: "Duración", name: "duration", widget: "string", required: false }
       - { label: "Lugar", name: "location", widget: "string", default: "Casa Cubo" }
