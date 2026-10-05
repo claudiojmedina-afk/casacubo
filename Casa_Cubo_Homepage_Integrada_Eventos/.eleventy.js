@@ -42,6 +42,7 @@ module.exports = function (eleventyConfig) {
     });
   });
     eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy({ "src/css/evento.css": "css/evento.css" });
 
   eleventyConfig.addPassthroughCopy("assets");
 
