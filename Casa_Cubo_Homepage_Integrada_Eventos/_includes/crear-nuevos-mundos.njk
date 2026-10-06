@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>{{ title }} · Casa Cubo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <link
+    rel="stylesheet"
+    href="/css/crear-nuevos-mundos.css"
+  >
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+  <a
+    class="brand brand-logo"
+    href="/"
+    aria-label="Casa Cubo, inicio"
+  >
+    <img
+      src="https://ik.imagekit.io/fo8ajuwvyo/logocc.png"
+      alt="Casa Cubo"
+    >
+  </a>
+
+
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="main-nav"
+  >
+    Menú
+  </button>
+
+
+  <nav id="main-nav" class="main-nav">
+
+    <a href="/">Inicio</a>
+
+    <a href="/#talleres">Experiencias</a>
+
+    <a class="active" href="/crear-nuevos-mundos/">
+      Crear Nuevos Mundos
+    </a>
+
+    <a href="/#galeria">Mirá</a>
+
+    <a href="/#nosotros">Comunidad</a>
+
+    <a href="/#contacto">Escribinos</a>
+
+  </nav>
+
+
+  <div class="header-actions">
+
+    <a
+      class="store-link"
+      href="https://crearnuevosmundos.empretienda.com.ar/"
+      target="_blank"
+      rel="noopener"
+    >
+      Tienda online ↗
+    </a>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <!-- HERO -->
+
+  <section class="cnm-hero section-shell">
+
+    <div class="cnm-hero-copy">
+
+      <span class="eyebrow">
+        {{ eyebrow }}
+      </span>
+
+      <h1>
+        {{ title }}
+      </h1>
+
+      <p>
+        {{ intro }}
+      </p>
+
+      <a
+        class="button button-dark"
+        href="#talleres-regulares"
+      >
+        Ver talleres <span>→</span>
+      </a>
+
+    </div>
+
+
+    <div class="cnm-hero-image">
+
+      <img
+        src="{{ hero_image }}"
+        alt="{{ title }}"
+      >
+
+    </div>
+
+  </section>
+
+
+  <!-- AGENDA SEMANAL -->
+
+  <section class="cnm-agenda section-shell">
+
+    <div class="cnm-agenda-copy">
+
+      <span class="eyebrow">
+        AGENDA
+      </span>
+
+      <h2>
+        {{ agenda_title }}
+      </h2>
+
+      <p>
+        {{ agenda_text }}
+      </p>
+
+    </div>
+
+
+    {% if agenda_image %}
+
+      <div class="cnm-agenda-image">
+
+        <img
+          src="{{ agenda_image }}"
+          alt="Agenda semanal de Crear Nuevos Mundos"
+        >
+
+      </div>
+
+    {% endif %}
+
+  </section>
+
+
+  <!-- FILTROS -->
+
+  <section
+    id="talleres-regulares"
+    class="cnm-workshops section-shell"
+  >
+
+    <div class="cnm-section-head">
+
+      <div>
+
+        <span class="eyebrow">
+          TALLERES REGULARES
+        </span>
+
+        <h2>
+          Encontrá tu taller
+        </h2>
+
+      </div>
+
+      <p>
+        Filtrá por edad, público o disciplina.
+      </p>
+
+    </div>
+
+
+    <div class="cnm-filters">
+
+      <div class="cnm-filter-group">
+
+        <span class="cnm-filter-title">
+          Destinado a
+        </span>
+
+        <div
+          id="audience-filters"
+          class="cnm-filter-buttons"
+        >
+
+          <button
+            type="button"
+            class="cnm-filter active"
+            data-filter-type="audience"
+            data-filter-value="all"
+          >
+            Todos
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="cnm-filter-group">
+
+        <span class="cnm-filter-title">
+          Categorías
+        </span>
+
+        <div
+          id="category-filters"
+          class="cnm-filter-buttons"
+        >
+
+          <button
+            type="button"
+            class="cnm-filter active"
+            data-filter-type="category"
+            data-filter-value="all"
+          >
+            Todas
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- TARJETAS -->
+
+    <div
+      id="regular-workshops-grid"
+      class="cnm-grid"
+    >
+
+      {% for taller in collections.talleres_regulares %}
+
+        {% if taller.data.status == "publicado" %}
+
+          <article
+            class="cnm-card"
+            data-category="{{ taller.data.category | lower }}"
+            data-audience="{{ taller.data.audience | lower }}"
+          >
+
+            <a
+              class="cnm-card-image"
+              href="{{ taller.url }}"
+            >
+
+              <img
+                src="{{ taller.data.image }}"
+                alt="{{ taller.data.title }}"
+              >
+
+              <span class="cnm-category">
+                {{ taller.data.category }}
+              </span>
+
+            </a>
+
+
+            <div class="cnm-card-copy">
+
+              <h3>
+                {{ taller.data.title }}
+              </h3>
+
+
+              {% if taller.data.audience %}
+
+                <p class="cnm-meta">
+                  ◉ {{ taller.data.audience }}
+                </p>
+
+              {% endif %}
+
+
+              {% if taller.data.schedule %}
+
+                <p class="cnm-meta">
+                  ▣ {{ taller.data.schedule }}
+                </p>
+
+              {% endif %}
+
+
+              {% if taller.data.frequency %}
+
+                <p class="cnm-meta">
+                  ↻ {{ taller.data.frequency }}
+                </p>
+
+              {% endif %}
+
+
+              {% if taller.data.instructors and taller.data.instructors.length %}
+
+                <p class="cnm-meta">
+
+                  Con
+
+                  {% for instructor in taller.data.instructors %}
+
+                    {{ instructor.name }}
+
+                    {% if not loop.last %}
+                      ·
+                    {% endif %}
+
+                  {% endfor %}
+
+                </p>
+
+              {% endif %}
+
+
+              <p class="cnm-excerpt">
+                {{ taller.data.excerpt }}
+              </p>
+
+
+              <a
+                class="cnm-more"
+                href="{{ taller.url }}"
+              >
+                Ver taller →
+              </a>
+
+            </div>
+
+          </article>
+
+        {% endif %}
+
+      {% endfor %}
+
+    </div>
+
+
+    <p
+      id="cnm-empty"
+      class="cnm-empty"
+      hidden
+    >
+      No encontramos talleres con esos filtros.
+    </p>
+
+  </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+  <div class="footer-main section-shell">
+
+    <div class="footer-brand">
+
+      <div class="footer-logo">
+
+        <img
+          src="https://ik.imagekit.io/fo8ajuwvyo/logocc-blanco.png"
+          alt="Casa Cubo"
+        >
+
+      </div>
+
+      <p>
+        Arte · Creatividad · Talleres · Comunidad
+      </p>
+
+    </div>
+
+
+    <nav class="footer-nav">
+
+      <a href="/">Inicio</a>
+
+      <a href="/#talleres">Experiencias</a>
+
+      <a href="/crear-nuevos-mundos/">
+        Crear Nuevos Mundos
+      </a>
+
+      <a href="/#galeria">Mirá</a>
+
+      <a href="/#nosotros">Comunidad</a>
+
+      <a href="/#contacto">Escribinos</a>
+
+    </nav>
+
+
+    <div class="footer-location">
+
+      ⌖<br>
+
+      <strong>Benavidez 111</strong><br>
+
+      Monte Grande, Buenos Aires
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/crear-nuevos-mundos.js"></script>
+
+</body>
+</html>
