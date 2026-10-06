@@ -950,3 +950,27 @@ body{
     right:15px;
   }
 }
+
+/* ==========================================================
+   texto comunidad mas largo
+   ========================================================== */
+.about-text{
+  max-width:680px;
+}
+
+.about-text p{
+  margin:0 0 18px;
+  font-size:18px;
+  line-height:1.6;
+}
+
+.about-text em{
+  font-style:italic;
+  font-weight:600;
+}
+
+.footer-logo img{
+  display:block;
+  width:100%;
+  height:auto;
+}
