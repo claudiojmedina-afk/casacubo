@@ -1,21 +1,28 @@
 :root{
-  --ink:#171717;
+  /* PALETA CASA CUBO */
 
-  --paper:#e7eae0;
-  --white:#ffffff;
+  --black:#1D1D1B;
+  --seashell:#EAE4DA;
+  --lavender:#808BC5;
+  --tea:#245E55;
+  --mustard:#EAC119;
+  --pink:#EAA7C7;
+  --sky:#9ED6DF;
+  --tangerine:#ED773C;
+  --red:#C63F3E;
 
-  --coral:#d16a5b;
-  --yellow:#f3f1bc;
-  --sage:#a5c0bb;
-  --turquoise:#79c8c5;
+  /* VARIABLES GENERALES */
 
-  --pink:#d16a5b;
-  --green:#a5c0bb;
+  --ink:#1D1D1B;
+  --paper:#EAE4DA;
+  --white:#FFFFFF;
+  --green:#245E55;
+  --yellow:#EAC119;
 
-  --muted:#6f6b64;
-  --line:#cfd3ca;
+  --muted:#66635E;
+  --line:rgba(29,29,27,.18);
 
-  --radius:28px;
+  --radius:18px;
   --max:1240px;
 }
 *{box-sizing:border-box}
@@ -506,136 +513,440 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   }
 }
 
-/* =========================================
-   PALETA CASA CUBO — OPCIÓN 1
-   ========================================= */
+/* ==========================================================
+   CASA CUBO — PALETA OFICIAL
+   ========================================================== */
 
 body{
-  background:var(--paper);
-}
-
-/* BOTONES */
-
-.button-pink{
-  background:var(--coral);
-  color:var(--ink);
-}
-
-.button-pink:hover{
-  background:#c55d50;
-}
-
-.button-dark{
-  background:var(--ink);
-  color:#fff;
-}
-
-.button-outline{
-  border-color:var(--ink);
+  background:var(--seashell);
+  color:var(--black);
 }
 
 
-/* CATEGORÍAS */
+/* ==========================================================
+   HEADER
+   ========================================================== */
 
-.cat-pink{
-  background:var(--coral);
+.site-header{
+  background:rgba(234,228,218,.96);
+  border-bottom:1px solid rgba(29,29,27,.12);
 }
 
-.cat-green{
-  background:var(--sage);
+.main-nav a{
+  color:var(--black);
 }
 
-.cat-yellow{
-  background:var(--yellow);
-}
-
-/* Cerámica más destacada */
-
-.categories .category:nth-child(5){
-  background:var(--turquoise);
-}
-
-
-/* EXPERIENCIAS */
-
-.workshops{
-  background:transparent;
-}
-
-.workshop-card{
-  background:rgba(255,255,255,.72);
-}
-
-.workshop-card .pill-pink{
-  background:var(--coral);
-}
-
-
-/* COMUNIDAD */
-
-.about-copy{
-  background:var(--sage);
-}
-
-.about .button-outline{
-  background:var(--turquoise);
-  border-color:transparent;
-}
-
-
-/* GALERÍA / MIRÁ */
-
-.look-section{
-  background:transparent;
-}
-
-.look-item{
-  background:var(--sage);
-}
-
-
-/* NEWSLETTER */
-
-.newsletter{
-  background:var(--coral);
-}
-
-.newsletter button{
-  background:var(--ink);
-  color:#fff;
-}
-
-
-/* HEADER */
-
-.store-link{
-  background:var(--coral);
-  color:var(--ink);
+.main-nav a.active{
+  font-weight:700;
 }
 
 .main-nav a.active::after{
-  background:var(--coral);
+  background:var(--mustard);
+}
+
+.store-link{
+  background:var(--black);
+  color:var(--seashell);
+  border-radius:999px;
+}
+
+.store-link:hover{
+  background:var(--tea);
 }
 
 
-/* DETALLES */
+/* ==========================================================
+   HERO
+   ========================================================== */
 
-.eyebrow{
-  color:#5e655f;
+.hero{
+  background:var(--seashell);
+}
+
+.hero .eyebrow{
+  color:var(--tea);
+}
+
+.hero-copy h1{
+  color:var(--black);
+}
+
+.hero-copy p{
+  color:#4d4b47;
+}
+
+.button-pink{
+  background:var(--black);
+  color:var(--seashell);
+}
+
+.button-pink:hover{
+  background:var(--tea);
 }
 
 .hero-note{
-  color:var(--ink);
+  color:var(--black);
+}
+
+
+/* detalles decorativos del hero */
+
+.hero-note::before{
+  background:var(--pink);
+}
+
+.hero-note::after{
+  background:var(--mustard);
+}
+
+
+/* ==========================================================
+   BOTONES GENERALES
+   ========================================================== */
+
+.button{
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    color .2s ease;
+}
+
+.button:hover{
+  transform:translateY(-2px);
+}
+
+.button-dark{
+  background:var(--black);
+  color:var(--seashell);
+}
+
+.button-dark:hover{
+  background:var(--tea);
+}
+
+.button-outline{
+  border:1px solid var(--black);
+  color:var(--black);
+  background:transparent;
+}
+
+.button-outline:hover{
+  background:var(--black);
+  color:var(--seashell);
+}
+
+
+/* ==========================================================
+   CATEGORÍAS
+   ========================================================== */
+
+.categories{
+  gap:10px;
+}
+
+.category{
+  color:var(--black);
+  border-radius:14px;
+}
+
+/* ARTE */
+
+.categories .category:nth-child(1){
+  background:var(--pink);
+}
+
+/* DISEÑO */
+
+.categories .category:nth-child(2){
+  background:var(--mustard);
+}
+
+/* MECÁNICA */
+
+.categories .category:nth-child(3){
+  background:var(--lavender);
+}
+
+/* CARPINTERÍA */
+
+.categories .category:nth-child(4){
+  background:var(--sky);
+}
+
+/* CERÁMICA */
+
+.categories .category:nth-child(5){
+  background:var(--tangerine);
+}
+
+/* REGALOS */
+
+.categories .category:nth-child(6){
+  background:var(--tea);
+  color:var(--seashell);
+}
+
+.categories .category:nth-child(6) svg{
+  stroke:var(--seashell);
+}
+
+.category:hover{
+  transform:translateY(-5px);
+}
+
+.category{
+  transition:transform .2s ease;
+}
+
+
+/* ==========================================================
+   EXPERIENCIAS
+   ========================================================== */
+
+.workshops{
+  background:var(--seashell);
+}
+
+.workshops .eyebrow{
+  color:var(--red);
+}
+
+.workshop-card{
+  background:#F5F0E8;
+  border:1px solid rgba(29,29,27,.12);
+}
+
+.workshop-card:nth-child(4n+1) .pill{
+  background:var(--mustard);
+}
+
+.workshop-card:nth-child(4n+2) .pill{
+  background:var(--pink);
+}
+
+.workshop-card:nth-child(4n+3) .pill{
+  background:var(--sky);
+}
+
+.workshop-card:nth-child(4n+4) .pill{
+  background:var(--tangerine);
+}
+
+.workshop-card h3{
+  color:var(--black);
+}
+
+.workshop-card a{
+  color:var(--black);
+  font-weight:700;
 }
 
 .slider-arrow{
-  background:var(--turquoise);
-  border-color:var(--ink);
+  background:var(--sky);
+  color:var(--black);
+  border:0;
+}
+
+.slider-arrow:hover{
+  background:var(--lavender);
 }
 
 
-/* FOOTER */
+/* ==========================================================
+   COMUNIDAD / SOBRE CASA CUBO
+   ========================================================== */
+
+.about{
+  background:transparent;
+}
+
+.about-copy{
+  background:var(--seashell);
+  position:relative;
+}
+
+.about-copy::before{
+  content:"";
+  position:absolute;
+  width:145px;
+  height:145px;
+  right:25px;
+  top:20px;
+  background:var(--lavender);
+  border-radius:48% 52% 56% 44%;
+  z-index:0;
+  opacity:.92;
+}
+
+.about-copy > *{
+  position:relative;
+  z-index:1;
+}
+
+.about .eyebrow{
+  color:var(--tea);
+}
+
+.about .button-outline{
+  background:var(--black);
+  color:var(--seashell);
+  border-color:var(--black);
+}
+
+.about .button-outline:hover{
+  background:var(--red);
+  border-color:var(--red);
+}
+
+
+/* ==========================================================
+   MIRÁ / GALERÍA
+   ========================================================== */
+
+.look-section{
+  background:var(--seashell);
+}
+
+.look-header .eyebrow{
+  color:var(--red);
+}
+
+.look-item{
+  background:var(--sky);
+}
+
+.look-item:nth-child(3n+1){
+  background:var(--pink);
+}
+
+.look-item:nth-child(3n+2){
+  background:var(--lavender);
+}
+
+.look-item:nth-child(3n+3){
+  background:var(--sky);
+}
+
+
+/* ==========================================================
+   NEWSLETTER
+   ========================================================== */
+
+.newsletter{
+  background:var(--sky);
+  color:var(--black);
+}
+
+.newsletter-icon{
+  background:var(--seashell);
+  color:var(--black);
+  border-radius:50%;
+}
+
+.newsletter input{
+  background:var(--seashell);
+  color:var(--black);
+  border:0;
+}
+
+.newsletter input::placeholder{
+  color:#77736D;
+}
+
+.newsletter button{
+  background:var(--black);
+  color:var(--seashell);
+}
+
+.newsletter button:hover{
+  background:var(--tea);
+}
+
+.newsletter-note{
+  color:var(--black);
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
 
 .site-footer{
-  background:transparent;
+  background:var(--black);
+  color:var(--seashell);
+  border-top:0;
+}
+
+.site-footer a{
+  color:var(--seashell);
+}
+
+.site-footer p{
+  color:rgba(234,228,218,.74);
+}
+
+.footer-main{
+  background:var(--black);
+}
+
+.footer-bottom{
+  color:rgba(234,228,218,.65);
+  border-top:1px solid rgba(234,228,218,.18);
+}
+
+.footer-location,
+.footer-store{
+  color:var(--seashell);
+}
+
+
+/* ==========================================================
+   EYEBROWS / TÍTULOS PEQUEÑOS
+   ========================================================== */
+
+.eyebrow{
+  color:var(--tea);
+  font-weight:700;
+}
+
+
+/* ==========================================================
+   SELECCIÓN
+   ========================================================== */
+
+::selection{
+  background:var(--mustard);
+  color:var(--black);
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media(max-width:650px){
+
+  .site-header{
+    background:var(--seashell);
+  }
+
+  .main-nav{
+    background:var(--seashell);
+  }
+
+  .menu-toggle{
+    background:var(--black);
+    color:var(--seashell);
+    border-color:var(--black);
+  }
+
+  .categories{
+    gap:8px;
+  }
+
+  .about-copy::before{
+    width:90px;
+    height:90px;
+    right:15px;
+  }
 }
