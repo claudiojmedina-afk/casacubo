@@ -13,6 +13,7 @@ public_folder: "/assets/uploads"
 publish_mode: simple
 
 collections:
+
   - name: "eventos"
     label: "Eventos"
     label_singular: "Evento"
@@ -23,6 +24,7 @@ collections:
     public_folder: ""
     sortable_fields: ["sort_date", "title", "status"]
     summary: "{{title}} — {{sort_date}}"
+
     fields:
       - { label: "Título", name: "title", widget: "string" }
       - { label: "Slug", name: "slug", widget: "string", hint: "Será parte de la URL. Ej.: taller-de-ceramica" }
@@ -36,6 +38,7 @@ collections:
       - { label: "Imagen principal", name: "image", widget: "image" }
       - { label: "Resumen", name: "excerpt", widget: "text" }
       - { label: "Público", name: "audience", widget: "string", required: false }
+
       - label: "Instructores"
         name: "instructors"
         widget: "list"
@@ -44,24 +47,32 @@ collections:
           - { label: "Nombre", name: "name", widget: "string" }
           - { label: "Rol / profesión", name: "role", widget: "string", required: false }
           - { label: "Foto", name: "image", widget: "image", required: false }
+
       - label: "Qué incluye"
         name: "include"
         widget: "list"
-        field: { label: "Ítem", name: "item", widget: "string" }
+        field:
+          { label: "Ítem", name: "item", widget: "string" }
+
       - label: "Qué traer"
         name: "bring"
         widget: "list"
         required: false
-        field: { label: "Ítem", name: "item", widget: "string" }
+        field:
+          { label: "Ítem", name: "item", widget: "string" }
+
       - label: "Formulario de inscripción"
         name: "form_url"
         widget: "string"
         hint: "Pegá la URL de Google Forms. Se recomienda terminar con ?embedded=true. Las respuestas quedan en la Hoja de cálculo vinculada al formulario."
+
       - { label: "Contenido", name: "body", widget: "markdown" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "evento.njk" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/eventos/{{slug}}/" }
       - { label: "Tags", name: "tags", widget: "hidden", default: "eventos" }
-      - name: "crear_nuevos_mundos"
+
+
+  - name: "crear_nuevos_mundos"
     label: "Crear Nuevos Mundos"
 
     media_folder: "Casa_Cubo_Homepage_Integrada_Eventos/assets/uploads"
@@ -74,76 +85,26 @@ collections:
         file: "Casa_Cubo_Homepage_Integrada_Eventos/content/crear-nuevos-mundos/index.md"
 
         fields:
+          - { label: "Texto superior", name: "eyebrow", widget: "string" }
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Introducción", name: "intro", widget: "text" }
+          - { label: "Imagen principal", name: "hero_image", widget: "image" }
+          - { label: "Título agenda", name: "agenda_title", widget: "string" }
+          - { label: "Texto agenda", name: "agenda_text", widget: "text" }
+          - { label: "Imagen agenda semanal", name: "agenda_image", widget: "image" }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "crear-nuevos-mundos.njk" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/crear-nuevos-mundos/" }
 
-          - {
-              label: "Texto superior",
-              name: "eyebrow",
-              widget: "string"
-            }
 
-          - {
-              label: "Título",
-              name: "title",
-              widget: "string"
-            }
-
-          - {
-              label: "Introducción",
-              name: "intro",
-              widget: "text"
-            }
-
-          - {
-              label: "Imagen principal",
-              name: "hero_image",
-              widget: "image"
-            }
-
-          - {
-              label: "Título agenda",
-              name: "agenda_title",
-              widget: "string"
-            }
-
-          - {
-              label: "Texto agenda",
-              name: "agenda_text",
-              widget: "text"
-            }
-
-          - {
-              label: "Imagen agenda semanal",
-              name: "agenda_image",
-              widget: "image"
-            }
-
-          - {
-              label: "Layout",
-              name: "layout",
-              widget: "hidden",
-              default: "crear-nuevos-mundos.njk"
-            }
-
-          - {
-              label: "Permalink",
-              name: "permalink",
-              widget: "hidden",
-              default: "/crear-nuevos-mundos/"
-            }
-              - name: "talleres_regulares"
-
+  - name: "talleres_regulares"
     label: "Talleres regulares"
-
     label_singular: "Taller regular"
 
     folder: "Casa_Cubo_Homepage_Integrada_Eventos/content/talleres-regulares"
-
     create: true
-
     path: "{{slug}}/index"
 
     media_folder: "Casa_Cubo_Homepage_Integrada_Eventos/assets/uploads"
-
     public_folder: "/assets/uploads"
 
     sortable_fields:
@@ -152,18 +113,11 @@ collections:
       - audience
       - status
 
-
     summary: "{{title}} — {{category}} — {{audience}}"
-
 
     fields:
 
-      - {
-          label: "Título",
-          name: "title",
-          widget: "string"
-        }
-
+      - { label: "Título", name: "title", widget: "string" }
 
       - {
           label: "Slug",
@@ -172,20 +126,13 @@ collections:
           hint: "Ej.: ceramica-inicial"
         }
 
-
       - {
           label: "Estado",
           name: "status",
           widget: "select",
-          options:
-            [
-              "borrador",
-              "publicado",
-              "finalizado"
-            ],
+          options: ["borrador", "publicado", "finalizado"],
           default: "borrador"
         }
-
 
       - {
           label: "Categoría",
@@ -194,7 +141,6 @@ collections:
           hint: "Ej.: Cerámica, Pintura, Bordado. Podés escribir categorías nuevas."
         }
 
-
       - {
           label: "Destinado a",
           name: "audience",
@@ -202,14 +148,12 @@ collections:
           hint: "Ej.: Infancias, Adolescentes, Adultos, Familias."
         }
 
-
       - {
           label: "Días y horarios",
           name: "schedule",
           widget: "string",
           hint: "Ej.: Lunes de 18:00 a 20:00"
         }
-
 
       - {
           label: "Frecuencia",
@@ -219,7 +163,6 @@ collections:
           hint: "Ej.: Encuentro semanal"
         }
 
-
       - {
           label: "Duración",
           name: "duration",
@@ -227,14 +170,12 @@ collections:
           required: false
         }
 
-
       - {
           label: "Lugar",
           name: "location",
           widget: "string",
           default: "Casa Cubo"
         }
-
 
       - {
           label: "Precio",
@@ -244,13 +185,11 @@ collections:
           required: false
         }
 
-
       - {
           label: "Imagen principal",
           name: "image",
           widget: "image"
         }
-
 
       - {
           label: "Resumen",
@@ -258,69 +197,29 @@ collections:
           widget: "text"
         }
 
-
       - label: "Instructores"
-
         name: "instructors"
-
         widget: "list"
-
         required: false
 
         fields:
-
-          - {
-              label: "Nombre",
-              name: "name",
-              widget: "string"
-            }
-
-          - {
-              label: "Rol / profesión",
-              name: "role",
-              widget: "string",
-              required: false
-            }
-
-          - {
-              label: "Foto",
-              name: "image",
-              widget: "image",
-              required: false
-            }
-
+          - { label: "Nombre", name: "name", widget: "string" }
+          - { label: "Rol / profesión", name: "role", widget: "string", required: false }
+          - { label: "Foto", name: "image", widget: "image", required: false }
 
       - label: "Qué incluye"
-
         name: "include"
-
         widget: "list"
-
         required: false
-
         field:
-          {
-            label: "Ítem",
-            name: "item",
-            widget: "string"
-          }
-
+          { label: "Ítem", name: "item", widget: "string" }
 
       - label: "Qué traer"
-
         name: "bring"
-
         widget: "list"
-
         required: false
-
         field:
-          {
-            label: "Ítem",
-            name: "item",
-            widget: "string"
-          }
-
+          { label: "Ítem", name: "item", widget: "string" }
 
       - {
           label: "Formulario de inscripción",
@@ -329,13 +228,11 @@ collections:
           required: false
         }
 
-
       - {
           label: "Contenido",
           name: "body",
           widget: "markdown"
         }
-
 
       - {
           label: "Layout",
@@ -344,14 +241,12 @@ collections:
           default: "taller-regular.njk"
         }
 
-
       - {
           label: "Permalink",
           name: "permalink",
           widget: "hidden",
           default: "/crear-nuevos-mundos/{{slug}}/"
         }
-
 
       - {
           label: "Tags",
