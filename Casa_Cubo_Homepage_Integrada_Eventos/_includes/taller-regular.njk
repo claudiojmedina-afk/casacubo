@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>{{ title }} · Crear Nuevos Mundos</title>
+
+  <link rel="stylesheet" href="/css/evento.css">
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+  <a
+    class="brand"
+    href="/"
+  >
+    Casa Cubo
+  </a>
+
+  <nav>
+
+    <a href="/">
+      Inicio
+    </a>
+
+    <a href="/crear-nuevos-mundos/">
+      Crear Nuevos Mundos
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main>
+
+<section class="event-hero">
+
+  <div class="hero-image">
+
+    <img
+      src="{{ image }}"
+      alt="{{ title }}"
+    >
+
+  </div>
+
+
+  <div class="hero-copy">
+
+    <span class="pill">
+      {{ category }}
+    </span>
+
+    <h1>
+      {{ title }}
+    </h1>
+
+    <p class="lead">
+      {{ excerpt }}
+    </p>
+
+
+    <div class="hero-meta">
+
+      {% if audience %}
+
+        <div>
+
+          <small>DESTINADO A</small>
+
+          <strong>
+            {{ audience }}
+          </strong>
+
+        </div>
+
+      {% endif %}
+
+
+      {% if schedule %}
+
+        <div>
+
+          <small>DÍAS Y HORARIOS</small>
+
+          <strong>
+            {{ schedule }}
+          </strong>
+
+        </div>
+
+      {% endif %}
+
+
+      {% if price %}
+
+        <div>
+
+          <small>VALOR</small>
+
+          <strong>
+            {{ price | money_ar }}
+          </strong>
+
+        </div>
+
+      {% endif %}
+
+    </div>
+
+
+    {% if form_url %}
+
+      <a
+        class="cta"
+        href="{{ form_url }}"
+        target="_blank"
+      >
+        Inscribirme <span>→</span>
+      </a>
+
+    {% endif %}
+
+  </div>
+
+</section>
+
+
+<section class="content-grid">
+
+  <article class="article-copy">
+
+    {{ content | safe }}
+
+  </article>
+
+
+  <aside class="info-card">
+
+    {% if include %}
+
+      <p class="eyebrow">
+        QUÉ INCLUYE
+      </p>
+
+      <ul>
+
+        {% for item in include %}
+
+          <li>
+            {{ item }}
+          </li>
+
+        {% endfor %}
+
+      </ul>
+
+    {% endif %}
+
+
+    {% if bring %}
+
+      <p class="eyebrow second">
+        QUÉ TRAER
+      </p>
+
+      <ul>
+
+        {% for item in bring %}
+
+          <li>
+            {{ item }}
+          </li>
+
+        {% endfor %}
+
+      </ul>
+
+    {% endif %}
+
+  </aside>
+
+</section>
+
+
+{% if instructors and instructors.length %}
+
+<section class="instructor-section">
+
+  <div>
+
+    <p class="eyebrow">
+      QUIÉNES GUÍAN EL TALLER
+    </p>
+
+
+    {% for instructor in instructors %}
+
+      <div class="instructor-item">
+
+        {% if instructor.image %}
+
+          <div class="instructor-photo">
+
+            <img
+              src="{{ instructor.image }}"
+              alt="{{ instructor.name }}"
+            >
+
+          </div>
+
+        {% endif %}
+
+
+        <div>
+
+          <h2>
+            {{ instructor.name }}
+          </h2>
+
+          {% if instructor.role %}
+
+            <p>
+              {{ instructor.role }}
+            </p>
+
+          {% endif %}
+
+        </div>
+
+      </div>
+
+    {% endfor %}
+
+  </div>
+
+</section>
+
+{% endif %}
+
+</main>
+
+</body>
+</html>
