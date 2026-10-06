@@ -1,16 +1,18 @@
 :root{
   --ink:#171717;
+  --paper:#F7F1E8;
+  --white:#FFFFFF;
 
-  --paper:#e7eae0;
-  --white:#fff;
+  --coral:#F26B5B;
+  --yellow:#FFD84D;
+  --turquoise:#36C7C9;
+  --green:#8FD694;
 
-  --pink:#d16a5b;
-  --green:#a5c0bb;
-  --yellow:#f3f1bc;
-  --turquoise:#79c8c5;
+  /* compatibilidad con estilos existentes */
+  --pink:#F26B5B;
 
-  --muted:#6f6b64;
-  --line:#cfd3ca;
+  --muted:#6F6B64;
+  --line:#D8D0C5;
 
   --radius:28px;
   --max:1240px;
@@ -538,4 +540,136 @@ a{
   .event-card-image{
     height:300px;
   }
+}
+
+/* =========================================
+   PALETA CASA CUBO — POP CREATIVO
+   ========================================= */
+
+body{
+  background:var(--paper);
+}
+
+
+/* HEADER */
+
+.store-link{
+  background:var(--coral);
+  color:var(--ink);
+}
+
+.main-nav a.active::after{
+  background:var(--coral);
+}
+
+
+/* BOTONES */
+
+.button-pink{
+  background:var(--coral);
+  color:var(--ink);
+}
+
+.button-pink:hover{
+  background:#E95E50;
+}
+
+.button-dark{
+  background:var(--ink);
+  color:#fff;
+}
+
+.button-outline{
+  border-color:var(--ink);
+}
+
+
+/* CATEGORÍAS */
+
+.cat-pink{
+  background:var(--coral);
+}
+
+.cat-green{
+  background:var(--turquoise);
+}
+
+.cat-yellow{
+  background:var(--yellow);
+}
+
+/* cuarta tarjeta más suave */
+.categories .category:nth-child(4){
+  background:#F7C3A9;
+}
+
+/* quinta tarjeta */
+.categories .category:nth-child(5){
+  background:#F7A9C3;
+}
+
+/* sexta tarjeta */
+.categories .category:nth-child(6){
+  background:var(--green);
+}
+
+
+/* EXPERIENCIAS */
+
+.workshop-card{
+  background:#fff;
+}
+
+.workshop-card .pill-pink{
+  background:var(--coral);
+}
+
+.slider-arrow{
+  background:var(--turquoise);
+  border-color:var(--ink);
+}
+
+
+/* COMUNIDAD */
+
+.about-copy{
+  background:var(--green);
+}
+
+.about .button-outline{
+  background:var(--yellow);
+  border-color:transparent;
+}
+
+
+/* GALERÍA */
+
+.look-item{
+  background:var(--turquoise);
+}
+
+
+/* NEWSLETTER */
+
+.newsletter{
+  background:var(--turquoise);
+}
+
+.newsletter button{
+  background:var(--yellow);
+  color:var(--ink);
+}
+
+
+/* DETALLES */
+
+.eyebrow{
+  color:#555;
+}
+
+
+/* FOOTER */
+
+.site-footer{
+  background:var(--paper);
 }
