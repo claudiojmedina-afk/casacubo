@@ -1,17 +1,25 @@
 :root{
-  --ink:#171717;
-  --paper:#F7F1E8;
+  --black:#1D1D1B;
+  --seashell:#EAE4DA;
+  --lavender:#808BC5;
+  --tea:#245E55;
+  --mustard:#EAC119;
+  --pink:#EAA7C7;
+  --sky:#9ED6DF;
+  --tangerine:#ED773C;
+  --red:#C63F3E;
+
+  --ink:#1D1D1B;
+  --paper:#EAE4DA;
   --white:#FFFFFF;
 
-  --pink:#F26B5B;
-  --green:#8FD694;
-  --yellow:#FFD84D;
-  --turquoise:#36C7C9;
+  --green:#245E55;
+  --yellow:#EAC119;
 
-  --muted:#6F6B64;
-  --line:#D8D0C5;
+  --muted:#66635E;
+  --line:rgba(29,29,27,.18);
 
-  --radius:28px;
+  --radius:18px;
   --max:1240px;
 }
 *{
@@ -539,29 +547,61 @@ a{
   }
 }
 
-/* =========================================
-   PALETA CASA CUBO — POP CREATIVO
-   ========================================= */
+/* ==========================================================
+   EVENTOS — PALETA CASA CUBO
+   ========================================================== */
 
-/* PALETA POP CREATIVO */
+body{
+  background:var(--seashell);
+}
 
 .pill{
-  background:var(--coral, #F26B5B);
-}
-
-.info-card{
-  background:var(--green);
-}
-
-.registration-head{
-  background:var(--turquoise);
+  background:var(--pink);
+  color:var(--black);
 }
 
 .cta{
-  background:var(--ink);
-  color:#fff;
+  background:var(--black);
+  color:var(--seashell);
+}
+
+.cta:hover{
+  background:var(--tea);
+}
+
+.info-card{
+  background:var(--sky);
 }
 
 .instructor-photo{
-  background:var(--yellow);
+  background:var(--mustard);
+}
+
+.registration-head{
+  background:var(--tangerine);
+}
+
+.registration-head h2,
+.registration-head p{
+  color:var(--black);
+}
+
+.event-card{
+  background:#F5F0E8;
+}
+
+.event-card:nth-child(4n+1){
+  border-top:7px solid var(--mustard);
+}
+
+.event-card:nth-child(4n+2){
+  border-top:7px solid var(--pink);
+}
+
+.event-card:nth-child(4n+3){
+  border-top:7px solid var(--sky);
+}
+
+.event-card:nth-child(4n+4){
+  border-top:7px solid var(--tangerine);
 }
