@@ -605,3 +605,13 @@ body{
 .event-card:nth-child(4n+4){
   border-top:7px solid var(--tangerine);
 }
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+}
+
+.hero-actions .cta{
+  margin:0;
+}
