@@ -121,17 +121,32 @@
     </div>
 
 
-    {% if form_url %}
+    <div class="hero-actions">
+
+      {% if form_url %}
+
+        <a
+          class="cta"
+          href="{{ form_url }}"
+          target="_blank"
+          rel="noopener"
+        >
+          Inscribirme <span>→</span>
+        </a>
+
+      {% endif %}
+
 
       <a
         class="cta"
-        href="{{ form_url }}"
+        href="https://wa.me/5491141720467?text=Hola%2C%20vengo%20de%20la%20web%20y%20quiero%20consultar%20por%20el%20taller%20{{ title }}"
         target="_blank"
+        rel="noopener"
       >
-        Inscribirme <span>→</span>
+        Consultar por taller <span>→</span>
       </a>
 
-    {% endif %}
+    </div>
 
   </div>
 
