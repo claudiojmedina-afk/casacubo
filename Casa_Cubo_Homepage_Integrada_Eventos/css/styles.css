@@ -1,5 +1,4 @@
 :root{
-  /* PALETA CASA CUBO */
   --black:#1D1D1B;
   --seashell:#EAE4DA;
   --lavender:#808BC5;
@@ -10,7 +9,6 @@
   --tangerine:#ED773C;
   --red:#C63F3E;
 
-  /* VARIABLES GENERALES */
   --ink:var(--black);
   --paper:var(--seashell);
   --white:#FFFFFF;
@@ -56,6 +54,7 @@ img{
   width:min(var(--max),calc(100% - 64px));
   margin-inline:auto;
 }
+
 
 /* ==========================================================
    HEADER
@@ -157,6 +156,7 @@ img{
   font:inherit;
 }
 
+
 /* ==========================================================
    HERO
    ========================================================== */
@@ -165,7 +165,6 @@ img{
   min-height:470px;
   display:grid;
   grid-template-columns:1.02fr 1.45fr;
-  gap:0;
   position:relative;
   padding-top:30px;
   padding-bottom:30px;
@@ -249,6 +248,7 @@ h2{
   z-index:0;
 }
 
+
 /* ==========================================================
    BOTONES
    ========================================================== */
@@ -273,21 +273,23 @@ h2{
   transform:translateY(-2px);
 }
 
-.button-pink{
-  margin-top:7px;
+.button-pink,
+.button-dark{
   background:var(--black);
   color:var(--seashell);
+}
+
+.button-pink{
+  margin-top:7px;
+}
+
+.button-dark{
+  margin-top:18px;
 }
 
 .button-pink:hover,
 .button-dark:hover{
   background:var(--tea);
-}
-
-.button-dark{
-  margin-top:18px;
-  background:var(--black);
-  color:var(--seashell);
 }
 
 .button-outline{
@@ -301,8 +303,9 @@ h2{
   color:var(--seashell);
 }
 
+
 /* ==========================================================
-   CATEGORÃAS
+   TARJETAS / ACCESOS
    ========================================================== */
 
 .categories{
@@ -326,14 +329,30 @@ h2{
   transform:translateY(-5px);
 }
 
-.categories .category:nth-child(1){background:var(--pink)}
-.categories .category:nth-child(2){background:var(--mustard)}
-.categories .category:nth-child(3){background:var(--lavender)}
-.categories .category:nth-child(4){background:var(--sky)}
-.categories .category:nth-child(5){background:var(--tangerine)}
-.categories .category:nth-child(6){background:var(--tea);color:var(--seashell)}
-.categories .category:nth-child(6) svg{stroke:var(--seashell)}
-.categories .category:nth-child(6) small{color:rgba(234,228,218,.84)}
+.cat-pink{
+  background:var(--pink);
+}
+
+.cat-yellow{
+  background:var(--mustard);
+}
+
+.cat-lavender{
+  background:var(--lavender);
+}
+
+.cat-sky{
+  background:var(--sky);
+}
+
+.cat-orange{
+  background:var(--tangerine);
+}
+
+.cat-tea{
+  background:var(--tea);
+  color:var(--seashell);
+}
 
 .cat-icon{
   width:48px;
@@ -355,6 +374,14 @@ h2{
   stroke-linejoin:round;
 }
 
+.cat-tea .cat-icon{
+  border-color:rgba(234,228,218,.25);
+}
+
+.cat-tea .cat-icon svg{
+  stroke:var(--seashell);
+}
+
 .category strong{
   font-size:14px;
   margin-bottom:7px;
@@ -366,11 +393,16 @@ h2{
   color:#45423E;
 }
 
+.cat-tea small{
+  color:rgba(234,228,218,.88);
+}
+
 .category b{
   margin-top:auto;
   font-size:19px;
   font-weight:400;
 }
+
 
 /* ==========================================================
    EXPERIENCIAS
@@ -513,6 +545,7 @@ h2{
   visibility:hidden;
 }
 
+
 /* ==========================================================
    COMUNIDAD
    ========================================================== */
@@ -533,7 +566,6 @@ h2{
 .about-photo{
   width:100%;
   height:520px;
-  align-self:center;
   border-radius:8px;
   overflow:hidden;
 }
@@ -542,7 +574,6 @@ h2{
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
 }
 
 .about-copy{
@@ -606,8 +637,9 @@ h2{
   border-color:var(--red);
 }
 
+
 /* ==========================================================
-   MIRÃ / GALERÃA EDITORIAL
+   MIRÁ / GALERÍA EDITORIAL
    ========================================================== */
 
 .look-section{
@@ -662,7 +694,6 @@ h2{
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
   transition:transform .5s ease;
 }
 
@@ -680,6 +711,7 @@ h2{
 .look-h{grid-column:4;grid-row:1 / span 2}
 .look-i{grid-column:4;grid-row:3 / span 3}
 .look-j{grid-column:5;grid-row:1 / span 5}
+
 
 /* ==========================================================
    NEWSLETTER
@@ -719,7 +751,6 @@ h2{
   background:var(--seashell);
   border-radius:30px;
   overflow:hidden;
-  border:0;
 }
 
 .newsletter input{
@@ -755,6 +786,7 @@ h2{
   color:var(--black);
 }
 
+
 /* ==========================================================
    FOOTER
    ========================================================== */
@@ -762,7 +794,6 @@ h2{
 .site-footer{
   background:var(--black);
   color:var(--seashell);
-  border-top:0;
 }
 
 .site-footer a{
@@ -779,16 +810,13 @@ h2{
   gap:35px;
   padding-top:30px;
   padding-bottom:30px;
-  background:var(--black);
 }
 
 .footer-logo{
   width:125px;
-  height:auto;
 }
 
 .footer-logo img{
-  display:block;
   width:100%;
   height:auto;
   object-fit:contain;
@@ -834,6 +862,40 @@ h2{
   color:rgba(234,228,218,.65);
 }
 
+
+/* ==========================================================
+   WHATSAPP FLOTANTE
+   ========================================================== */
+
+.whatsapp-float{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#25D366;
+  color:#fff;
+  z-index:999;
+  box-shadow:0 8px 24px rgba(0,0,0,.22);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+
+.whatsapp-float:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 12px 30px rgba(0,0,0,.28);
+}
+
+.whatsapp-float svg{
+  width:30px;
+  height:30px;
+  fill:currentColor;
+}
+
+
 /* ==========================================================
    RESPONSIVE
    ========================================================== */
@@ -866,7 +928,7 @@ h2{
     gap:16px;
   }
 
-  .header-actions>a:not(.store-link){
+  .header-actions > a:not(.store-link){
     display:none;
   }
 
@@ -1132,38 +1194,7 @@ h2{
     display:block;
     margin-top:8px;
   }
-}
-.whatsapp-float{
-  position:fixed;
-  right:24px;
-  bottom:24px;
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#25D366;
-  color:#fff;
-  z-index:999;
-  box-shadow:0 8px 24px rgba(0,0,0,.22);
-  transition:
-    transform .2s ease,
-    box-shadow .2s ease;
-}
 
-.whatsapp-float:hover{
-  transform:translateY(-3px) scale(1.03);
-  box-shadow:0 12px 30px rgba(0,0,0,.28);
-}
-
-.whatsapp-float svg{
-  width:30px;
-  height:30px;
-  fill:currentColor;
-}
-
-@media(max-width:650px){
   .whatsapp-float{
     right:16px;
     bottom:16px;
