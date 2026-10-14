@@ -3,7 +3,7 @@ title: Taller de cerámica prueba
 slug: taller-de-ceramica
 category: Taller
 status: publicado
-sort_date: 2026-11-14T15:00:00-03:00
+sort_date: 2026-09-12T10:21:00
 time: 15:00 a 18:00
 duration: 3 horas
 location: Casa Cubo
@@ -17,16 +17,16 @@ include:
   - Clase práctica guiada
   - Una pieza para llevar
   - Algo rico para compartir
-layout: evento.njk
-permalink: /eventos/taller-de-ceramica/
-instructor: Nombre de la tallerista
-instructor_role: Artista y ceramista
-instructor_image: /assets/img/instructor-placeholder.svg
 bring:
   - Ropa cómoda
   - Ganas de experimentar
 form_url: https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true
+layout: evento.njk
+permalink: /eventos/taller-de-ceramica/
+instructor_role: Artista y ceramista
 tags: eventos
+instructor_image: /assets/img/instructor-placeholder.svg
+instructor: Nombre de la tallerista
 ---
 En este encuentro vamos a trabajar con arcilla desde cero. La propuesta está pensada para que puedas experimentar sin necesidad de conocimientos previos y descubrir el proceso de creación de una pieza propia.
 
