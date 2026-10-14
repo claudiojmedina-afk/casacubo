@@ -8,7 +8,7 @@ time: 10:30 a 13:00
 duration: 2:30
 location: La Curaduría - Belgranos 189, Monte Grande
 price: ""
-image: https://ik.imagekit.io/fo8ajuwvyo/curaduria.jpeg
+image: https://ik.imagekit.io/fo8ajuwvyo/manos-obra.jpeg
 excerpt: |-
   CREAR NUEVOS MUNDOS
   Espacio de Arte
