@@ -9,19 +9,18 @@
   --tangerine:#ED773C;
   --red:#C63F3E;
 
-  --ink:#1D1D1B;
-  --paper:#EAE4DA;
+  --ink:var(--black);
+  --paper:var(--seashell);
   --white:#FFFFFF;
-
-  --green:#245E55;
-  --yellow:#EAC119;
-
+  --green:var(--tea);
+  --yellow:var(--mustard);
   --muted:#66635E;
   --line:rgba(29,29,27,.18);
 
   --radius:18px;
   --max:1240px;
 }
+
 *{
   box-sizing:border-box;
 }
@@ -34,7 +33,7 @@ body{
   margin:0;
   background:var(--paper);
   color:var(--ink);
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:"DM Sans",Arial,Helvetica,sans-serif;
 }
 
 a{
@@ -42,38 +41,75 @@ a{
   text-decoration:none;
 }
 
+img{
+  display:block;
+  max-width:100%;
+}
 
-/* HEADER */
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
 
 .site-header{
-  height:82px;
+  min-height:82px;
   max-width:var(--max);
   margin:auto;
   display:flex;
   align-items:center;
   justify-content:space-between;
+  gap:32px;
   padding:0 28px;
   border-bottom:1px solid var(--line);
 }
 
+.brand-logo{
+  display:flex;
+  align-items:center;
+  width:118px;
+  height:58px;
+  flex:0 0 auto;
+}
+
+.brand-logo img{
+  width:100%;
+  height:auto;
+  max-height:58px;
+  object-fit:contain;
+}
+
 .site-header nav{
   display:flex;
-  gap:28px;
-  font-size:14px;
+  align-items:center;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  gap:24px;
+  font-size:13px;
 }
 
-.brand{
-  font-weight:900;
-  letter-spacing:-1.5px;
-  font-size:20px;
+.site-header nav a{
+  position:relative;
+  padding:30px 0;
 }
 
-.brand span{
-  font-weight:400;
+.site-header nav a.active{
+  font-weight:700;
+}
+
+.site-header nav a.active::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:20px;
+  height:2px;
+  background:var(--mustard);
 }
 
 
-/* HERO */
+/* ==========================================================
+   PÃGINA INDIVIDUAL DE EVENTO
+   ========================================================== */
 
 .event-hero{
   max-width:var(--max);
@@ -96,7 +132,6 @@ a{
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
 }
 
 .hero-copy{
@@ -104,6 +139,7 @@ a{
   display:flex;
   flex-direction:column;
   justify-content:center;
+  position:relative;
 }
 
 .eyebrow{
@@ -113,31 +149,43 @@ a{
   margin:0 0 18px;
 }
 
-.pill{
+.hero-copy .eyebrow{
+  position:static;
+}
+
+.pill,
+.hero-copy .pill{
+  position:static;
   display:inline-flex;
   align-self:flex-start;
+  width:auto;
   padding:9px 14px;
+  margin:0 0 28px;
   border-radius:999px;
   background:var(--pink);
+  color:var(--black);
   font-size:11px;
+  font-weight:700;
   text-transform:uppercase;
   letter-spacing:1px;
-  font-weight:700;
-  margin-bottom:28px;
 }
 
 .hero-copy h1{
+  position:static;
+  max-width:780px;
+  margin:0 0 28px;
+  font-family:"Space Grotesk",sans-serif;
   font-size:clamp(58px,7.4vw,112px);
   line-height:.86;
   letter-spacing:-6px;
-  margin:0 0 28px;
-  max-width:780px;
 }
 
+.hero-copy .lead,
 .lead{
+  max-width:600px;
+  margin:0;
   font-size:20px;
   line-height:1.45;
-  max-width:600px;
   color:#383632;
 }
 
@@ -148,7 +196,7 @@ a{
   margin:42px 0;
 }
 
-.hero-meta>div{
+.hero-meta > div{
   border-top:1px solid var(--ink);
   padding-top:12px;
   display:flex;
@@ -171,16 +219,31 @@ a{
   color:var(--muted);
 }
 
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+}
+
 .cta{
   display:inline-flex;
   justify-content:space-between;
   align-items:center;
-  background:var(--ink);
-  color:#fff;
-  border-radius:999px;
+  gap:24px;
+  max-width:280px;
+  margin:0;
   padding:17px 21px;
+  border-radius:999px;
+  background:var(--black);
+  color:var(--seashell);
   font-weight:700;
-  max-width:260px;
+  transition:background .2s ease,transform .2s ease;
+}
+
+.cta:hover{
+  background:var(--tea);
+  transform:translateY(-2px);
 }
 
 .cta span{
@@ -188,7 +251,9 @@ a{
 }
 
 
-/* CONTENIDO */
+/* ==========================================================
+   CONTENIDO DEL EVENTO
+   ========================================================== */
 
 .content-grid{
   max-width:var(--max);
@@ -200,16 +265,17 @@ a{
 }
 
 .article-copy{
+  max-width:760px;
   font-size:19px;
   line-height:1.65;
-  max-width:760px;
 }
 
 .article-copy h2{
+  margin:65px 0 22px;
+  font-family:"Space Grotesk",sans-serif;
   font-size:52px;
   line-height:.95;
   letter-spacing:-2px;
-  margin:65px 0 22px;
 }
 
 .article-copy p{
@@ -217,12 +283,12 @@ a{
 }
 
 .info-card{
-  background:var(--green);
-  border-radius:var(--radius);
-  padding:34px;
   align-self:start;
   position:sticky;
   top:24px;
+  padding:34px;
+  border-radius:var(--radius);
+  background:var(--sky);
 }
 
 .info-card ul{
@@ -242,7 +308,9 @@ a{
 }
 
 
-/* INSTRUCTORES */
+/* ==========================================================
+   INSTRUCTORES
+   ========================================================== */
 
 .instructor-section{
   max-width:var(--max);
@@ -275,21 +343,21 @@ a{
   flex:0 0 180px;
   border-radius:50%;
   overflow:hidden;
-  background:var(--yellow);
+  background:var(--mustard);
 }
 
 .instructor-photo img{
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
 }
 
 .instructor-item h2{
+  margin:0 0 10px;
+  font-family:"Space Grotesk",sans-serif;
   font-size:42px;
   line-height:.95;
   letter-spacing:-2px;
-  margin:0 0 10px;
 }
 
 .instructor-item p{
@@ -299,7 +367,9 @@ a{
 }
 
 
-/* INSCRIPCIÓN */
+/* ==========================================================
+   INSCRIPCIÃ“N
+   ========================================================== */
 
 .registration{
   max-width:var(--max);
@@ -308,35 +378,37 @@ a{
 }
 
 .registration-head{
-  background:var(--pink);
-  border-radius:var(--radius) var(--radius) 0 0;
   padding:44px 48px;
   display:grid;
   grid-template-columns:1fr .6fr;
   gap:30px;
   align-items:end;
+  border-radius:var(--radius) var(--radius) 0 0;
+  background:var(--tangerine);
+  color:var(--black);
 }
 
 .registration-head h2{
+  margin:0;
+  font-family:"Space Grotesk",sans-serif;
   font-size:clamp(48px,6vw,80px);
   line-height:.9;
   letter-spacing:-4px;
-  margin:0;
 }
 
-.registration-head>p{
+.registration-head > p{
   margin:0;
   font-size:16px;
   line-height:1.5;
 }
 
 .form-frame{
-  background:#fff;
+  min-height:850px;
+  overflow:hidden;
   border:1px solid var(--line);
   border-top:0;
   border-radius:0 0 var(--radius) var(--radius);
-  overflow:hidden;
-  min-height:850px;
+  background:#fff;
 }
 
 .form-frame iframe{
@@ -347,7 +419,212 @@ a{
 }
 
 
-/* FOOTER */
+/* ==========================================================
+   LISTADO DE EVENTOS
+   ========================================================== */
+
+.listing-wrap{
+  max-width:var(--max);
+  margin:72px auto 110px;
+  padding:0 28px;
+}
+
+.listing-header{
+  margin-bottom:78px;
+}
+
+.listing-wrap h1{
+  max-width:900px;
+  margin:0 0 25px;
+  font-family:"Space Grotesk",sans-serif;
+  font-size:clamp(64px,9vw,128px);
+  line-height:.85;
+  letter-spacing:-7px;
+}
+
+.listing-intro{
+  max-width:620px;
+  margin:0;
+  font-size:20px;
+  line-height:1.5;
+}
+
+.events-section{
+  padding:58px 0 20px;
+  border-top:1px solid var(--line);
+}
+
+.events-section + .events-section{
+  margin-top:90px;
+}
+
+.events-section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:40px;
+  margin-bottom:34px;
+}
+
+.events-section-head h2{
+  margin:0;
+  font-family:"Space Grotesk",sans-serif;
+  font-size:clamp(40px,5vw,64px);
+  line-height:.95;
+  letter-spacing:-3px;
+}
+
+.events-section-head > p{
+  max-width:320px;
+  margin:0;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.event-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:24px;
+}
+
+.event-card{
+  overflow:hidden;
+  position:relative;
+  border:1px solid var(--line);
+  border-top:7px solid var(--mustard);
+  border-radius:var(--radius);
+  background:#F5F0E8;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+
+.event-card:nth-child(4n+2){
+  border-top-color:var(--pink);
+}
+
+.event-card:nth-child(4n+3){
+  border-top-color:var(--sky);
+}
+
+.event-card:nth-child(4n+4){
+  border-top-color:var(--tangerine);
+}
+
+.event-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(29,29,27,.08);
+}
+
+.event-card-image{
+  height:360px;
+  overflow:hidden;
+  position:relative;
+  background:#ddd;
+}
+
+.event-card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:filter .25s ease,transform .35s ease;
+}
+
+.event-card:hover .event-card-image img{
+  transform:scale(1.02);
+}
+
+.event-card-copy{
+  padding:28px;
+}
+
+.event-card-copy .pill{
+  margin-bottom:18px;
+}
+
+.event-card-copy h2{
+  margin:0 0 14px;
+  font-family:"Space Grotesk",sans-serif;
+  font-size:42px;
+  line-height:.95;
+  letter-spacing:-2px;
+}
+
+.event-card-copy p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.event-card-meta{
+  margin-top:24px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.events-empty{
+  padding:42px;
+  border:1px dashed var(--line);
+  border-radius:var(--radius);
+  color:var(--muted);
+}
+
+
+/* EVENTOS PASADOS */
+
+.events-section--past{
+  opacity:.94;
+}
+
+.event-card--past{
+  background:#E5DFD5;
+  border-top-color:#A7A096 !important;
+  opacity:.72;
+}
+
+.event-card--past:hover{
+  opacity:.9;
+  transform:translateY(-2px);
+}
+
+.event-card--past .event-card-image img{
+  filter:grayscale(.55) saturate(.45) contrast(.92);
+}
+
+.event-card--past .pill{
+  background:#C9C1B6;
+}
+
+.event-finished{
+  position:absolute;
+  top:18px;
+  right:18px;
+  z-index:2;
+  padding:8px 12px;
+  border-radius:999px;
+  background:var(--black);
+  color:var(--seashell);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.event-card-state{
+  display:inline-flex;
+  margin-top:20px;
+  padding:7px 11px;
+  border:1px solid rgba(29,29,27,.22);
+  border-radius:999px;
+  color:#5D5953;
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+}
+
+
+/* ==========================================================
+   FOOTER SIMPLE DE EVENTOS
+   ========================================================== */
 
 .site-footer{
   max-width:var(--max);
@@ -366,100 +643,86 @@ a{
 }
 
 
-/* LISTADO DE EVENTOS */
+/* ==========================================================
+   WHATSAPP FLOTANTE
+   ========================================================== */
 
-.listing-wrap{
-  max-width:var(--max);
-  margin:80px auto;
-  padding:0 28px;
+.whatsapp-float{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  z-index:999;
+  box-shadow:0 8px 24px rgba(0,0,0,.22);
+  transition:transform .2s ease,box-shadow .2s ease;
 }
 
-.listing-wrap h1{
-  font-size:clamp(64px,9vw,128px);
-  line-height:.85;
-  letter-spacing:-7px;
-  margin:0 0 25px;
-  max-width:900px;
+.whatsapp-float:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 12px 30px rgba(0,0,0,.28);
 }
 
-.listing-intro{
-  font-size:20px;
-  max-width:600px;
-  margin-bottom:70px;
-}
-
-.event-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:24px;
-}
-
-.event-card{
-  background:#fff;
-  border-radius:var(--radius);
-  overflow:hidden;
-  border:1px solid var(--line);
-  transition:transform .2s ease;
-}
-
-.event-card:hover{
-  transform:translateY(-4px);
-}
-
-.event-card-image{
-  height:360px;
-  overflow:hidden;
-}
-
-.event-card-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.event-card-copy{
-  padding:28px;
-}
-
-.event-card-copy h2{
-  font-size:42px;
-  line-height:.95;
-  letter-spacing:-2px;
-  margin:4px 0 14px;
-}
-
-.event-card-copy p{
-  color:var(--muted);
-  line-height:1.45;
-}
-
-.event-card-meta{
-  margin-top:24px;
-  font-size:13px;
-  font-weight:700;
+.whatsapp-float svg{
+  width:30px;
+  height:30px;
+  fill:currentColor;
 }
 
 
-/* RESPONSIVE */
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
 
 @media(max-width:850px){
 
   .site-header{
-    padding:0 18px;
+    min-height:74px;
+    padding:8px 18px;
+    align-items:center;
+  }
+
+  .brand-logo{
+    width:96px;
+    height:52px;
+  }
+
+  .brand-logo img{
+    max-height:52px;
   }
 
   .site-header nav{
     gap:14px;
+    font-size:12px;
+  }
+
+  .site-header nav a{
+    padding:10px 0;
+  }
+
+  .site-header nav a.active::after{
+    bottom:3px;
   }
 
   .event-hero{
     grid-template-columns:1fr;
     padding:0 18px;
     margin-top:20px;
+    gap:30px;
   }
 
   .hero-image{
     min-height:420px;
+  }
+
+  .hero-copy{
+    padding:10px 0 25px;
   }
 
   .hero-copy h1{
@@ -500,7 +763,7 @@ a{
   .instructor-photo{
     width:130px;
     height:130px;
-    flex:0 0 130px;
+    flex-basis:130px;
   }
 
   .instructor-item h2{
@@ -524,11 +787,6 @@ a{
     height:900px;
   }
 
-  .site-footer{
-    padding:28px 18px;
-    flex-direction:column;
-  }
-
   .listing-wrap{
     padding:0 18px;
   }
@@ -538,6 +796,12 @@ a{
     letter-spacing:-4px;
   }
 
+  .events-section-head{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:12px;
+  }
+
   .event-grid{
     grid-template-columns:1fr;
   }
@@ -545,203 +809,71 @@ a{
   .event-card-image{
     height:300px;
   }
+
+  .site-footer{
+    padding:28px 18px;
+    flex-direction:column;
+  }
 }
 
-/* ==========================================================
-   EVENTOS — PALETA CASA CUBO
-   ========================================================== */
+@media(max-width:650px){
 
-body{
-  background:var(--seashell);
-}
-
-.pill{
-  background:var(--pink);
-  color:var(--black);
-}
-
-.cta{
-  background:var(--black);
-  color:var(--seashell);
-}
-
-.cta:hover{
-  background:var(--tea);
-}
-
-.info-card{
-  background:var(--sky);
-}
-
-.instructor-photo{
-  background:var(--mustard);
-}
-
-.registration-head{
-  background:var(--tangerine);
-}
-
-.registration-head h2,
-.registration-head p{
-  color:var(--black);
-}
-
-.event-card{
-  background:#F5F0E8;
-}
-
-.event-card:nth-child(4n+1){
-  border-top:7px solid var(--mustard);
-}
-
-.event-card:nth-child(4n+2){
-  border-top:7px solid var(--pink);
-}
-
-.event-card:nth-child(4n+3){
-  border-top:7px solid var(--sky);
-}
-
-.event-card:nth-child(4n+4){
-  border-top:7px solid var(--tangerine);
-}
-.hero-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  align-items:center;
-}
-
-.hero-actions .cta{
-  margin:0;
-}
-/* =========================================
-   CORRECCIÓN HERO EVENTOS
-   ========================================= */
-
-.event-hero{
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:50px;
-  align-items:stretch;
-
-  max-width:var(--max);
-  margin:40px auto 90px;
-  padding:0 28px;
-}
-
-.hero-copy{
-  padding:28px 0;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-
-  position:relative;
-}
-
-.hero-copy .eyebrow{
-  position:static;
-
-  margin:0 0 18px;
-
-  font-size:11px;
-  letter-spacing:1.8px;
-  font-weight:700;
-}
-
-
-/* ETIQUETA TALLER */
-
-.hero-copy .pill{
-  position:static;
-
-  display:inline-flex;
-  align-self:flex-start;
-
-  width:auto;
-
-  padding:9px 14px;
-  margin:0 0 28px;
-
-  border-radius:999px;
-
-  background:var(--pink);
-
-  font-size:11px;
-  font-weight:700;
-
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
-
-/* TÍTULO */
-
-.hero-copy h1{
-  position:static;
-
-  max-width:780px;
-
-  margin:0 0 28px;
-
-  font-size:clamp(58px,7.4vw,112px);
-  line-height:.86;
-
-  letter-spacing:-6px;
-}
-
-
-/* DESCRIPCIÓN */
-
-.hero-copy .lead{
-  max-width:600px;
-
-  margin:0;
-
-  font-size:20px;
-  line-height:1.45;
-
-  color:#383632;
-}
-
-
-/* DATOS DEL EVENTO */
-
-.hero-meta{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-
-  gap:14px;
-
-  margin:42px 0;
-}
-
-
-/* MOBILE */
-
-@media(max-width:850px){
-
-  .event-hero{
-    grid-template-columns:1fr;
-
-    padding:0 18px;
-    margin-top:20px;
-
-    gap:30px;
+  .site-header{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:4px;
   }
 
-  .hero-copy{
-    padding:10px 0 25px;
+  .site-header nav{
+    width:100%;
+    justify-content:flex-start;
+    gap:16px;
+    overflow-x:auto;
   }
 
-  .hero-copy h1{
-    font-size:64px;
-    letter-spacing:-4px;
+  .listing-wrap{
+    margin-top:48px;
   }
 
-  .hero-meta{
-    grid-template-columns:1fr;
+  .listing-header{
+    margin-bottom:55px;
   }
 
+  .listing-wrap h1{
+    font-size:58px;
+    letter-spacing:-3px;
+  }
+
+  .listing-intro{
+    font-size:17px;
+  }
+
+  .events-section{
+    padding-top:40px;
+  }
+
+  .events-section + .events-section{
+    margin-top:65px;
+  }
+
+  .events-section-head h2{
+    font-size:40px;
+    letter-spacing:-2px;
+  }
+
+  .event-card-copy h2{
+    font-size:34px;
+  }
+
+  .whatsapp-float{
+    right:16px;
+    bottom:16px;
+    width:54px;
+    height:54px;
+  }
+
+  .whatsapp-float svg{
+    width:28px;
+    height:28px;
+  }
 }
