@@ -877,3 +877,61 @@ img{
     height:28px;
   }
 }
+/* ==========================================================
+   EVENTO FINALIZADO
+   ========================================================== */
+
+.pill-finished{
+  background:#A7A096;
+  color:var(--seashell);
+}
+
+.cta-disabled{
+  background:#8E8981;
+  color:#EAE4DA;
+  cursor:default;
+  opacity:.7;
+}
+
+.cta-disabled:hover{
+  background:#8E8981;
+  transform:none;
+}
+
+.registration-closed{
+  opacity:.82;
+}
+
+.registration-head-closed{
+  background:#D3CDC3;
+  color:#5A5752;
+  border-radius:var(--radius);
+}
+
+.registration-head-closed .eyebrow{
+  color:#77716A;
+}
+
+.registration-closed-copy{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  align-items:flex-start;
+}
+
+.registration-closed-copy p{
+  margin:0;
+  line-height:1.5;
+}
+
+.closed-events-link{
+  display:inline-flex;
+  padding-bottom:4px;
+  border-bottom:1px solid currentColor;
+  font-weight:700;
+  font-size:14px;
+}
+
+.closed-events-link:hover{
+  opacity:.65;
+}
