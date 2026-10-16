@@ -21,19 +21,24 @@ module.exports = function (eleventyConfig) {
     ].join("-");
   }
 
+
   function formatDate(value, options) {
     const key = getDateKey(value);
 
     if (!key) return "";
 
     const [year, month, day] = key.split("-").map(Number);
-    const date = new Date(Date.UTC(year, month - 1, day));
+
+    const date = new Date(
+      Date.UTC(year, month - 1, day)
+    );
 
     return new Intl.DateTimeFormat("es-AR", {
       timeZone: "UTC",
       ...options
     }).format(date);
   }
+
 
   function todayInArgentina() {
     return new Intl.DateTimeFormat("en-CA", {
@@ -44,50 +49,99 @@ module.exports = function (eleventyConfig) {
     }).format(new Date());
   }
 
-  eleventyConfig.addFilter("date_short", function (date) {
-    return formatDate(date, {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric"
-    });
-  });
 
-  eleventyConfig.addFilter("date_es", function (date) {
-    return formatDate(date, {
-      day: "numeric",
-      month: "long",
-      year: "numeric"
-    });
-  });
+  eleventyConfig.addFilter(
+    "date_short",
+    function (date) {
 
-  eleventyConfig.addFilter("money_ar", function (value) {
-    if (
-      value === null ||
-      value === undefined ||
-      value === ""
-    ) {
-      return "";
+      return formatDate(date, {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+      });
+
     }
+  );
 
-    const number = Number(value);
 
-    if (Number.isNaN(number)) return "";
+  eleventyConfig.addFilter(
+    "date_es",
+    function (date) {
 
-    return number.toLocaleString("es-AR", {
-      style: "currency",
-      currency: "ARS",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    });
-  });
+      return formatDate(date, {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
 
-  eleventyConfig.addFilter("sortByDate", function (collection = []) {
-    return [...collection].sort((a, b) => {
-      return getDateKey(a?.data?.sort_date).localeCompare(
-        getDateKey(b?.data?.sort_date)
-      );
-    });
-  });
+    }
+  );
+
+
+  eleventyConfig.addFilter(
+    "money_ar",
+    function (value) {
+
+      if (
+        value === null ||
+        value === undefined ||
+        value === ""
+      ) {
+        return "";
+      }
+
+      const number = Number(value);
+
+      if (Number.isNaN(number)) {
+        return "";
+      }
+
+      return number.toLocaleString("es-AR", {
+        style: "currency",
+        currency: "ARS",
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      });
+
+    }
+  );
+
+
+  eleventyConfig.addFilter(
+    "sortByDate",
+    function (collection = []) {
+
+      return [...collection].sort((a, b) => {
+
+        return getDateKey(
+          a?.data?.sort_date
+        ).localeCompare(
+          getDateKey(
+            b?.data?.sort_date
+          )
+        );
+
+      });
+
+    }
+  );
+
+
+  eleventyConfig.addFilter(
+    "isPastEvent",
+    function (date) {
+
+      const dateKey = getDateKey(date);
+
+      if (!dateKey) {
+        return false;
+      }
+
+      return dateKey < todayInArgentina();
+
+    }
+  );
+
 
   eleventyConfig.addFilter(
     "splitEventsByDate",
@@ -95,12 +149,21 @@ module.exports = function (eleventyConfig) {
 
       const today = todayInArgentina();
 
+
       const visible = collection.filter((item) => {
 
-        const status = item?.data?.status;
-        const dateKey = getDateKey(item?.data?.sort_date);
+        const status =
+          item?.data?.status;
 
-        return dateKey && status !== "borrador";
+        const dateKey =
+          getDateKey(
+            item?.data?.sort_date
+          );
+
+        return (
+          dateKey &&
+          status !== "borrador"
+        );
 
       });
 
@@ -111,9 +174,10 @@ module.exports = function (eleventyConfig) {
 
       visible.forEach((item) => {
 
-        const dateKey = getDateKey(
-          item.data.sort_date
-        );
+        const dateKey =
+          getDateKey(
+            item.data.sort_date
+          );
 
         const manuallyFinished =
           item.data.status === "finalizado";
@@ -136,18 +200,28 @@ module.exports = function (eleventyConfig) {
 
 
       upcoming.sort((a, b) =>
-        getDateKey(a.data.sort_date)
-          .localeCompare(
-            getDateKey(b.data.sort_date)
+
+        getDateKey(
+          a.data.sort_date
+        ).localeCompare(
+          getDateKey(
+            b.data.sort_date
           )
+        )
+
       );
 
 
       past.sort((a, b) =>
-        getDateKey(b.data.sort_date)
-          .localeCompare(
-            getDateKey(a.data.sort_date)
+
+        getDateKey(
+          b.data.sort_date
+        ).localeCompare(
+          getDateKey(
+            a.data.sort_date
           )
+        )
+
       );
 
 
@@ -160,25 +234,38 @@ module.exports = function (eleventyConfig) {
   );
 
 
-  eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy(
+    "css"
+  );
+
 
   eleventyConfig.addPassthroughCopy({
     "src/css/evento.css":
       "css/evento.css"
   });
 
+
   eleventyConfig.addPassthroughCopy({
     "src/css/crear-nuevos-mundos.css":
       "css/crear-nuevos-mundos.css"
   });
 
-  eleventyConfig.addPassthroughCopy("assets");
 
-  eleventyConfig.addPassthroughCopy("js");
+  eleventyConfig.addPassthroughCopy(
+    "assets"
+  );
 
-  eleventyConfig.addPassthroughCopy("admin");
+  eleventyConfig.addPassthroughCopy(
+    "js"
+  );
 
-  eleventyConfig.addPassthroughCopy("_redirects");
+  eleventyConfig.addPassthroughCopy(
+    "admin"
+  );
+
+  eleventyConfig.addPassthroughCopy(
+    "_redirects"
+  );
 
 
   return {
