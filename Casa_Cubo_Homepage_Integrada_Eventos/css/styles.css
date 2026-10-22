@@ -1053,7 +1053,34 @@ h2{
   .footer-nav{
     order:initial;
   }
-/* ==========================================================
+
+  .footer-location,
+  .footer-store{
+    border-top:1px solid rgba(234,228,218,.18);
+    padding-top:15px;
+  }
+
+  .footer-bottom{
+    display:block;
+  }
+
+  .footer-bottom span{
+    display:block;
+    margin-top:8px;
+  }
+
+  .whatsapp-float{
+    right:16px;
+    bottom:16px;
+    width:54px;
+    height:54px;
+  }
+
+  .whatsapp-float svg{
+    width:28px;
+    height:28px;
+  }
+}/* ==========================================================
    CARRUSEL PRINCIPAL
    ========================================================== */
 
@@ -1324,32 +1351,5 @@ body.popup-open{
   .site-popup-close{
     top:10px;
     right:10px;
-  }
-}
-  .footer-location,
-  .footer-store{
-    border-top:1px solid rgba(234,228,218,.18);
-    padding-top:15px;
-  }
-
-  .footer-bottom{
-    display:block;
-  }
-
-  .footer-bottom span{
-    display:block;
-    margin-top:8px;
-  }
-
-  .whatsapp-float{
-    right:16px;
-    bottom:16px;
-    width:54px;
-    height:54px;
-  }
-
-  .whatsapp-float svg{
-    width:28px;
-    height:28px;
   }
 }
