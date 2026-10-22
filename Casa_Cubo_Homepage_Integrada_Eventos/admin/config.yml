@@ -466,8 +466,21 @@ collections:
         widget: "string"
         required: false
 
-      - label: "Contenido"
+           - label: "Contenido"
         name: "body"
         widget: "markdown"
 
-      - label
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "taller-regular.njk"
+
+      - label: "Permalink"
+        name: "permalink"
+        widget: "hidden"
+        default: "/crear-nuevos-mundos/{{slug}}/"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "hidden"
+        default: "talleres_regulares"
