@@ -1,0 +1,22 @@
+{
+  "hero_carousel": [
+    {
+      "image": "/assets/img/hero.jpg",
+      "alt": "Mesa de trabajo de Casa Cubo",
+      "link": "",
+      "new_tab": false
+    }
+  ],
+  "popup": {
+    "enabled": false,
+    "id": "general",
+    "title": "Algo nuevo está pasando en Casa Cubo",
+    "text": "Conocé nuestras próximas experiencias, talleres y encuentros.",
+    "image": "",
+    "button_text": "Ver experiencias",
+    "button_link": "/eventos/",
+    "new_tab": false,
+    "delay_seconds": 12,
+    "repeat_days": 7
+  }
+}
