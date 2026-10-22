@@ -408,19 +408,144 @@ h2{
    EXPERIENCIAS
    ========================================================== */
 
-.workshops{
-  position:relative;
-  display:grid;
-  grid-template-columns:290px 1fr;
-  gap:42px;
-  padding-top:35px;
-  padding-bottom:60px;
-  border-top:1px solid var(--line);
-  background:var(--seashell);
+.workshops .eyebrow{
+  color:var(--red);
 }
 
-.workshops .eyebrow{
-  color:var(--/* ==========================================================
+.section-intro h2,
+.about-copy h2{
+  font-size:40px;
+  line-height:.98;
+  margin:13px 0 18px;
+}
+
+.section-intro p{
+  font-size:14px;
+  line-height:1.55;
+  color:#4D4A46;
+}
+
+.workshop-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.workshop-card{
+  border:1px solid rgba(29,29,27,.12);
+  border-radius:8px;
+  overflow:hidden;
+  background:#F5F0E8;
+  padding-bottom:18px;
+  position:relative;
+}
+
+.card-image{
+  height:125px;
+  overflow:hidden;
+}
+
+.card-image img{
+  transition:transform .45s ease;
+}
+
+.workshop-card:hover .card-image img{
+  transform:scale(1.05);
+}
+
+.workshop-card h3,
+.workshop-card p,
+.workshop-card a{
+  margin-left:16px;
+  margin-right:16px;
+}
+
+.workshop-card h3{
+  font-size:17px;
+  line-height:1.1;
+  margin-top:15px;
+  margin-bottom:9px;
+  color:var(--black);
+}
+
+.workshop-card p{
+  font-size:12px;
+  line-height:1.4;
+  color:#57544F;
+}
+
+.workshop-card .date{
+  margin-bottom:8px;
+  color:#333;
+}
+
+.workshop-card a{
+  display:inline-block;
+  text-decoration:underline;
+  font-size:12px;
+  margin-top:7px;
+  color:var(--black);
+  font-weight:700;
+}
+
+.pill{
+  position:absolute;
+  top:12px;
+  left:12px;
+  border-radius:30px;
+  padding:6px 12px;
+  font-size:10px;
+  font-weight:600;
+}
+
+.workshop-card:nth-child(4n+1) .pill{
+  background:var(--mustard);
+}
+
+.workshop-card:nth-child(4n+2) .pill{
+  background:var(--pink);
+}
+
+.workshop-card:nth-child(4n+3) .pill{
+  background:var(--sky);
+}
+
+.workshop-card:nth-child(4n+4) .pill{
+  background:var(--tangerine);
+}
+
+.slider-arrow{
+  position:absolute;
+  right:-18px;
+  top:50%;
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:var(--sky);
+  color:var(--black);
+  font-size:20px;
+}
+
+.slider-arrow:hover{
+  background:var(--lavender);
+}
+
+.workshop-empty{
+  min-height:260px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.anchor-target{
+  display:block;
+  position:relative;
+  top:-100px;
+  visibility:hidden;
+}
+
+/* ==========================================================
    COMUNIDAD
    ========================================================== */
 
