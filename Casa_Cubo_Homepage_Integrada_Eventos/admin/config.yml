@@ -25,14 +25,11 @@ collections:
     public_folder: "/assets/uploads"
 
     files:
-
       - label: "Carrusel y popup"
         name: "contenido_inicio"
         file: "Casa_Cubo_Homepage_Integrada_Eventos/content/_data/home.json"
 
         fields:
-
-          # CARRUSEL
 
           - label: "Carrusel principal"
             name: "hero_carousel"
@@ -41,7 +38,6 @@ collections:
             hint: "Podés agregar, quitar y reordenar imágenes."
 
             fields:
-
               - label: "Imagen"
                 name: "image"
                 widget: "image"
@@ -63,14 +59,12 @@ collections:
                 widget: "boolean"
                 default: false
 
-          # POPUP
 
           - label: "Popup"
             name: "popup"
             widget: "object"
 
             fields:
-
               - label: "Activar popup"
                 name: "enabled"
                 widget: "boolean"
@@ -94,3 +88,386 @@ collections:
 
               - label: "Imagen"
                 name: "image"
+                widget: "image"
+                required: false
+
+              - label: "Texto del botón"
+                name: "button_text"
+                widget: "string"
+                required: false
+                default: "Ver experiencias"
+
+              - label: "Link del botón"
+                name: "button_link"
+                widget: "string"
+                required: false
+                default: "/eventos/"
+
+              - label: "Abrir link en nueva pestaña"
+                name: "new_tab"
+                widget: "boolean"
+                default: false
+
+              - label: "Demora en segundos"
+                name: "delay_seconds"
+                widget: "number"
+                value_type: "int"
+                min: 0
+                default: 12
+
+              - label: "Volver a mostrar después de X días"
+                name: "repeat_days"
+                widget: "number"
+                value_type: "int"
+                min: 0
+                default: 7
+                hint: "Usá 0 para permitir que vuelva a mostrarse en cada nueva visita."
+
+
+  # ==========================================================
+  # EVENTOS
+  # ==========================================================
+
+  - name: "eventos"
+    label: "Eventos"
+    label_singular: "Evento"
+
+    folder: "Casa_Cubo_Homepage_Integrada_Eventos/content/eventos"
+    create: true
+    path: "{{slug}}/index"
+
+    media_folder: ""
+    public_folder: ""
+
+    sortable_fields:
+      - sort_date
+      - title
+      - status
+
+    summary: "{{title}} — {{sort_date}}"
+
+    fields:
+      - label: "Título"
+        name: "title"
+        widget: "string"
+
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        hint: "Será parte de la URL. Ej.: taller-de-ceramica"
+
+      - label: "Categoría"
+        name: "category"
+        widget: "select"
+        options:
+          - "Taller"
+          - "Experiencia"
+          - "Evento"
+          - "Exposición"
+
+      - label: "Estado"
+        name: "status"
+        widget: "select"
+        options:
+          - "borrador"
+          - "publicado"
+          - "finalizado"
+        default: "borrador"
+
+      - label: "Fecha principal"
+        name: "sort_date"
+        widget: "datetime"
+        date_format: "DD/MM/YYYY"
+        time_format: "HH:mm"
+        format: "YYYY-MM-DDTHH:mm:ss"
+
+      - label: "Horario"
+        name: "time"
+        widget: "string"
+
+      - label: "Duración"
+        name: "duration"
+        widget: "string"
+        required: false
+
+      - label: "Lugar"
+        name: "location"
+        widget: "string"
+        default: "Casa Cubo"
+
+      - label: "Precio"
+        name: "price"
+        widget: "number"
+        value_type: "int"
+        required: false
+
+      - label: "Imagen principal"
+        name: "image"
+        widget: "image"
+
+      - label: "Resumen"
+        name: "excerpt"
+        widget: "text"
+
+      - label: "Público"
+        name: "audience"
+        widget: "string"
+        required: false
+
+      - label: "Instructores"
+        name: "instructors"
+        widget: "list"
+        required: false
+
+        fields:
+          - label: "Nombre"
+            name: "name"
+            widget: "string"
+
+          - label: "Rol / profesión"
+            name: "role"
+            widget: "string"
+            required: false
+
+          - label: "Foto"
+            name: "image"
+            widget: "image"
+            required: false
+
+      - label: "Qué incluye"
+        name: "include"
+        widget: "list"
+
+        field:
+          label: "Ítem"
+          name: "item"
+          widget: "string"
+
+      - label: "Qué traer"
+        name: "bring"
+        widget: "list"
+        required: false
+
+        field:
+          label: "Ítem"
+          name: "item"
+          widget: "string"
+
+      - label: "Formulario de inscripción"
+        name: "form_url"
+        widget: "string"
+        required: false
+        hint: "Pegá la URL de Google Forms. Se recomienda terminar con ?embedded=true."
+
+      - label: "Contenido"
+        name: "body"
+        widget: "markdown"
+
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "evento.njk"
+
+      - label: "Permalink"
+        name: "permalink"
+        widget: "hidden"
+        default: "/eventos/{{slug}}/"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "hidden"
+        default: "eventos"
+
+
+  # ==========================================================
+  # CREAR NUEVOS MUNDOS
+  # ==========================================================
+
+  - name: "crear_nuevos_mundos"
+    label: "Crear Nuevos Mundos"
+
+    media_folder: "Casa_Cubo_Homepage_Integrada_Eventos/assets/uploads"
+    public_folder: "/assets/uploads"
+
+    files:
+      - label: "Página principal"
+        name: "pagina"
+        file: "Casa_Cubo_Homepage_Integrada_Eventos/content/crear-nuevos-mundos/index.md"
+
+        fields:
+          - label: "Texto superior"
+            name: "eyebrow"
+            widget: "string"
+
+          - label: "Título"
+            name: "title"
+            widget: "string"
+
+          - label: "Introducción"
+            name: "intro"
+            widget: "text"
+
+          - label: "Imagen principal"
+            name: "hero_image"
+            widget: "image"
+
+          - label: "Título agenda"
+            name: "agenda_title"
+            widget: "string"
+
+          - label: "Texto agenda"
+            name: "agenda_text"
+            widget: "text"
+
+          - label: "Imagen agenda semanal"
+            name: "agenda_image"
+            widget: "image"
+
+          - label: "Layout"
+            name: "layout"
+            widget: "hidden"
+            default: "crear-nuevos-mundos.njk"
+
+          - label: "Permalink"
+            name: "permalink"
+            widget: "hidden"
+            default: "/crear-nuevos-mundos/"
+
+
+  # ==========================================================
+  # TALLERES REGULARES
+  # ==========================================================
+
+  - name: "talleres_regulares"
+    label: "Talleres regulares"
+    label_singular: "Taller regular"
+
+    folder: "Casa_Cubo_Homepage_Integrada_Eventos/content/talleres-regulares"
+    create: true
+    path: "{{slug}}/index"
+
+    media_folder: "Casa_Cubo_Homepage_Integrada_Eventos/assets/uploads"
+    public_folder: "/assets/uploads"
+
+    sortable_fields:
+      - title
+      - category
+      - audience
+      - status
+
+    summary: "{{title}} — {{category}} — {{audience}}"
+
+    fields:
+      - label: "Título"
+        name: "title"
+        widget: "string"
+
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        hint: "Ej.: ceramica-inicial"
+
+      - label: "Estado"
+        name: "status"
+        widget: "select"
+        options:
+          - "borrador"
+          - "publicado"
+          - "finalizado"
+        default: "borrador"
+
+      - label: "Categoría"
+        name: "category"
+        widget: "string"
+        hint: "Ej.: Cerámica, Pintura, Bordado. Podés escribir categorías nuevas."
+
+      - label: "Destinado a"
+        name: "audience"
+        widget: "string"
+        hint: "Ej.: Infancias, Adolescentes, Adultos, Familias."
+
+      - label: "Días y horarios"
+        name: "schedule"
+        widget: "string"
+        hint: "Ej.: Lunes de 18:00 a 20:00"
+
+      - label: "Frecuencia"
+        name: "frequency"
+        widget: "string"
+        required: false
+        hint: "Ej.: Encuentro semanal"
+
+      - label: "Duración"
+        name: "duration"
+        widget: "string"
+        required: false
+
+      - label: "Lugar"
+        name: "location"
+        widget: "string"
+        default: "Casa Cubo"
+
+      - label: "Precio"
+        name: "price"
+        widget: "number"
+        value_type: "int"
+        required: false
+
+      - label: "Imagen principal"
+        name: "image"
+        widget: "image"
+
+      - label: "Resumen"
+        name: "excerpt"
+        widget: "text"
+
+      - label: "Instructores"
+        name: "instructors"
+        widget: "list"
+        required: false
+
+        fields:
+          - label: "Nombre"
+            name: "name"
+            widget: "string"
+
+          - label: "Rol / profesión"
+            name: "role"
+            widget: "string"
+            required: false
+
+          - label: "Foto"
+            name: "image"
+            widget: "image"
+            required: false
+
+      - label: "Qué incluye"
+        name: "include"
+        widget: "list"
+        required: false
+
+        field:
+          label: "Ítem"
+          name: "item"
+          widget: "string"
+
+      - label: "Qué traer"
+        name: "bring"
+        widget: "list"
+        required: false
+
+        field:
+          label: "Ítem"
+          name: "item"
+          widget: "string"
+
+      - label: "Formulario de inscripción"
+        name: "form_url"
+        widget: "string"
+        required: false
+
+      - label: "Contenido"
+        name: "body"
+        widget: "markdown"
+
+      - label
