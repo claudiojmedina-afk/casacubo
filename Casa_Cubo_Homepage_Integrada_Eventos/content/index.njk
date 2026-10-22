@@ -95,17 +95,59 @@ permalink: /
       </a>
     </div>
 
-    <div class="hero-photo photo-frame">
-      <img
-        src="/assets/img/hero.jpg"
-        alt="Mesa de trabajo de Casa Cubo"
-      >
-    </div>
+    <div class="hero-photo hero-carousel photo-frame" data-hero-carousel>
+      <div class="hero-carousel-track">
 
-    <div class="hero-index">
-      <strong>01</strong>
-      <span>02</span>
-      <span>03</span>
+        {% if home.hero_carousel and home.hero_carousel.length %}
+
+          {% for slide in home.hero_carousel %}
+
+            {% if slide.link %}
+              <a
+                class="hero-slide{% if loop.first %} is-active{% endif %}"
+                href="{{ slide.link }}"
+                {% if slide.new_tab %}target="_blank" rel="noopener"{% endif %}
+                aria-hidden="{% if loop.first %}false{% else %}true{% endif %}"
+              >
+                <img src="{{ slide.image }}" alt="{{ slide.alt or 'Casa Cubo' }}">
+              </a>
+            {% else %}
+              <div
+                class="hero-slide{% if loop.first %} is-active{% endif %}"
+                aria-hidden="{% if loop.first %}false{% else %}true{% endif %}"
+              >
+                <img src="{{ slide.image }}" alt="{{ slide.alt or 'Casa Cubo' }}">
+              </div>
+            {% endif %}
+
+          {% endfor %}
+
+        {% else %}
+
+          <div class="hero-slide is-active" aria-hidden="false">
+            <img src="/assets/img/hero.jpg" alt="Mesa de trabajo de Casa Cubo">
+          </div>
+
+        {% endif %}
+
+      </div>
+
+      {% if home.hero_carousel and home.hero_carousel.length > 1 %}
+        <button class="hero-carousel-arrow hero-carousel-prev" type="button" aria-label="Imagen anterior">←</button>
+        <button class="hero-carousel-arrow hero-carousel-next" type="button" aria-label="Imagen siguiente">→</button>
+
+        <div class="hero-carousel-dots" aria-label="Seleccionar imagen">
+          {% for slide in home.hero_carousel %}
+            <button
+              class="hero-carousel-dot{% if loop.first %} is-active{% endif %}"
+              type="button"
+              data-slide-index="{{ loop.index0 }}"
+              aria-label="Ver imagen {{ loop.index }}"
+              aria-current="{% if loop.first %}true{% else %}false{% endif %}"
+            ></button>
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
 
     <div class="cube-watermark" aria-hidden="true">◇</div>
@@ -603,6 +645,49 @@ permalink: /
 
 </footer>
 
+
+
+{% if home.popup and home.popup.enabled %}
+  <div
+    class="site-popup"
+    data-site-popup
+    data-popup-id="{{ home.popup.id or 'general' }}"
+    data-delay="{{ home.popup.delay_seconds or 12 }}"
+    data-repeat-days="{{ home.popup.repeat_days or 7 }}"
+    hidden
+  >
+    <div class="site-popup-backdrop" data-popup-close></div>
+
+    <section class="site-popup-dialog" role="dialog" aria-modal="true" aria-labelledby="site-popup-title">
+      <button class="site-popup-close" type="button" aria-label="Cerrar" data-popup-close>×</button>
+
+      {% if home.popup.image %}
+        <div class="site-popup-image">
+          <img src="{{ home.popup.image }}" alt="">
+        </div>
+      {% endif %}
+
+      <div class="site-popup-copy">
+        <span class="eyebrow">CASA CUBO</span>
+        <h2 id="site-popup-title">{{ home.popup.title }}</h2>
+
+        {% if home.popup.text %}
+          <p>{{ home.popup.text }}</p>
+        {% endif %}
+
+        {% if home.popup.button_text and home.popup.button_link %}
+          <a
+            class="button button-dark site-popup-button"
+            href="{{ home.popup.button_link }}"
+            {% if home.popup.new_tab %}target="_blank" rel="noopener"{% endif %}
+          >
+            {{ home.popup.button_text }} <span>→</span>
+          </a>
+        {% endif %}
+      </div>
+    </section>
+  </div>
+{% endif %}
 
 <a
   class="whatsapp-float"
