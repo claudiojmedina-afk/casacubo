@@ -145,7 +145,7 @@ collections:
         widget: "string"
         hint: "Será parte de la URL. Ej.: taller-de-ceramica"
 
-      - label: "Categoría"
+      - label: "Tipo"
         name: "category"
         widget: "select"
         options:
@@ -153,6 +153,16 @@ collections:
           - "Experiencia"
           - "Evento"
           - "Exposición"
+
+      - label: "Categorías"
+        name: "categories"
+        widget: "list"
+        required: false
+        hint: "Agregá una o varias categorías. Ej.: Fotografía, Pintura, Cerámica."
+        field:
+          label: "Categoría"
+          name: "category"
+          widget: "string"
 
       - label: "Estado"
         name: "status"
