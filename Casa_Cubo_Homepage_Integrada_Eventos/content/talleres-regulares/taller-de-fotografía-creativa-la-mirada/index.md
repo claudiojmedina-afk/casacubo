@@ -2,7 +2,8 @@
 title: Taller de Fotografía Creativa "La Mirada"
 slug: fotografia-creativa
 status: publicado
-category: fotografía
+categories:
+  - fotografía
 audience: Mayores de 18 años
 schedule: Martes de 15 a 17 h
 frequency: 6 encuentos semanales
@@ -20,6 +21,7 @@ bring:
 layout: taller-regular.njk
 permalink: /crear-nuevos-mundos/{{slug}}/
 tags: talleres_regulares
+category: fotografía
 ---
 La Mirada taller de Fotografía Creativa.
 
