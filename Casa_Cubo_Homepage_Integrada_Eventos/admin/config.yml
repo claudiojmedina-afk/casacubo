@@ -356,13 +356,13 @@ collections:
         default: "borrador"
 
       - label: "Categorías"
-        name: "category"
+        name: "categories"
         widget: "list"
         required: false
-        hint: "Agregá una o varias categorías. Ej.: Cerámica, Arte, Oficios."
+        hint: "Agregá todas las categorías que correspondan. Ej.: Fotografía, Pintura, Cerámica."
         field:
           label: "Categoría"
-          name: "item"
+          name: "category"
           widget: "string"
 
       - label: "Destinado a"
