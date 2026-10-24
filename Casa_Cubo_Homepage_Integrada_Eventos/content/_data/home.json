@@ -1,6 +1,6 @@
 {
   "popup": {
-    "enabled": false,
+    "enabled": true,
     "delay_seconds": 7,
     "button_link": "https://casacubo.com.ar/eventos/manos-obra/",
     "text": "hola mundo",
