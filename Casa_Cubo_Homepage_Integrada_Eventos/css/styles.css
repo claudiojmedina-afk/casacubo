@@ -1478,3 +1478,412 @@ body.popup-open{
     right:10px;
   }
 }
+/* ==========================================================
+   CUMPLES
+   ========================================================== */
+
+.cumples-page,
+.cumple-detail{
+  background:var(--seashell);
+}
+
+
+/* HERO */
+
+.cumples-hero{
+  min-height:440px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+  padding-top:70px;
+  padding-bottom:70px;
+}
+
+.cumples-hero-copy{
+  position:relative;
+}
+
+.cumples-hero h1{
+  margin:12px 0 20px;
+  font-family:"Space Grotesk",sans-serif;
+  font-size:clamp(62px,8vw,110px);
+  line-height:.82;
+  letter-spacing:-6px;
+}
+
+.cumples-lead{
+  max-width:470px;
+  font-size:23px;
+  line-height:1.25;
+  font-weight:600;
+}
+
+.cumples-hero-copy > p:not(.cumples-lead){
+  max-width:520px;
+  line-height:1.55;
+  color:#55514c;
+}
+
+.cumples-hero-art{
+  position:relative;
+  height:360px;
+}
+
+.cumples-shape{
+  position:absolute;
+}
+
+.cumples-shape-one{
+  width:75%;
+  height:90%;
+  right:0;
+  top:0;
+  border-radius:45% 55% 40% 60%;
+  background:var(--pink);
+}
+
+.cumples-shape-two{
+  width:45%;
+  height:55%;
+  left:5%;
+  bottom:0;
+  border-radius:50%;
+  background:var(--sky);
+}
+
+.cumples-doodle{
+  position:absolute;
+  right:12%;
+  top:20%;
+  z-index:2;
+  padding:30px;
+  transform:rotate(5deg);
+  border-radius:40% 60% 45% 55%;
+  background:var(--mustard);
+  font-family:"Space Grotesk",sans-serif;
+  font-weight:700;
+  font-size:22px;
+  line-height:1.25;
+}
+
+
+/* LISTADO */
+
+.cumples-options{
+  padding-top:60px;
+  padding-bottom:100px;
+}
+
+.cumples-section-header{
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+  align-items:flex-end;
+  margin-bottom:35px;
+}
+
+.cumples-section-header h2{
+  margin:7px 0 0;
+  font-size:48px;
+}
+
+.cumples-section-header p{
+  max-width:380px;
+  color:#57534e;
+}
+
+.cumples-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.cumple-card{
+  overflow:hidden;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 7px 24px rgba(29,29,27,.08);
+  transition:transform .25s ease;
+}
+
+.cumple-card:hover{
+  transform:translateY(-5px);
+}
+
+.cumple-card-image{
+  display:block;
+  height:260px;
+  overflow:hidden;
+}
+
+.cumple-card-image img{
+  transition:transform .4s ease;
+}
+
+.cumple-card:hover .cumple-card-image img{
+  transform:scale(1.04);
+}
+
+.cumple-card-content{
+  padding:22px;
+}
+
+.cumple-card h3{
+  margin:0 0 10px;
+  font-family:"Space Grotesk",sans-serif;
+  font-size:25px;
+  line-height:1;
+}
+
+.cumple-card-content p{
+  min-height:58px;
+  color:#55514c;
+  line-height:1.45;
+}
+
+.cumple-card-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  margin:20px 0;
+  font-size:13px;
+}
+
+.cumple-card-button{
+  display:flex;
+  justify-content:center;
+  padding:13px 18px;
+  border-radius:999px;
+  background:var(--pink);
+  color:var(--black);
+  font-weight:700;
+}
+
+
+/* DETALLE */
+
+.cumple-detail-hero{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:65px;
+  padding-top:65px;
+  padding-bottom:50px;
+}
+
+.cumple-breadcrumb{
+  display:flex;
+  gap:8px;
+  margin-bottom:40px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.cumple-detail-copy h1{
+  margin:15px 0 20px;
+  font-family:"Space Grotesk",sans-serif;
+  font-size:clamp(52px,6vw,82px);
+  line-height:.9;
+  letter-spacing:-4px;
+}
+
+.cumple-detail-excerpt{
+  font-size:22px;
+  line-height:1.35;
+  font-weight:600;
+}
+
+.cumple-description{
+  color:#55514c;
+  line-height:1.6;
+}
+
+.cumple-gallery-main{
+  height:450px;
+  overflow:hidden;
+  border-radius:25px;
+}
+
+.cumple-gallery-thumbs{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+}
+
+.cumple-gallery-thumb{
+  width:78px;
+  height:65px;
+  padding:0;
+  overflow:hidden;
+  border:3px solid transparent;
+  border-radius:10px;
+  background:none;
+  cursor:pointer;
+}
+
+.cumple-gallery-thumb.is-active{
+  border-color:var(--pink);
+}
+
+.cumple-gallery-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+
+/* DATOS */
+
+.cumple-facts{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  margin-bottom:55px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.cumple-fact{
+  padding:28px;
+  text-align:center;
+  border-right:1px solid var(--line);
+}
+
+.cumple-fact:last-child{
+  border-right:0;
+}
+
+.cumple-fact strong,
+.cumple-fact span{
+  display:block;
+}
+
+.cumple-fact strong{
+  margin-bottom:7px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.cumple-fact span{
+  font-family:"Space Grotesk",sans-serif;
+  font-size:20px;
+  font-weight:700;
+}
+
+
+/* INFORMACIÓN */
+
+.cumple-info{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  padding-bottom:60px;
+}
+
+.cumple-info-card{
+  padding:40px;
+  border-radius:28px;
+}
+
+.cumple-info-card h2{
+  margin:10px 0 25px;
+  font-size:36px;
+}
+
+.cumple-info-card ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.cumple-info-card li{
+  margin-bottom:12px;
+}
+
+.cumple-info-blue{
+  background:#D9F1EF;
+}
+
+.cumple-info-yellow{
+  background:#F5D979;
+}
+
+
+/* CTA */
+
+.cumple-cta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  margin-bottom:80px;
+  padding:40px 45px;
+  border-radius:28px;
+  background:var(--pink);
+}
+
+.cumple-cta h2{
+  margin:8px 0;
+  font-size:35px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .cumples-hero{
+    grid-template-columns:1fr;
+    padding-top:45px;
+  }
+
+  .cumples-hero h1{
+    font-size:66px;
+    letter-spacing:-4px;
+  }
+
+  .cumples-hero-art{
+    height:260px;
+  }
+
+  .cumples-section-header{
+    display:block;
+  }
+
+  .cumples-grid{
+    grid-template-columns:1fr;
+  }
+
+  .cumple-card-image{
+    height:250px;
+  }
+
+  .cumple-detail-hero{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .cumple-gallery{
+    order:-1;
+  }
+
+  .cumple-gallery-main{
+    height:320px;
+  }
+
+  .cumple-facts{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .cumple-fact:nth-child(2n){
+    border-right:0;
+  }
+
+  .cumple-info{
+    grid-template-columns:1fr;
+  }
+
+  .cumple-cta{
+    display:block;
+  }
+
+}
