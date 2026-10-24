@@ -340,11 +340,10 @@ collections:
 
     sortable_fields:
       - title
-      - category
       - audience
       - status
 
-    summary: "{{title}} — {{category}} — {{audience}}"
+    summary: "{{title}} — {{audience}}"
 
     fields:
       - label: "Título"
@@ -478,7 +477,7 @@ collections:
         name: "tags"
         widget: "hidden"
         default: "talleres_regulares"
-     - name: "cumples"
+  - name: "cumples"
     label: "Cumples"
     label_singular: "Opción de cumple"
 
