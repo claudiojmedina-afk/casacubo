@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>{{ title }} | Cumples Casa Cubo</title>
+
+  <meta
+    name="description"
+    content="{{ excerpt }}"
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+  <a class="brand brand-logo" href="/">
+    <img
+      src="https://ik.imagekit.io/fo8ajuwvyo/logocc.png"
+      alt="Casa Cubo"
+    >
+  </a>
+
+  <nav class="main-nav">
+
+    <a href="/">Inicio</a>
+
+    <a href="/crear-nuevos-mundos/">
+      Clases
+    </a>
+
+    <a href="/eventos/">
+      Eventos
+    </a>
+
+    <a class="active" href="/cumples/">
+      Cumples
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main class="cumple-detail">
+
+  <section class="cumple-detail-hero section-shell">
+
+    <div class="cumple-detail-copy">
+
+      <div class="cumple-breadcrumb">
+
+        <a href="/cumples/">
+          Cumples
+        </a>
+
+        <span>→</span>
+
+        <span>{{ title }}</span>
+
+      </div>
+
+      <span class="eyebrow">
+        CUMPLE CREATIVO
+      </span>
+
+      <h1>
+        {{ title }}
+      </h1>
+
+      <p class="cumple-detail-excerpt">
+        {{ excerpt }}
+      </p>
+
+      <div class="cumple-description">
+        {{ description | safe }}
+      </div>
+
+    </div>
+
+
+    <div class="cumple-gallery" data-cumple-gallery>
+
+      <div class="cumple-gallery-main">
+
+        <img
+          data-cumple-main-image
+          src="{{ cover_image }}"
+          alt="{{ title }}"
+        >
+
+      </div>
+
+
+      {% if gallery %}
+
+        <div class="cumple-gallery-thumbs">
+
+          <button
+            class="cumple-gallery-thumb is-active"
+            type="button"
+            data-gallery-image="{{ cover_image }}"
+          >
+            <img
+              src="{{ cover_image }}"
+              alt="{{ title }}"
+            >
+          </button>
+
+
+          {% for photo in gallery %}
+
+            <button
+              class="cumple-gallery-thumb"
+              type="button"
+              data-gallery-image="{{ photo.image }}"
+            >
+              <img
+                src="{{ photo.image }}"
+                alt="{{ photo.alt or title }}"
+              >
+            </button>
+
+          {% endfor %}
+
+        </div>
+
+      {% endif %}
+
+    </div>
+
+  </section>
+
+
+  <section class="cumple-facts section-shell">
+
+    {% if age %}
+
+      <div class="cumple-fact">
+
+        <strong>Edad sugerida</strong>
+
+        <span>
+          {{ age }}
+        </span>
+
+      </div>
+
+    {% endif %}
+
+
+    <div class="cumple-fact">
+
+      <strong>Duración</strong>
+
+      <span>
+        {{ duration }}
+      </span>
+
+    </div>
+
+
+    {% if participants %}
+
+      <div class="cumple-fact">
+
+        <strong>Participantes</strong>
+
+        <span>
+          {{ participants }}
+        </span>
+
+      </div>
+
+    {% endif %}
+
+
+    {% if price %}
+
+      <div class="cumple-fact">
+
+        <strong>Precio</strong>
+
+        <span>
+          ${{ price | money_ar }}
+          {% if price_text %}
+            {{ price_text }}
+          {% endif %}
+        </span>
+
+      </div>
+
+    {% endif %}
+
+  </section>
+
+
+  <section class="cumple-info section-shell">
+
+    {% if include %}
+
+      <div class="cumple-info-card cumple-info-blue">
+
+        <span class="eyebrow">
+          TODO LISTO PARA FESTEJAR
+        </span>
+
+        <h2>
+          ¿Qué incluye?
+        </h2>
+
+        <ul>
+
+          {% for item in include %}
+
+            <li>
+              ✓ {{ item }}
+            </li>
+
+          {% endfor %}
+
+        </ul>
+
+      </div>
+
+    {% endif %}
+
+
+    {% if proposal %}
+
+      <div class="cumple-info-card cumple-info-yellow">
+
+        <span class="eyebrow">
+          LA EXPERIENCIA
+        </span>
+
+        <h2>
+          ¿Cómo es la propuesta?
+        </h2>
+
+        <div>
+          {{ proposal | safe }}
+        </div>
+
+      </div>
+
+    {% endif %}
+
+  </section>
+
+
+  <section class="cumple-cta section-shell">
+
+    <div>
+
+      <span class="eyebrow">
+        ¿LISTOS PARA FESTEJAR?
+      </span>
+
+      <h2>
+        Consultanos por fechas disponibles
+      </h2>
+
+      <p>
+        Contanos la edad, cantidad de chicos y la propuesta que eligieron.
+      </p>
+
+    </div>
+
+    <a
+      class="button button-dark"
+      href="{{ contact_url or 'https://wa.me/5491141720467' }}"
+      target="_blank"
+      rel="noopener"
+    >
+      Consultar disponibilidad →
+    </a>
+
+  </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+  <div class="footer-main section-shell">
+
+    <div class="footer-brand">
+
+      <div class="brand footer-logo">
+
+        <img
+          src="https://ik.imagekit.io/fo8ajuwvyo/logocc-blanco.png"
+          alt="Casa Cubo"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+  const gallery = document.querySelector('[data-cumple-gallery]');
+
+  if (gallery) {
+
+    const mainImage =
+      gallery.querySelector('[data-cumple-main-image]');
+
+    const buttons =
+      gallery.querySelectorAll('[data-gallery-image]');
+
+    buttons.forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        mainImage.src =
+          button.dataset.galleryImage;
+
+        buttons.forEach(item => {
+          item.classList.remove('is-active');
+        });
+
+        button.classList.add('is-active');
+
+      });
+
+    });
+
+  }
+
+</script>
+
+<script src="/js/script.js"></script>
+
+</body>
+</html>
