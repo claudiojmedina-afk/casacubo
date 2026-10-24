@@ -1,0 +1,14 @@
+{
+  "popup": {
+    "enabled": true,
+    "delay_seconds": 12,
+    "button_link": "https://casacubo.com.ar/eventos/manos-obra/",
+    "text": "hola mundo",
+    "new_tab": true,
+    "title": "hola mundo",
+    "button_text": "inscribite",
+    "repeat_days": 2,
+    "id": "manos a la obra",
+    "image": "https://ik.imagekit.io/fo8ajuwvyo/manos-obra.jpeg?updatedAt=1791947020292"
+  }
+}
