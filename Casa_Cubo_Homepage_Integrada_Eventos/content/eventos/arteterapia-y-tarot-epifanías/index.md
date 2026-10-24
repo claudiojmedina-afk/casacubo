@@ -18,7 +18,7 @@ audience: "+18"
 instructors:
   - name: Regi
   - name: Lucas
-form_url: https://share.google/ZA1tG3bWqubmoYYUj
+form_url: https://docs.google.com/forms/d/e/1FAIpQLSdPccwZO3yAXZgmLax1bUvXT03d_iNDaDyIYvhUs-S34NJy0Q/viewform?usp=sharing&ouid=110028201942561290463
 layout: evento.njk
 permalink: /eventos/{{slug}}/
 tags: eventos
