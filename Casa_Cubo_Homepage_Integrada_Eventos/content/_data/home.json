@@ -4,7 +4,7 @@
     "delay_seconds": 7,
     "button_link": "https://casacubo.com.ar/eventos/manos-obra/",
     "text": "hola mundo",
-    "new_tab": true,
+    "new_tab": false,
     "title": "hola mundo",
     "button_text": "inscribite",
     "repeat_days": 0,
