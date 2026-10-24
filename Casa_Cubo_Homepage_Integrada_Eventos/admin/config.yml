@@ -478,3 +478,133 @@ collections:
         name: "tags"
         widget: "hidden"
         default: "talleres_regulares"
+     - name: "cumples"
+    label: "Cumples"
+    label_singular: "Opción de cumple"
+
+    folder: "Casa_Cubo_Homepage_Integrada_Eventos/content/cumples"
+    create: true
+    path: "{{slug}}/index"
+
+    media_folder: "Casa_Cubo_Homepage_Integrada_Eventos/assets/uploads"
+    public_folder: "/assets/uploads"
+
+    sortable_fields:
+      - title
+      - status
+      - price
+
+    summary: "{{title}}"
+
+    fields:
+      - label: "Título"
+        name: "title"
+        widget: "string"
+        hint: "Ej.: Pintura en bastidor"
+
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        hint: "Ej.: pintura-en-bastidor"
+
+      - label: "Estado"
+        name: "status"
+        widget: "select"
+        options:
+          - "borrador"
+          - "publicado"
+        default: "borrador"
+
+      - label: "Descripción corta"
+        name: "excerpt"
+        widget: "text"
+        hint: "Texto que aparecerá en la tarjeta."
+
+      - label: "Descripción completa"
+        name: "description"
+        widget: "markdown"
+
+      - label: "Edad sugerida"
+        name: "age"
+        widget: "string"
+        required: false
+        hint: "Ej.: Desde 5 años"
+
+      - label: "Duración"
+        name: "duration"
+        widget: "string"
+        hint: "Ej.: 2 horas"
+
+      - label: "Cantidad de participantes"
+        name: "participants"
+        widget: "string"
+        required: false
+        hint: "Ej.: Hasta 15 chicos/as"
+
+      - label: "Precio"
+        name: "price"
+        widget: "number"
+        value_type: "int"
+        required: false
+
+      - label: "Texto del precio"
+        name: "price_text"
+        widget: "string"
+        required: false
+        hint: "Ej.: por niño/a"
+
+      - label: "Imagen principal"
+        name: "cover_image"
+        widget: "image"
+
+      - label: "Carrusel de imágenes"
+        name: "gallery"
+        widget: "list"
+        required: false
+        summary: "{{fields.alt}}"
+
+        fields:
+          - label: "Imagen"
+            name: "image"
+            widget: "image"
+
+          - label: "Descripción"
+            name: "alt"
+            widget: "string"
+            required: false
+
+      - label: "Qué incluye"
+        name: "include"
+        widget: "list"
+        required: false
+
+        field:
+          label: "Ítem"
+          name: "item"
+          widget: "string"
+
+      - label: "Cómo es la propuesta"
+        name: "proposal"
+        widget: "markdown"
+        required: false
+
+      - label: "Link de consulta"
+        name: "contact_url"
+        widget: "string"
+        required: false
+        default: "https://wa.me/5491141720467"
+
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "cumple.njk"
+
+      - label: "Permalink"
+        name: "permalink"
+        widget: "hidden"
+        default: "/cumples/{{slug}}/"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "hidden"
+        default: "cumples"     
