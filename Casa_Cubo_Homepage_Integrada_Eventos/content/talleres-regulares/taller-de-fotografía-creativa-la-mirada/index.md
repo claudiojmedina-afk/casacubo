@@ -9,7 +9,7 @@ schedule: Martes de 15 a 17 h
 frequency: 6 encuentos semanales
 duration: 6 encuentros
 location: Casa Cubo
-price: 149996
+price: 150000
 image: https://ik.imagekit.io/fo8ajuwvyo/fotografia-creativa.jpeg
 excerpt: Un espacio de 6 encuentros para aprender a mirar y a crear desde tu
   propia historia.
