@@ -2,7 +2,7 @@
 title: Manos A La Obra
 slug: manos-obra
 category: Evento
-status: publicado
+status: finalizado
 sort_date: 2026-10-25T10:30:00
 time: 10:30 a 13:00
 duration: 2:30
