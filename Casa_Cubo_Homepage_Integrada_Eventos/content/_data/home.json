@@ -1,14 +1,14 @@
 {
   "popup": {
-    "enabled": false,
-    "delay_seconds": 7,
-    "button_link": "https://casacubo.com.ar/eventos/manos-obra/",
-    "text": "hola mundo",
+    "enabled": true,
+    "delay_seconds": 10,
+    "button_link": "",
+    "text": "",
     "new_tab": false,
-    "title": "hola mundo",
-    "button_text": "inscribite",
-    "repeat_days": 0,
-    "id": "manos a la obra",
-    "image": "https://ik.imagekit.io/fo8ajuwvyo/manos-obra.jpeg?updatedAt=1791947020292"
+    "title": "Domingo 1/11 a las 11h",
+    "button_text": "",
+    "repeat_days": 2,
+    "id": "1111",
+    "image": "https://ik.imagekit.io/fo8ajuwvyo/1111.png"
   }
 }
