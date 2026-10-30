@@ -327,24 +327,31 @@
               {% endif %}
 
 
-              {% if taller.data.schedule and taller.data.schedule.length %}
+              {% if taller.data.schedule %}
 
                 <div class="cnm-schedule">
 
-                  {% for option in taller.data.schedule %}
+                  {% if taller.data.schedule[0] and taller.data.schedule[0].day %}
+
+                    {% for option in taller.data.schedule %}
+
+                      <p class="cnm-meta">
+                        ▣ {{ option.day }}
+
+                        {% if option.time %}
+                          · {{ option.time }}
+                        {% endif %}
+                      </p>
+
+                    {% endfor %}
+
+                  {% else %}
 
                     <p class="cnm-meta">
-                      ▣
-                      {% if option.day %}
-                        {{ option.day }}
-                      {% endif %}
-
-                      {% if option.time %}
-                        · {{ option.time }}
-                      {% endif %}
+                      ▣ {{ taller.data.schedule }}
                     </p>
 
-                  {% endfor %}
+                  {% endif %}
 
                 </div>
 
