@@ -17,7 +17,7 @@ schedule:
     time: 14:30 a 15:45 h
 frequency: Semanal
 location: Casa Cubo
-price: 70
+price: 80000
 image: https://ik.imagekit.io/fo8ajuwvyo/taller-infancias.png
 excerpt: Formación artísitca con juego y creación.
 instructors:
