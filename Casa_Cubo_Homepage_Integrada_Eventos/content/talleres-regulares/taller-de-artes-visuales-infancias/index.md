@@ -9,6 +9,8 @@ audience: 6 a 13 años
 schedule:
   - day: Martes
     time: 18 a 19:15 h
+  - day: Martes (Sede Bibliotea Florentino Ameghino)
+    time: 17:30 a 18:30
   - day: Miércoles
     time: 18 a 19:15 h
   - day: Jueves
@@ -32,8 +34,6 @@ tags: talleres_regulares
 
 
 
-
-
 **Formación artísitca con juego y profundidad**
 
 En Crear Nuevo Mundos entemos el arte como una experiencia de exploración, sensibilidad y construcción personal.
@@ -43,3 +43,7 @@ El ciclo 2026 se organiza en ejes mensuales que funcionan como hilo conductor. C
 **Ejes y técnicas**
 
 Cada mes integra distintas técnicas -dibujo, pintura, cerámica y técnicas mixtas- permitiendo ampliar recursos, fortalecer habilidades y enriquecer la mirada.
+
+**Procesos creativos**
+
+Cada niño y niña investiga, experimenta, prueba materiales, combina ideas y construye su propio recorrido dentro de una propuesta común.
