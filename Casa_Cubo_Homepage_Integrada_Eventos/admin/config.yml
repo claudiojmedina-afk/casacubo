@@ -183,6 +183,7 @@ collections:
       - label: "Horario"
         name: "time"
         widget: "string"
+        required: false
 
       - label: "Duración"
         name: "duration"
@@ -192,6 +193,7 @@ collections:
       - label: "Lugar"
         name: "location"
         widget: "string"
+        required: false
         default: "Casa Cubo"
 
       - label: "Precio"
@@ -236,6 +238,7 @@ collections:
       - label: "Qué incluye"
         name: "include"
         widget: "list"
+        required: false
 
         field:
           label: "Ítem"
@@ -256,11 +259,12 @@ collections:
         name: "form_url"
         widget: "string"
         required: false
-        hint: "Pegá la URL de Google Forms. Se recomienda terminar con ?embedded=true."
+        hint: "Dejalo vacío si este evento no requiere inscripción. Si usás Google Forms, se recomienda terminar con ?embedded=true."
 
       - label: "Contenido"
         name: "body"
         widget: "markdown"
+        required: false
 
       - label: "Layout"
         name: "layout"
