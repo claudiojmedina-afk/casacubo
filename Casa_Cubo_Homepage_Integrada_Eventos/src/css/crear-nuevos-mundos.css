@@ -350,4 +350,30 @@
 .cnm-hero-actions .button{
   margin-top:0;
 }
+.cnm-card-categories{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  z-index:2;
+}
 
+.cnm-card-image{
+  position:relative;
+}
+
+.cnm-category{
+  display:inline-flex;
+  align-items:center;
+  width:auto;
+  padding:6px 11px;
+  border-radius:999px;
+  background:var(--pink);
+  color:var(--black);
+  font-size:11px;
+  font-weight:700;
+  line-height:1;
+  white-space:nowrap;
+}
