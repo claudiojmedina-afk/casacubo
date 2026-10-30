@@ -1,4 +1,7 @@
-{% set eventoFinalizado = sort_date | isPastEvent %}
+{% set eventoFinalizado = (sort_date | isPastEvent) or status == "finalizado" %}
+{% set tieneInscripcion = form_url %}
+{% set tieneContenido = content and content | trim %}
+{% set tieneInfo = (include and include.length) or (bring and bring.length) %}
 
 <!doctype html>
 <html lang="es">
@@ -24,10 +27,12 @@
     content="{{ excerpt }}"
   >
 
-  <meta
-    property="og:image"
-    content="{{ image }}"
-  >
+  {% if image %}
+    <meta
+      property="og:image"
+      content="{{ image }}"
+    >
+  {% endif %}
 
   <meta
     property="og:type"
@@ -101,14 +106,16 @@
 
     <section class="event-hero">
 
-      <div class="hero-image">
+      {% if image %}
+        <div class="hero-image">
 
-        <img
-          src="{{ image }}"
-          alt="{{ title }}"
-        >
+          <img
+            src="{{ image }}"
+            alt="{{ title }}"
+          >
 
-      </div>
+        </div>
+      {% endif %}
 
 
       <div class="hero-copy">
@@ -119,7 +126,7 @@
             Finalizado
           </span>
 
-        {% else %}
+        {% elseif category %}
 
           <span class="pill">
             {{ category }}
@@ -138,9 +145,11 @@
         </h1>
 
 
-        <p class="lead">
-          {{ excerpt }}
-        </p>
+        {% if excerpt %}
+          <p class="lead">
+            {{ excerpt }}
+          </p>
+        {% endif %}
 
 
         <div class="hero-meta">
@@ -152,61 +161,78 @@
               {{ sort_date | date_es }}
             </strong>
 
-            <span>
-              {{ time }}
-            </span>
-          </div>
-
-
-          <div>
-            <small>DÓNDE</small>
-
-            <strong>
-              {{ location }}
-            </strong>
-
-            {% if duration %}
+            {% if time %}
               <span>
-                {{ duration }}
+                {{ time }}
               </span>
             {% endif %}
           </div>
 
 
-          <div>
-            <small>VALOR</small>
+          {% if location or duration %}
+            <div>
 
-            {% if price %}
+              {% if location %}
+                <small>DÓNDE</small>
+
+                <strong>
+                  {{ location }}
+                </strong>
+              {% endif %}
+
+              {% if duration %}
+                <span>
+                  {{ duration }}
+                </span>
+              {% endif %}
+
+            </div>
+          {% endif %}
+
+
+          {% if price %}
+            <div>
+              <small>VALOR</small>
+
               <strong>
                 {{ price | money_ar }}
               </strong>
-            {% endif %}
+            </div>
+          {% endif %}
 
-            {% if audience %}
-              <span>
+
+          {% if audience %}
+            <div>
+              <small>PARA QUIÉN</small>
+
+              <strong>
                 {{ audience }}
-              </span>
-            {% endif %}
-          </div>
+              </strong>
+            </div>
+          {% endif %}
 
         </div>
 
 
-        {% if eventoFinalizado %}
+        {% if tieneInscripcion %}
 
-          <span class="cta cta-disabled">
-            Evento finalizado
-          </span>
+          {% if eventoFinalizado %}
 
-        {% else %}
+            <span class="cta cta-disabled">
+              Evento finalizado
+            </span>
 
-          <a
-            class="cta"
-            href="#inscripcion"
-          >
-            Reservar mi lugar
-            <span>↘</span>
-          </a>
+          {% else %}
+
+            <a
+              class="cta"
+              href="#inscripcion"
+            >
+              Reservar mi lugar
+              <span>↘</span>
+            </a>
+
+          {% endif %}
 
         {% endif %}
 
@@ -218,57 +244,67 @@
 
     <!-- CONTENIDO -->
 
-    <section class="content-grid">
+    {% if tieneContenido or tieneInfo %}
 
-      <article class="article-copy">
+      <section class="content-grid">
 
-        {{ content | safe }}
+        {% if tieneContenido %}
 
-      </article>
-
-
-      <aside class="info-card">
-
-        {% if include and include.length %}
-
-          <p class="eyebrow">
-            ESTA EXPERIENCIA INCLUYE
-          </p>
-
-          <ul>
-
-            {% for item in include %}
-              <li>
-                {{ item }}
-              </li>
-            {% endfor %}
-
-          </ul>
+          <article class="article-copy">
+            {{ content | safe }}
+          </article>
 
         {% endif %}
 
 
-        {% if bring and bring.length %}
+        {% if tieneInfo %}
 
-          <p class="eyebrow second">
-            TENÉS QUE TRAER
-          </p>
+          <aside class="info-card">
 
-          <ul>
+            {% if include and include.length %}
 
-            {% for item in bring %}
-              <li>
-                {{ item }}
-              </li>
-            {% endfor %}
+              <p class="eyebrow">
+                ESTA EXPERIENCIA INCLUYE
+              </p>
 
-          </ul>
+              <ul>
+
+                {% for item in include %}
+                  <li>
+                    {{ item }}
+                  </li>
+                {% endfor %}
+
+              </ul>
+
+            {% endif %}
+
+
+            {% if bring and bring.length %}
+
+              <p class="eyebrow second">
+                TENÉS QUE TRAER
+              </p>
+
+              <ul>
+
+                {% for item in bring %}
+                  <li>
+                    {{ item }}
+                  </li>
+                {% endfor %}
+
+              </ul>
+
+            {% endif %}
+
+          </aside>
 
         {% endif %}
 
-      </aside>
+      </section>
 
-    </section>
+    {% endif %}
 
 
 
@@ -305,17 +341,17 @@
 
               <div>
 
-                <h2>
-                  {{ instructor.name }}
-                </h2>
+                {% if instructor.name %}
+                  <h2>
+                    {{ instructor.name }}
+                  </h2>
+                {% endif %}
 
 
                 {% if instructor.role %}
-
                   <p>
                     {{ instructor.role }}
                   </p>
-
                 {% endif %}
 
               </div>
@@ -334,82 +370,81 @@
 
     <!-- INSCRIPCIÓN -->
 
-    {% if eventoFinalizado %}
+    {% if tieneInscripcion %}
+
+      {% if eventoFinalizado %}
+
+        <section
+          id="inscripcion"
+          class="registration registration-closed"
+        >
+
+          <div class="registration-head registration-head-closed">
+
+            <div>
+
+              <p class="eyebrow">
+                INSCRIPCIÓN CERRADA
+              </p>
+
+              <h2>
+                Esta experiencia ya finalizó.
+              </h2>
+
+            </div>
 
 
-      <section
-        id="inscripcion"
-        class="registration registration-closed"
-      >
+            <div class="registration-closed-copy">
 
-        <div class="registration-head registration-head-closed">
+              <p>
+                Este encuentro ya pasó, pero hay nuevas experiencias
+                sucediendo en Casa Cubo.
+              </p>
 
-          <div>
+              <a
+                class="closed-events-link"
+                href="/eventos/"
+              >
+                Ver próximas experiencias →
+              </a>
 
-            <p class="eyebrow">
-              INSCRIPCIÓN CERRADA
-            </p>
-
-            <h2>
-              Esta experiencia ya finalizó.
-            </h2>
+            </div>
 
           </div>
 
+        </section>
 
-          <div class="registration-closed-copy">
+
+      {% else %}
+
+
+        <section
+          id="inscripcion"
+          class="registration"
+        >
+
+          <div class="registration-head">
+
+            <div>
+
+              <p class="eyebrow">
+                RESERVÁ TU LUGAR
+              </p>
+
+              <h2>
+                Nos vemos en Casa Cubo.
+              </h2>
+
+            </div>
+
 
             <p>
-              Este encuentro ya pasó, pero hay nuevas experiencias
-              sucediendo en Casa Cubo.
+              Completá el formulario y tus datos quedarán registrados
+              para este evento.
             </p>
-
-            <a
-              class="closed-events-link"
-              href="/eventos/"
-            >
-              Ver próximas experiencias →
-            </a>
 
           </div>
 
-        </div>
-
-      </section>
-
-
-    {% else %}
-
-
-      <section
-        id="inscripcion"
-        class="registration"
-      >
-
-        <div class="registration-head">
-
-          <div>
-
-            <p class="eyebrow">
-              RESERVÁ TU LUGAR
-            </p>
-
-            <h2>
-              Nos vemos en Casa Cubo.
-            </h2>
-
-          </div>
-
-
-          <p>
-            Completá el formulario y tus datos quedarán registrados
-            para este evento.
-          </p>
-
-        </div>
-
-
-        {% if form_url %}
 
           <div class="form-frame">
 
@@ -423,10 +458,9 @@
 
           </div>
 
-        {% endif %}
+        </section>
 
-      </section>
-
+      {% endif %}
 
     {% endif %}
 
