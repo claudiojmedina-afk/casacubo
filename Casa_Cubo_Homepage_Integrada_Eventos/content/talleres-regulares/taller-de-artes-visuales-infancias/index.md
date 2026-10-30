@@ -32,13 +32,13 @@ tags: talleres_regulares
 
 
 
+
+
 **Formación artísitca con juego y profundidad**
 
 En Crear Nuevo Mundos entemos el arte como una experiencia de exploración, sensibilidad y construcción personal.
 
 El ciclo 2026 se organiza en ejes mensuales que funcionan como hilo conductor. Cada temática abre preguntas y propone desafíos creativos que se desarrollan a los largo del tiempo.
-
-
 
 **Ejes y técnicas**
 
