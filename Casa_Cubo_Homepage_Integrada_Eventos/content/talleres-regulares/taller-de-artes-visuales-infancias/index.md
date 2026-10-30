@@ -1,7 +1,7 @@
 ---
 title: Taller de Artes Visuales Infancias
 slug: artes-visuales-infancias
-status: borrador
+status: publicado
 categories:
   - Artes Visuales
   - Infancias
