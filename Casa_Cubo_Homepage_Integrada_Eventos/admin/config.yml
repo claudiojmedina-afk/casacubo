@@ -385,8 +385,20 @@ collections:
 
       - label: "Días y horarios"
         name: "schedule"
-        widget: "string"
-        hint: "Ej.: Lunes de 18:00 a 20:00"
+        widget: "list"
+        required: false
+        hint: "Agregá una o varias opciones de día y horario."
+
+        fields:
+          - label: "Día"
+            name: "day"
+            widget: "string"
+            hint: "Ej.: Lunes"
+
+          - label: "Horario"
+            name: "time"
+            widget: "string"
+            hint: "Ej.: 18:00 a 20:00"
 
       - label: "Frecuencia"
         name: "frequency"
