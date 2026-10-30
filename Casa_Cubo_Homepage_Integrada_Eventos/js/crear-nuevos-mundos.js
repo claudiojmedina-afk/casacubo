@@ -1,11 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const cards = [
-    ...document.querySelectorAll(".cnm-card")
-  ];
-
-  if (!cards.length) return;
-
+  const cards = Array.from(
+    document.querySelectorAll(".cnm-card")
+  );
 
   const audienceContainer =
     document.getElementById("audience-filters");
@@ -17,121 +14,198 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("cnm-empty");
 
 
-  const audiences = [
-    ...new Set(
-      cards
-        .map(card => card.dataset.audience)
-        .filter(Boolean)
-    )
-  ].sort();
+  let activeAudience = "all";
+  let activeCategory = "all";
 
 
-  const categories = [
-    ...new Set(
-      cards
-        .map(card => card.dataset.category)
-        .filter(Boolean)
-    )
-  ].sort();
+  /* ==========================================================
+     OBTENER PÚBLICOS
+     ========================================================== */
+
+  const audiences = new Set();
+
+  cards.forEach(card => {
+
+    const audience =
+      (card.dataset.audience || "")
+        .trim()
+        .toLowerCase();
+
+    if (audience) {
+      audiences.add(audience);
+    }
+
+  });
 
 
-  function pretty(value){
+  /* ==========================================================
+     OBTENER CATEGORÍAS
+     ========================================================== */
+
+  const categories = new Set();
+
+  cards.forEach(card => {
+
+    const rawCategories =
+      card.dataset.category || "";
+
+    const cardCategories =
+      rawCategories
+        .split("||")
+        .map(category => category.trim().toLowerCase())
+        .filter(Boolean);
+
+    cardCategories.forEach(category => {
+      categories.add(category);
+    });
+
+  });
+
+
+  /* ==========================================================
+     FORMATEAR TEXTO
+     ========================================================== */
+
+  function formatLabel(value) {
+
+    if (!value) return "";
 
     return value
       .split(" ")
       .map(word =>
-        word.charAt(0).toUpperCase() + word.slice(1)
+        word.charAt(0).toUpperCase() +
+        word.slice(1)
       )
       .join(" ");
 
   }
 
 
-  function createButton(
-    value,
-    type,
-    container
-  ){
+  /* ==========================================================
+     CREAR BOTONES DE PÚBLICO
+     ========================================================== */
 
-    const button =
-      document.createElement("button");
+  if (audienceContainer) {
 
-    button.type = "button";
+    audiences.forEach(audience => {
 
-    button.className = "cnm-filter";
+      const button =
+        document.createElement("button");
 
-    button.dataset.filterType = type;
+      button.type = "button";
 
-    button.dataset.filterValue = value;
+      button.className = "cnm-filter";
 
-    button.textContent = pretty(value);
+      button.dataset.filterType =
+        "audience";
 
-    container.appendChild(button);
+      button.dataset.filterValue =
+        audience;
+
+      button.textContent =
+        formatLabel(audience);
+
+      audienceContainer.appendChild(button);
+
+    });
 
   }
 
 
-  audiences.forEach(value =>
-    createButton(
-      value,
-      "audience",
-      audienceContainer
-    )
-  );
+  /* ==========================================================
+     CREAR BOTONES DE CATEGORÍAS
+     ========================================================== */
+
+  if (categoryContainer) {
+
+    categories.forEach(category => {
+
+      const button =
+        document.createElement("button");
+
+      button.type = "button";
+
+      button.className = "cnm-filter";
+
+      button.dataset.filterType =
+        "category";
+
+      button.dataset.filterValue =
+        category;
+
+      button.textContent =
+        formatLabel(category);
+
+      categoryContainer.appendChild(button);
+
+    });
+
+  }
 
 
-  categories.forEach(value =>
-    createButton(
-      value,
-      "category",
-      categoryContainer
-    )
-  );
+  /* ==========================================================
+     FILTRAR TARJETAS
+     ========================================================== */
 
+  function filterCards() {
 
-  let activeAudience = "all";
-
-  let activeCategory = "all";
-
-
-  function filterCards(){
-
-    let visible = 0;
+    let visibleCards = 0;
 
     cards.forEach(card => {
 
       const audience =
-        card.dataset.audience;
+        (card.dataset.audience || "")
+          .trim()
+          .toLowerCase();
 
-      const category =
-        card.dataset.category;
+
+      const categories =
+        (card.dataset.category || "")
+          .split("||")
+          .map(category =>
+            category.trim().toLowerCase()
+          )
+          .filter(Boolean);
 
 
-      const audienceMatch =
+      const audienceMatches =
         activeAudience === "all" ||
         audience === activeAudience;
 
 
-      const categoryMatch =
+      const categoryMatches =
         activeCategory === "all" ||
-        category === activeCategory;
+        categories.includes(activeCategory);
 
 
-      const show =
-        audienceMatch && categoryMatch;
+      const visible =
+        audienceMatches &&
+        categoryMatches;
 
 
-      card.hidden = !show;
+      card.hidden = !visible;
 
-      if(show) visible++;
+
+      if (visible) {
+        visibleCards++;
+      }
 
     });
 
 
-    emptyMessage.hidden = visible !== 0;
+    if (emptyMessage) {
+
+      emptyMessage.hidden =
+        visibleCards !== 0;
+
+    }
 
   }
 
+
+  /* ==========================================================
+     BOTONES DE FILTRO
+     ========================================================== */
 
   document.addEventListener(
     "click",
@@ -140,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const button =
         event.target.closest(".cnm-filter");
 
-      if(!button) return;
+      if (!button) return;
 
 
       const type =
@@ -150,35 +224,48 @@ document.addEventListener("DOMContentLoaded", () => {
         button.dataset.filterValue;
 
 
-      document
-        .querySelectorAll(
-          `.cnm-filter[data-filter-type="${type}"]`
-        )
-        .forEach(item =>
-          item.classList.remove("active")
-        );
-
-
-      button.classList.add("active");
-
-
-      if(type === "audience"){
+      if (type === "audience") {
 
         activeAudience = value;
 
+        document
+          .querySelectorAll(
+            '[data-filter-type="audience"]'
+          )
+          .forEach(item =>
+            item.classList.remove("active")
+          );
+
       }
 
 
-      if(type === "category"){
+      if (type === "category") {
 
         activeCategory = value;
 
+        document
+          .querySelectorAll(
+            '[data-filter-type="category"]'
+          )
+          .forEach(item =>
+            item.classList.remove("active")
+          );
+
       }
 
+
+      button.classList.add("active");
 
       filterCards();
 
     }
   );
+
+
+  /* ==========================================================
+     FILTRO INICIAL
+     ========================================================== */
+
+  filterCards();
 
 });
