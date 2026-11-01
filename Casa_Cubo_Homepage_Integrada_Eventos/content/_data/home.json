@@ -1,6 +1,6 @@
 {
   "popup": {
-    "enabled": true,
+    "enabled": false,
     "delay_seconds": 10,
     "button_link": "",
     "text": "",
