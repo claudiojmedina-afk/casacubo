@@ -1,0 +1,50 @@
+{
+  "title": "Talleres, oficios y experiencias creativas",
+  "text": "Un espacio para aprender, crear, compartir y dar forma a nuevas ideas.",
+
+  "image": "https://ik.imagekit.io/fo8ajuwvyo/hero.jpg",
+  "image_alt": "Casa Cubo",
+
+  "buttons": [
+    {
+      "label": "Agenda de talleres",
+      "icon": "▣",
+      "url": "/crear-nuevos-mundos/",
+      "new_tab": false
+    },
+    {
+      "label": "Tienda Casa Cubo",
+      "icon": "⌂",
+      "url": "https://crearnuevosmundos.empretienda.com.ar/",
+      "new_tab": true
+    },
+    {
+      "label": "Talleres regulares",
+      "icon": "✦",
+      "url": "/crear-nuevos-mundos/#talleres-regulares",
+      "new_tab": false
+    },
+    {
+      "label": "Próximos eventos",
+      "icon": "＋",
+      "url": "/#talleres",
+      "new_tab": false
+    },
+    {
+      "label": "Escribinos por WhatsApp",
+      "icon": "◉",
+      "url": "https://wa.me/5491141720467",
+      "new_tab": true
+    }
+  ],
+
+  "socials": [
+    {
+      "name": "Instagram",
+      "short": "IG",
+      "url": "https://instagram.com/"
+    }
+  ],
+
+  "location": "Benavidez 111 · Monte Grande"
+}
