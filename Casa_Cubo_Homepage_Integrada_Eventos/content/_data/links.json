@@ -1,10 +1,8 @@
 {
-  "title": "Talleres, oficios y experiencias creativas",
-  "text": "Un espacio para aprender, crear, compartir y dar forma a nuevas ideas.",
-
-  "image": "https://ik.imagekit.io/fo8ajuwvyo/hero.jpg",
+  "title": "Crear Nuevos Mundos",
+  "text": "Un espacio para aprender, crear, compartir y dar forma a nuevas ideas.Taller + tienda creativa 🎨🛍️ Arte, pintura & oficios manuales 🌿 Clases, juntadas & experiencias compartidas🙌 Sumate a crear💫",
+  "image": "http://ugc.production.linktr.ee/88dbd31a-a01d-4e42-a141-09adb28e783c_Diseno-sin-titulo--2-.png?io=true&size=avatar-v3_0",
   "image_alt": "Casa Cubo",
-
   "buttons": [
     {
       "label": "Agenda de talleres",
@@ -37,7 +35,6 @@
       "new_tab": true
     }
   ],
-
   "socials": [
     {
       "name": "Instagram",
@@ -45,6 +42,5 @@
       "url": "https://instagram.com/"
     }
   ],
-
   "location": "Benavidez 111 · Monte Grande"
 }
