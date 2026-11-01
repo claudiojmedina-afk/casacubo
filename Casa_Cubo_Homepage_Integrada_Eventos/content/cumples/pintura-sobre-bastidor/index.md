@@ -2,11 +2,11 @@
 title: Pintura Sobre Bastidor
 slug: pintura-bastidor
 status: publicado
-excerpt: Cada invitad@ crea su propia obra en lienzo
-description: Tu evento pintando y creando
+excerpt: Tu evento pintando y creando
+description: Cada invitad@ crea su propia obra en lienzo
 age: 6 en adelante
 duration: 2h
-participants: hasta 10
+participants: mínimo de 10
 price: ""
 price_text: Desde $20.000 por invitadx (mínimo 10)
 cover_image: https://ik.imagekit.io/fo8ajuwvyo/cumple-pintura-1.png
@@ -23,7 +23,7 @@ proposal: >-
 
 
   Menos pantallas, más manos manchadas.
-   Menos apuro, más juego.
+   Menos a puro, más juego.
 
   🌈 Un cumpleaños diferente
 contact_url: https://wa.me/5491141720467
