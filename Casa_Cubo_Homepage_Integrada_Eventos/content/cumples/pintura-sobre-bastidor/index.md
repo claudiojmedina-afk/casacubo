@@ -1,7 +1,7 @@
 ---
 title: Pintura Sobre Bastidor
 slug: pintura-bastidor
-status: publicado
+status: borrador
 excerpt: Tu evento pintando y creando
 description: Cada invitad@ crea su propia obra en lienzo
 age: 6 en adelante
