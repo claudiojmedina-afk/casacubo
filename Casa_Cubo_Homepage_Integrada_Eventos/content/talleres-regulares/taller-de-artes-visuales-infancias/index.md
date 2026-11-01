@@ -9,7 +9,7 @@ audience: 6 a 13 años
 schedule:
   - day: Martes
     time: 18 a 19:15 h
-  - day: Martes (Sede Bibliotea Florentino Ameghino)
+  - day: Martes (Biblioteca Florentino Ameghino)
     time: 17:30 a 18:30
   - day: Miércoles
     time: 18 a 19:15 h
@@ -21,7 +21,7 @@ frequency: Semanal
 location: Casa Cubo
 price: 80000
 image: https://ik.imagekit.io/fo8ajuwvyo/taller-infancias.png
-excerpt: Formación artísitca con juego y creación.
+excerpt: Formación artística con juego y creación.
 instructors:
   - name: Karin
   - name: Regi
@@ -32,11 +32,9 @@ tags: talleres_regulares
 ---
 > **El ciclo ya comenzó y los grupos se encuantran en actividad. Algunos espacios continúan abiertos para quienes deseen sumarse en esta etapa del año.**
 
+**Formación artística con juego y profundidad**
 
-
-**Formación artísitca con juego y profundidad**
-
-En Crear Nuevo Mundos entemos el arte como una experiencia de exploración, sensibilidad y construcción personal.
+En Crear Nuevo Mundos entendemos el arte como una experiencia de exploración, sensibilidad y construcción personal.
 
 El ciclo 2026 se organiza en ejes mensuales que funcionan como hilo conductor. Cada temática abre preguntas y propone desafíos creativos que se desarrollan a los largo del tiempo.
 
@@ -84,8 +82,6 @@ El arte se convierte así en una experiencia de crecimiento integral.
 
 Sostener un espacio donde el juego creativo conviva con la profundidad, el cuidado y la formación artística.
 
-
-
 **Modalidad y organización**
 
 **Modalidad anual**
@@ -113,8 +109,6 @@ En la sede Benavidez, los materiales están incluidos dentro del arancel, favore
 > Consultar disponibilidad actualizada de cupos
 > (los horarios pueden variar según el momento del año)
 
-
-
 **Sede Benavidez 111 · Monte Grande**
 
 Infancias 6 a 13 años
@@ -129,8 +123,6 @@ Infancias 6 a 13 años
 Infancias 6 a 9 años
 
 \- Martes · 17.30 a 18.30 hs
-
-
 
 **Aranceles 2026**
 
@@ -157,13 +149,6 @@ Valor mensual: $40.000
 
 (No incluye materiales)
 
-
-
 Información de pago
 
-Los pagos mensuales se realizan del 1 al 10 de cada mes.
-
-Alias para transferencia:
-karin.pinta
-
-Karin Elizabeth Guirland Ríos – Banco Provincia
+L
