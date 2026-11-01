@@ -1,32 +1,38 @@
 {
   "title": "Crear Nuevos Mundos",
   "text": "Un espacio para aprender, crear, compartir y dar forma a nuevas ideas.Taller + tienda creativa 🎨🛍️ Arte, pintura & oficios manuales 🌿 Clases, juntadas & experiencias compartidas🙌 Sumate a crear💫",
-  "image": "http://ugc.production.linktr.ee/88dbd31a-a01d-4e42-a141-09adb28e783c_Diseno-sin-titulo--2-.png?io=true&size=avatar-v3_0",
+  "image": "",
   "image_alt": "Casa Cubo",
   "buttons": [
     {
-      "label": "Agenda de talleres",
-      "icon": "▣",
-      "url": "/crear-nuevos-mundos/",
-      "new_tab": false
+      "new_tab": false,
+      "label": "Taller de Fotografía Creativa \"La Mirada\" - Crear Nuevos Mundos",
+      "url": "https://casacubo.com.ar/crear-nuevos-mundos/fotografia-creativa/"
     },
     {
-      "label": "Tienda Casa Cubo",
-      "icon": "⌂",
-      "url": "https://crearnuevosmundos.empretienda.com.ar/",
-      "new_tab": true
+      "new_tab": false,
+      "label": "Eventos de Noviembre",
+      "url": "https://casacubo.com.ar/eventos/"
     },
     {
-      "label": "Talleres regulares",
-      "icon": "✦",
-      "url": "/crear-nuevos-mundos/#talleres-regulares",
-      "new_tab": false
+      "new_tab": false,
+      "label": "Infancias_Proyecto CNM en curso",
+      "url": "https://casacubo.com.ar/crear-nuevos-mundos/artes-visuales-infancias/"
     },
     {
-      "label": "Próximos eventos",
-      "icon": "＋",
-      "url": "/#talleres",
-      "new_tab": false
+      "new_tab": false,
+      "label": "Clases de Dibujo y Pintura Adultxs (con Karin)",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSdLc5G9zY-uzcHKpVeCaPVLxiLklPPTV26pkC5NZqKZR6fM7Q/viewform"
+    },
+    {
+      "new_tab": false,
+      "label": "Taller de Bordado (introducción al bordado tradicional) en Crear Nuevos Mundos",
+      "url": "https://casacubo.com.ar/crear-nuevos-mundos/taller-bordado/"
+    },
+    {
+      "new_tab": false,
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSeAMlUFM1IFeZkFqbwHQbRHf9dui0VUI9rBzK889SFWl1Bjxw/viewform",
+      "label": "Festejá tu cumpleaños creando"
     },
     {
       "label": "Escribinos por WhatsApp",
@@ -39,7 +45,7 @@
     {
       "name": "Instagram",
       "short": "IG",
-      "url": "https://instagram.com/"
+      "url": "https://instagram.com/crearnuevosmundos"
     }
   ],
   "location": "Benavidez 111 · Monte Grande"
