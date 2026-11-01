@@ -1,0 +1,396 @@
+:root{
+  --black:#1D1D1B;
+  --seashell:#EAE4DA;
+  --cream:#F7F2EA;
+
+  --lavender:#808BC5;
+  --tea:#245E55;
+  --mustard:#EAC119;
+  --pink:#EAA7C7;
+  --sky:#9ED6DF;
+  --tangerine:#ED773C;
+}
+
+
+/* BASE */
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  min-height:100%;
+  background:var(--seashell);
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  min-height:100dvh;
+
+  background:var(--seashell);
+  color:var(--black);
+
+  font-family:"DM Sans",sans-serif;
+
+  -webkit-font-smoothing:antialiased;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+
+/* PAGE */
+
+.link-page{
+  position:relative;
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+
+  min-height:100vh;
+  min-height:100dvh;
+
+  padding:
+    max(24px,env(safe-area-inset-top))
+    16px
+    max(32px,env(safe-area-inset-bottom));
+
+  overflow:hidden;
+}
+
+
+/* DECORACIÓN */
+
+.decor{
+  position:fixed;
+  border-radius:999px;
+  pointer-events:none;
+  z-index:0;
+}
+
+.decor-lavender{
+  width:260px;
+  height:260px;
+
+  top:-100px;
+  left:-120px;
+
+  background:var(--lavender);
+}
+
+.decor-yellow{
+  width:220px;
+  height:220px;
+
+  top:-90px;
+  right:-100px;
+
+  background:var(--mustard);
+}
+
+.decor-pink{
+  width:230px;
+  height:230px;
+
+  bottom:-110px;
+  left:-110px;
+
+  background:var(--pink);
+}
+
+.decor-green{
+  width:200px;
+  height:200px;
+
+  bottom:80px;
+  right:-130px;
+
+  background:var(--tea);
+}
+
+
+/* CARD */
+
+.link-card{
+  position:relative;
+  z-index:2;
+
+  width:100%;
+  max-width:560px;
+
+  padding:30px 22px 26px;
+
+  background:rgba(247,242,234,.96);
+
+  border:1px solid rgba(29,29,27,.10);
+  border-radius:30px;
+
+  box-shadow:
+    0 25px 60px rgba(29,29,27,.15);
+
+  backdrop-filter:blur(10px);
+}
+
+
+/* LOGO */
+
+.link-logo{
+  display:block;
+  width:min(210px,60%);
+  margin:0 auto 26px;
+}
+
+.link-logo img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+
+/* IMAGEN */
+
+.link-image{
+  width:100%;
+  aspect-ratio:16 / 8.5;
+
+  margin-bottom:26px;
+
+  border-radius:22px;
+
+  overflow:hidden;
+}
+
+.link-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+
+/* TEXTO */
+
+.link-intro{
+  text-align:center;
+  padding:0 6px;
+  margin-bottom:26px;
+}
+
+.link-intro h1{
+  margin:0 0 12px;
+
+  font-family:"Space Grotesk",sans-serif;
+
+  font-size:clamp(30px,8vw,44px);
+  line-height:.98;
+  letter-spacing:-1.8px;
+}
+
+.link-intro p{
+  max-width:430px;
+  margin:0 auto;
+
+  font-size:15px;
+  line-height:1.5;
+
+  color:#514d47;
+}
+
+
+/* BOTONES */
+
+.link-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.link-button{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  min-height:62px;
+
+  padding:14px 17px;
+
+  border:1px solid rgba(29,29,27,.08);
+  border-radius:17px;
+
+  font-size:15px;
+  font-weight:700;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease;
+}
+
+.link-button:active{
+  transform:scale(.985);
+}
+
+.link-button-label{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.link-button-icon{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  width:30px;
+  height:30px;
+
+  font-size:20px;
+}
+
+.link-arrow{
+  font-size:25px;
+  font-weight:400;
+}
+
+
+/* COLORES */
+
+.link-button-1{
+  background:var(--pink);
+}
+
+.link-button-2{
+  background:var(--lavender);
+}
+
+.link-button-3{
+  background:var(--mustard);
+}
+
+.link-button-4{
+  background:var(--sky);
+}
+
+.link-button-5{
+  background:#E8DFD2;
+}
+
+.link-button-6{
+  background:var(--tangerine);
+}
+
+
+/* REDES */
+
+.link-socials{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+
+  margin:26px 0 20px;
+}
+
+.link-socials a{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  min-width:48px;
+  height:48px;
+
+  padding:0 13px;
+
+  border:1.5px solid var(--black);
+  border-radius:999px;
+
+  font-size:12px;
+  font-weight:700;
+}
+
+
+/* UBICACIÓN */
+
+.link-location{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:7px;
+
+  padding-top:18px;
+
+  border-top:1px solid rgba(29,29,27,.35);
+
+  font-size:14px;
+  text-align:center;
+}
+
+
+/* HOME */
+
+.link-home{
+  display:block;
+
+  margin-top:13px;
+
+  text-align:center;
+
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+
+  opacity:.55;
+}
+
+
+/* DESKTOP */
+
+@media(min-width:700px){
+
+  .link-page{
+    padding-top:40px;
+    padding-bottom:40px;
+  }
+
+  .link-card{
+    padding:36px 30px 30px;
+  }
+
+  .link-button:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+      0 10px 22px rgba(29,29,27,.12);
+  }
+
+}
+
+
+/* TELÉFONOS PEQUEÑOS */
+
+@media(max-width:380px){
+
+  .link-page{
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  .link-card{
+    padding:24px 16px;
+    border-radius:24px;
+  }
+
+  .link-intro h1{
+    font-size:30px;
+  }
+
+  .link-button{
+    min-height:58px;
+    padding:12px 14px;
+    font-size:14px;
+  }
+
+}
