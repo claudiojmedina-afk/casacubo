@@ -2,7 +2,6 @@
 <html lang="es">
 
 <head>
-
   <meta charset="utf-8">
 
   <meta
@@ -14,7 +13,6 @@
 
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/evento.css">
-
 </head>
 
 
@@ -30,7 +28,6 @@
   </a>
 
   <nav>
-
     <a href="/">
       Inicio
     </a>
@@ -38,7 +35,6 @@
     <a href="/crear-nuevos-mundos/">
       Crear Nuevos Mundos
     </a>
-
   </nav>
 
 </header>
@@ -46,275 +42,376 @@
 
 <main>
 
-<section class="event-hero">
+  <!-- HERO -->
 
-  <div class="hero-image">
+  <section class="event-hero">
 
-    <img
-      src="{{ image }}"
-      alt="{{ title }}"
-    >
+    {% if image %}
 
-  </div>
+      <div class="hero-image">
 
-
-  <div class="hero-copy">
-
-    {% if categories and categories.length %}
-
-      <div class="workshop-categories">
-
-        {% for item in categories %}
-
-          <span class="pill">
-            {{ item }}
-          </span>
-
-        {% endfor %}
+        <img
+          src="{{ image }}"
+          alt="{{ title }}"
+        >
 
       </div>
 
-    {% elseif category %}
-
-      <span class="pill">
-        {{ category }}
-      </span>
-
     {% endif %}
 
 
-    <h1>
-      {{ title }}
-    </h1>
+    <div class="hero-copy">
 
-    <p class="lead">
-      {{ excerpt }}
-    </p>
+      {% if categories and categories.length %}
 
+        <div class="workshop-categories">
 
-    <div class="hero-meta">
+          {% for item in categories %}
 
-      {% if audience %}
+            <span class="pill">
+              {{ item }}
+            </span>
 
-        <div>
-
-          <small>DESTINADO A</small>
-
-          <strong>
-            {{ audience }}
-          </strong>
+          {% endfor %}
 
         </div>
 
-      {% endif %}
+      {% elseif category %}
 
-
-      {% if schedule %}
-
-        <div>
-
-          <small>DÍAS Y HORARIOS</small>
-
-          <div class="schedule-list">
-
-            {% if schedule[0] and schedule[0].day %}
-
-              {% for option in schedule %}
-
-                <div class="schedule-option">
-
-                  <strong>
-                    {{ option.day }}
-                  </strong>
-
-                  {% if option.time %}
-                    <span>
-                      {{ option.time }}
-                    </span>
-                  {% endif %}
-
-                </div>
-
-              {% endfor %}
-
-            {% else %}
-
-              <strong>
-                {{ schedule }}
-              </strong>
-
-            {% endif %}
-
-          </div>
-
-        </div>
+        <span class="pill">
+          {{ category }}
+        </span>
 
       {% endif %}
 
 
-      {% if price %}
-
-        <div>
-
-          <small>VALOR</small>
-
-          <strong>
-            {{ price | money_ar }}
-          </strong>
-
-        </div>
-
-      {% endif %}
-
-    </div>
+      <h1>
+        {{ title }}
+      </h1>
 
 
-    <div class="hero-actions">
+      {% if excerpt %}
 
-      {% if form_url %}
-
-        <a
-          class="cta"
-          href="{{ form_url }}"
-          target="_blank"
-          rel="noopener"
-        >
-          Inscribirme <span>→</span>
-        </a>
+        <p class="lead">
+          {{ excerpt }}
+        </p>
 
       {% endif %}
 
 
-      <a
-        class="cta"
-        href="https://wa.me/5491141720467?text=Hola%2C%20vengo%20de%20la%20web%20y%20quiero%20consultar%20por%20el%20taller%20{{ title }}"
-        target="_blank"
-        rel="noopener"
-      >
-        Consultar por taller <span>→</span>
-      </a>
+      <div class="hero-meta">
 
-    </div>
+        {% if audience %}
 
-  </div>
+          <div>
 
-</section>
+            <small>
+              DESTINADO A
+            </small>
 
-
-<section class="content-grid">
-
-  <article class="article-copy">
-
-    {{ content | safe }}
-
-  </article>
-
-
-  <aside class="info-card">
-
-    {% if include and include.length %}
-
-      <p class="eyebrow">
-        QUÉ INCLUYE
-      </p>
-
-      <ul>
-
-        {% for item in include %}
-
-          <li>
-            {{ item }}
-          </li>
-
-        {% endfor %}
-
-      </ul>
-
-    {% endif %}
-
-
-    {% if bring and bring.length %}
-
-      <p class="eyebrow second">
-        QUÉ TRAER
-      </p>
-
-      <ul>
-
-        {% for item in bring %}
-
-          <li>
-            {{ item }}
-          </li>
-
-        {% endfor %}
-
-      </ul>
-
-    {% endif %}
-
-  </aside>
-
-</section>
-
-
-{% if instructors and instructors.length %}
-
-<section class="instructor-section">
-
-  <div>
-
-    <p class="eyebrow">
-      QUIÉNES GUÍAN EL TALLER
-    </p>
-
-
-    {% for instructor in instructors %}
-
-      <div class="instructor-item">
-
-        {% if instructor.image %}
-
-          <div class="instructor-photo">
-
-            <img
-              src="{{ instructor.image }}"
-              alt="{{ instructor.name }}"
-            >
+            <strong>
+              {{ audience }}
+            </strong>
 
           </div>
 
         {% endif %}
 
 
-        <div>
+        {% if schedule %}
 
-          <h2>
-            {{ instructor.name }}
-          </h2>
+          <div>
 
-          {% if instructor.role %}
+            <small>
+              DÍAS Y HORARIOS
+            </small>
 
-            <p>
-              {{ instructor.role }}
-            </p>
+            <div class="schedule-list">
 
-          {% endif %}
+              {% if schedule[0] and schedule[0].day %}
 
-        </div>
+                {% for option in schedule %}
+
+                  <div class="schedule-option">
+
+                    <strong>
+                      {{ option.day }}
+                    </strong>
+
+                    {% if option.time %}
+
+                      <span>
+                        {{ option.time }}
+                      </span>
+
+                    {% endif %}
+
+                  </div>
+
+                {% endfor %}
+
+              {% else %}
+
+                <strong>
+                  {{ schedule }}
+                </strong>
+
+              {% endif %}
+
+            </div>
+
+          </div>
+
+        {% endif %}
+
+
+        {% if price %}
+
+          <div>
+
+            <small>
+              VALOR
+            </small>
+
+            <strong>
+              {{ price | money_ar }}
+            </strong>
+
+          </div>
+
+        {% endif %}
 
       </div>
 
-    {% endfor %}
 
-  </div>
+      <div class="hero-actions">
 
-</section>
+        {% if form_url %}
 
-{% endif %}
+          <a
+            class="cta"
+            href="#inscripcion"
+          >
+            Inscribirme <span>→</span>
+          </a>
+
+        {% endif %}
+
+
+        <a
+          class="cta"
+          href="https://wa.me/5491141720467?text=Hola%2C%20vengo%20de%20la%20web%20y%20quiero%20consultar%20por%20el%20taller%20{{ title }}"
+          target="_blank"
+          rel="noopener"
+        >
+          Consultar por taller <span>→</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- CONTENIDO -->
+
+  {% if content or include or bring %}
+
+    <section class="content-grid">
+
+      {% if content %}
+
+        <article class="article-copy">
+          {{ content | safe }}
+        </article>
+
+      {% endif %}
+
+
+      {% if include or bring %}
+
+        <aside class="info-card">
+
+          {% if include and include.length %}
+
+            <p class="eyebrow">
+              QUÉ INCLUYE
+            </p>
+
+            <ul>
+
+              {% for item in include %}
+
+                <li>
+                  {{ item }}
+                </li>
+
+              {% endfor %}
+
+            </ul>
+
+          {% endif %}
+
+
+          {% if bring and bring.length %}
+
+            <p class="eyebrow second">
+              QUÉ TRAER
+            </p>
+
+            <ul>
+
+              {% for item in bring %}
+
+                <li>
+                  {{ item }}
+                </li>
+
+              {% endfor %}
+
+            </ul>
+
+          {% endif %}
+
+        </aside>
+
+      {% endif %}
+
+    </section>
+
+  {% endif %}
+
+
+
+  <!-- INSTRUCTORES -->
+
+  {% if instructors and instructors.length %}
+
+    <section class="instructor-section">
+
+      <div>
+
+        <p class="eyebrow">
+          QUIÉNES GUÍAN EL TALLER
+        </p>
+
+
+        {% for instructor in instructors %}
+
+          <div class="instructor-item">
+
+            {% if instructor.image %}
+
+              <div class="instructor-photo">
+
+                <img
+                  src="{{ instructor.image }}"
+                  alt="{{ instructor.name }}"
+                >
+
+              </div>
+
+            {% endif %}
+
+
+            <div>
+
+              {% if instructor.name %}
+
+                <h2>
+                  {{ instructor.name }}
+                </h2>
+
+              {% endif %}
+
+
+              {% if instructor.role %}
+
+                <p>
+                  {{ instructor.role }}
+                </p>
+
+              {% endif %}
+
+            </div>
+
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+    </section>
+
+  {% endif %}
+
+
+
+  <!-- INSCRIPCIÓN -->
+
+  {% if form_url %}
+
+    <section
+      id="inscripcion"
+      class="registration"
+    >
+
+      <div class="registration-head">
+
+        <div>
+
+          <p class="eyebrow">
+            INSCRIPCIÓN
+          </p>
+
+          <h2>
+            Sumate al taller
+          </h2>
+
+        </div>
+
+
+        <p>
+          Completá el formulario para reservar tu lugar.
+        </p>
+
+      </div>
+
+
+      <div class="form-frame">
+
+        <iframe
+          src="{{ form_url }}"
+          title="Formulario de inscripción: {{ title }}"
+          loading="lazy"
+        >
+          Cargando formulario…
+        </iframe>
+
+      </div>
+
+
+      <p>
+        <a
+          href="{{ form_url }}"
+          target="_blank"
+          rel="noopener"
+        >
+          Abrir formulario en otra pestaña ↗
+        </a>
+      </p>
+
+    </section>
+
+  {% endif %}
 
 </main>
 
+
+
+<!-- WHATSAPP -->
 
 <a
   class="whatsapp-float"
@@ -343,4 +440,3 @@
 
 </body>
 </html>
-```
