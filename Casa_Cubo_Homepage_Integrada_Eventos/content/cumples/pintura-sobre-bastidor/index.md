@@ -3,12 +3,12 @@ title: Pintura Sobre Bastidor
 slug: pintura-bastidor
 status: publicado
 excerpt: Cada invitad@ crea su propia obra en lienzo
-description: agregar un texto descriptivo largo
-age: 6 a 10 años
+description: Tu evento pintando y creando
+age: 6 en adelante
 duration: 2h
 participants: hasta 10
-price: 27994
-price_text: Precio x invitad@
+price: ""
+price_text: Desde $20.000 por invitadx (mínimo 10)
 cover_image: https://ik.imagekit.io/fo8ajuwvyo/cumple-pintura-1.png
 gallery:
   - image: https://ik.imagekit.io/fo8ajuwvyo/cumple-pintura-1.png
@@ -16,7 +16,16 @@ gallery:
 include:
   - Bastidor
   - Pinturas acrílicas
-proposal: acá la descripción larga
+proposal: >-
+  Celebramos tu evento o cumpleaños con una propuesta diferente: un encuentro de
+  arte donde cada invitado pinta, explora colores y formas, y se lleva su propia
+  obra como recuerdo del día.
+
+
+  Menos pantallas, más manos manchadas.
+   Menos apuro, más juego.
+
+  🌈 Un cumpleaños diferente
 contact_url: https://wa.me/5491141720467
 layout: cumple.njk
 permalink: /cumples/{{slug}}/
