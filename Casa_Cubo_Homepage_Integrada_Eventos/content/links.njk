@@ -1,0 +1,208 @@
+---
+permalink: /links/
+eleventyExcludeFromCollections: true
+---
+
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta
+    name="theme-color"
+    content="#EAE4DA"
+  >
+
+  <title>{{ links.title }} · Casa Cubo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="/css/links.css"
+  >
+</head>
+
+
+<body>
+
+<main class="link-page">
+
+  <div class="decor decor-lavender"></div>
+  <div class="decor decor-yellow"></div>
+  <div class="decor decor-pink"></div>
+  <div class="decor decor-green"></div>
+
+
+  <section class="link-card">
+
+    <!-- LOGO -->
+
+    <a
+      class="link-logo"
+      href="/"
+      aria-label="Ir a Casa Cubo"
+    >
+      <img
+        src="https://ik.imagekit.io/fo8ajuwvyo/logocc.png"
+        alt="Casa Cubo"
+      >
+    </a>
+
+
+    <!-- IMAGEN -->
+
+    {% if links.image %}
+
+      <div class="link-image">
+
+        <img
+          src="{{ links.image }}"
+          alt="{{ links.image_alt or links.title }}"
+        >
+
+      </div>
+
+    {% endif %}
+
+
+    <!-- PRESENTACIÓN -->
+
+    <div class="link-intro">
+
+      {% if links.title %}
+
+        <h1>
+          {{ links.title }}
+        </h1>
+
+      {% endif %}
+
+
+      {% if links.text %}
+
+        <p>
+          {{ links.text }}
+        </p>
+
+      {% endif %}
+
+    </div>
+
+
+    <!-- BOTONES -->
+
+    {% if links.buttons and links.buttons.length %}
+
+      <div class="link-buttons">
+
+        {% for button in links.buttons %}
+
+          <a
+            class="link-button link-button-{{ loop.index }}"
+            href="{{ button.url }}"
+            {% if button.new_tab %}
+              target="_blank"
+              rel="noopener"
+            {% endif %}
+          >
+
+            <span class="link-button-label">
+
+              {% if button.icon %}
+                <span class="link-button-icon">
+                  {{ button.icon }}
+                </span>
+              {% endif %}
+
+              <span>
+                {{ button.label }}
+              </span>
+
+            </span>
+
+            <span
+              class="link-arrow"
+              aria-hidden="true"
+            >
+              →
+            </span>
+
+          </a>
+
+        {% endfor %}
+
+      </div>
+
+    {% endif %}
+
+
+    <!-- REDES -->
+
+    {% if links.socials and links.socials.length %}
+
+      <div class="link-socials">
+
+        {% for social in links.socials %}
+
+          <a
+            href="{{ social.url }}"
+            target="_blank"
+            rel="noopener"
+            aria-label="{{ social.name }}"
+          >
+            {{ social.short }}
+          </a>
+
+        {% endfor %}
+
+      </div>
+
+    {% endif %}
+
+
+    <!-- UBICACIÓN -->
+
+    {% if links.location %}
+
+      <div class="link-location">
+
+        <span aria-hidden="true">
+          ⌖
+        </span>
+
+        <span>
+          {{ links.location }}
+        </span>
+
+      </div>
+
+    {% endif %}
+
+
+    <a
+      class="link-home"
+      href="/"
+    >
+      casacubo.com.ar
+    </a>
+
+  </section>
+
+</main>
+
+</body>
+</html>
