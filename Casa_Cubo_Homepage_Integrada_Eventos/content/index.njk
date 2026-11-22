@@ -6,707 +6,176 @@ permalink: /
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta
-    name="description"
-    content="Casa Cubo — Arte, creatividad, talleres y comunidad."
-  >
-
-  <title>Casa Cubo — Arte, creatividad, talleres y comunidad</title>
-
+  <meta name="description" content="Casa Cubo — Arte, diseño, talleres y comunidad.">
+  <title>Casa Cubo — Arte, diseño, talleres y comunidad</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
-  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
 <header class="site-header">
-  <a class="brand brand-logo" href="/" aria-label="Casa Cubo, inicio">
-    <img
-      src="https://ik.imagekit.io/fo8ajuwvyo/logocc.png"
-      alt="Casa Cubo"
-    >
+  <a class="brand" href="index.html" aria-label="Casa Cubo, inicio">
+    <span class="brand-mark" aria-hidden="true">◇</span>
+    <span>CASA<br>CUBO</span>
   </a>
 
-  <button
-    class="menu-toggle"
-    type="button"
-    aria-expanded="false"
-    aria-controls="main-nav"
-  >
-    Menú
-  </button>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menú</button>
 
   <nav id="main-nav" class="main-nav">
     <a class="active" href="#inicio">Inicio</a>
-    <a href="#talleres">Experiencias</a>
-    <a href="#galeria">Mirá</a>
-    <a href="#nosotros">Comunidad</a>
-    <a href="#contacto">Escribinos</a>
+    <a href="#talleres">Talleres</a>
+    <a href="#eventos">Eventos</a>
+    <a href="#galeria">Galería</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
   </nav>
 
   <div class="header-actions">
     <a href="#" aria-label="Instagram">◎</a>
     <a href="#" aria-label="Facebook">●</a>
-
-    <a
-      class="store-link"
-      href="https://crearnuevosmundos.empretienda.com.ar/"
-      target="_blank"
-      rel="noopener"
-    >
+    <a class="store-link" href="https://casacubo.empretienda.com.ar/" target="_blank" rel="noopener">
       Tienda online ↗
     </a>
+    <small>en Empretienda.com</small>
   </div>
 </header>
 
-
 <main>
-
-  <!-- HERO -->
   <section id="inicio" class="hero section-shell">
-
     <div class="hero-copy">
       <span class="eyebrow">CASA CUBO</span>
-
-      <h1>
-        Arte,<br>
-        creatividad,<br>
-        talleres y<br>
-        comunidad.
-      </h1>
-
-      <p>
-        Un lugar para descubrir, aprender, hacer, compartir y encontrar
-        cosas que despierten curiosidad.
-      </p>
-
-      <a
-        class="button button-pink"
-        href="https://wa.me/5491141720467?text=Hola%2C%20vengo%20de%20la%20web%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20Casa%20Cubo"
-        target="_blank"
-        rel="noopener"
-      >
-        Conocé más <span>→</span>
-      </a>
+      <h1>Arte,<br> diseño,<br> talleres y<br> comunidad.</h1>
+      <p>Un espacio para crear, aprender, compartir y disfrutar. Talleres, eventos, exposiciones y mucho más.</p>
+      <a class="button button-pink" href="#nosotros">Conocé más <span>→</span></a>
     </div>
 
-    <div class="hero-photo hero-carousel photo-frame" data-hero-carousel>
-      <div class="hero-carousel-track">
-
-        {% if home.hero_carousel and home.hero_carousel.length %}
-
-          {% for slide in home.hero_carousel %}
-
-            {% if slide.link %}
-              <a
-                class="hero-slide{% if loop.first %} is-active{% endif %}"
-                href="{{ slide.link }}"
-                {% if slide.new_tab %}target="_blank" rel="noopener"{% endif %}
-                aria-hidden="{% if loop.first %}false{% else %}true{% endif %}"
-              >
-                <img src="{{ slide.image }}" alt="{{ slide.alt or 'Casa Cubo' }}">
-              </a>
-            {% else %}
-              <div
-                class="hero-slide{% if loop.first %} is-active{% endif %}"
-                aria-hidden="{% if loop.first %}false{% else %}true{% endif %}"
-              >
-                <img src="{{ slide.image }}" alt="{{ slide.alt or 'Casa Cubo' }}">
-              </div>
-            {% endif %}
-
-          {% endfor %}
-
-        {% else %}
-
-          <div class="hero-slide is-active" aria-hidden="false">
-            <img src="/assets/img/hero.jpg" alt="Mesa de trabajo de Casa Cubo">
-          </div>
-
-        {% endif %}
-
-      </div>
-
-      {% if home.hero_carousel and home.hero_carousel.length > 1 %}
-        <button class="hero-carousel-arrow hero-carousel-prev" type="button" aria-label="Imagen anterior">←</button>
-        <button class="hero-carousel-arrow hero-carousel-next" type="button" aria-label="Imagen siguiente">→</button>
-
-        <div class="hero-carousel-dots" aria-label="Seleccionar imagen">
-          {% for slide in home.hero_carousel %}
-            <button
-              class="hero-carousel-dot{% if loop.first %} is-active{% endif %}"
-              type="button"
-              data-slide-index="{{ loop.index0 }}"
-              aria-label="Ver imagen {{ loop.index }}"
-              aria-current="{% if loop.first %}true{% else %}false{% endif %}"
-            ></button>
-          {% endfor %}
-        </div>
-      {% endif %}
+    <div class="hero-photo photo-frame">
+      <img src="assets/img/hero.jpg" alt="Mesa de trabajo de Casa Cubo">
     </div>
 
+    <div class="hero-note">Crear<br>también es<br>una forma<br>de vivir
+      <span class="scribble">⌁</span>
+    </div>
+
+    <div class="hero-index"><strong>01</strong><span>02</span><span>03</span></div>
     <div class="cube-watermark" aria-hidden="true">◇</div>
   </section>
 
-
-  <!-- ACCESOS -->
   <section class="categories section-shell">
-
-    <!-- 1. CLASES -->
-    <a class="category cat-pink" href="/crear-nuevos-mundos/">
-      <div class="cat-icon">
-        <svg viewBox="0 0 48 48" aria-hidden="true">
-          <rect x="9" y="11" width="30" height="25" rx="2"/>
-          <path d="M14 17h20"/>
-          <path d="M14 23h12"/>
-          <path d="M14 29h8"/>
-          <path d="M30 29l3 3 6-7"/>
-        </svg>
-      </div>
-
-      <strong>Crear Nuevos Mundos</strong>
-
-      <small>
-        Talleres regulares<br>
-        Artes visuales
-      </small>
-
-      <b>→</b>
+    <a class="category cat-pink" href="#talleres">
+      <span class="cat-icon">◉</span><strong>Arte</strong><small>Pintura, técnicas mixtas<br>y arte.</small><b>→</b>
     </a>
-
-
-    <!-- 2. WORKSHOP -->
-    <a class="category cat-yellow" href="/crear-nuevos-mundos/">
-      <div class="cat-icon">
-        <svg viewBox="0 0 48 48" aria-hidden="true">
-          <path d="M13 35l9-9"/>
-          <path d="M26 22l9-9"/>
-          <path d="M31 10l7 7"/>
-          <path d="M10 38l6-1 20-20-5-5-20 20-1 6z"/>
-          <path d="M12 12l8 8"/>
-          <path d="M9 9l5 1-4 4-1-5z"/>
-        </svg>
-      </div>
-
-      <strong>Haceres</strong>
-
-      <small>
-        Oficios<br>
-        Workshops
-      </small>
-
-      <b>→</b>
+    <a class="category cat-green" href="#talleres">
+      <span class="cat-icon">⌁</span><strong>Diseño</strong><small>Objetos que inspiran<br>y decoran.</small><b>→</b>
     </a>
-
-
-    <!-- 3. CUMPLEAÑOS -->
-    <a class="category cat-lavender" href="/eventos/">
-      <div class="cat-icon">
-        <svg viewBox="0 0 48 48" aria-hidden="true">
-          <path d="M12 25h24v13H12z"/>
-          <path d="M10 25h28"/>
-          <path d="M16 25v-6h16v6"/>
-          <path d="M18 19v-4"/>
-          <path d="M24 19v-5"/>
-          <path d="M30 19v-4"/>
-          <path d="M18 12c1-2 2-3 2-5 2 2 3 3 2 5-1 2-3 2-4 0z"/>
-          <path d="M24 11c1-2 2-3 2-5 2 2 3 3 2 5-1 2-3 2-4 0z"/>
-          <path d="M30 12c1-2 2-3 2-5 2 2 3 3 2 5-1 2-3 2-4 0z"/>
-        </svg>
-      </div>
-
-      <strong>Eventos</strong>
-
-      <small>
-        Cumpleaños y celebraciones
-      </small>
-
-      <b>→</b>
+    <a class="category cat-yellow" href="#talleres">
+      <span class="cat-icon">♢</span><strong>Mecánica de bicis</strong><small>Talleres y mantenimiento.</small><b>→</b>
     </a>
-
-
-    <!-- 4. AGENDA -->
-    <a class="category cat-sky" href="/eventos/">
-      <div class="cat-icon">
-        <svg viewBox="0 0 48 48" aria-hidden="true">
-          <rect x="9" y="12" width="30" height="27" rx="2"/>
-          <path d="M15 8v8"/>
-          <path d="M33 8v8"/>
-          <path d="M9 20h30"/>
-          <path d="M15 26h5"/>
-          <path d="M24 26h5"/>
-          <path d="M33 26h1"/>
-          <path d="M15 32h5"/>
-          <path d="M24 32h5"/>
-          <path d="M33 32h1"/>
-        </svg>
-      </div>
-
-      <strong>Experiencias</strong>
-
-      <small>
-        Pintura, cerámica, tarot y más
-      </small>
-
-      <b>→</b>
+    <a class="category cat-pink" href="#talleres">
+      <span class="cat-icon">⌕</span><strong>Carpintería</strong><small>Herramientas y proyectos.</small><b>→</b>
     </a>
-
-
-    <!-- 5. ARTE -->
-    <a class="category cat-orange" href="/eventos/">
-      <div class="cat-icon">
-        <svg viewBox="0 0 48 48" aria-hidden="true">
-          <path d="M24 8c-9 0-16 6-16 14 0 8 7 15 15 15h3c2 0 3-1 3-3 0-2 1-3 3-3h3c3 0 5-2 5-5 0-10-7-18-16-18z"/>
-          <circle cx="16" cy="20" r="1.5"/>
-          <circle cx="22" cy="15" r="1.5"/>
-          <circle cx="29" cy="16" r="1.5"/>
-          <circle cx="34" cy="21" r="1.5"/>
-        </svg>
-      </div>
-
-      <strong>Arte</strong>
-
-      <small>
-        Muestras y encuentros
-      </small>
-
-      <b>→</b>
+    <a class="category cat-green" href="#talleres">
+      <span class="cat-icon">◌</span><strong>Cerámica</strong><small>Modelado y esmaltado.</small><b>→</b>
     </a>
-
-
-    <!-- 6. TIENDA -->
-    <a
-      class="category cat-tea"
-      href="https://crearnuevosmundos.empretienda.com.ar/"
-      target="_blank"
-      rel="noopener"
-    >
-      <div class="cat-icon">
-        <svg viewBox="0 0 48 48" aria-hidden="true">
-          <path d="M12 18h24l-2 21H14l-2-21z"/>
-          <path d="M17 18c0-5 3-9 7-9s7 4 7 9"/>
-          <path d="M18 25h12"/>
-        </svg>
-      </div>
-
-      <strong>Cosas Para Hacer Cosas</strong>
-
-      <small>
-        Entrá a nuestra tienda, seguro<br>
-        algo te llevás
-      </small>
-
-      <b>→</b>
+    <a class="category cat-yellow" href="https://casacubo.empretienda.com.ar/" target="_blank" rel="noopener">
+      <span class="cat-icon">✿</span><strong>Regalos</strong><small>Objetos únicos y especiales.</small><b>→</b>
     </a>
-
   </section>
 
-
-  <!-- EXPERIENCIAS -->
+  <span id="eventos" class="anchor-target" aria-hidden="true"></span>
   <section id="talleres" class="workshops section-shell">
-
     <div class="section-intro">
-      <span class="eyebrow">EXPERIENCIAS</span>
-
-      <h2>
-        Aprendé,<br>
-        creá, compartí
-      </h2>
-
-      <p>
-        Descubrí nuestra propuesta de talleres, eventos y experiencias
-        creativas. Desde técnicas tradicionales hasta propuestas
-        contemporáneas, todo en un ambiente cálido y relajado.
-      </p>
-
-      <a class="button button-dark" href="/eventos/">
-        Ver todas las experiencias <span>→</span>
-      </a>
+      <span class="eyebrow">TALLERES Y EVENTOS</span>
+      <h2>Aprendé,<br>creá, compartí</h2>
+      <p>Descubrí nuestra propuesta de talleres, eventos y experiencias creativas. Desde técnicas tradicionales hasta propuestas contemporáneas, todo en un ambiente cálido y relajado.</p>
+      <a class="button button-dark" href="/eventos/">Ver todos los talleres <span>→</span></a>
     </div>
 
-
-    <div class="workshop-grid">
-
-      {% for evento in collections.eventos %}
-        {% if evento.data.status == "publicado" %}
-
-          <article class="workshop-card">
-
-            <div class="card-image">
-              <img
-                src="{{ evento.data.image }}"
-                alt="{{ evento.data.title }}"
-              >
-            </div>
-
-            <span class="pill pill-pink">
-              {{ evento.data.category }}
-            </span>
-
+    <div class="workshop-grid" data-upcoming-list>
+      {% set proximos = collections.eventos | sort(attribute='data.sort_date') %}
+      {% for evento in proximos %}
+        {% if evento.data.status == 'publicado' or evento.data.status == 'finalizado' %}
+          <article class="workshop-card" data-event-start="{{ evento.data.sort_date }}" {% if evento.data.end_date %}data-event-end="{{ evento.data.end_date }}"{% endif %} data-event-status="{{ evento.data.status }}">
+            <div class="card-image"><img src="{{ evento.data.image }}" alt="{{ evento.data.title }}"></div>
+            <span class="pill pill-pink">{{ evento.data.category }}</span>
             <h3>{{ evento.data.title }}</h3>
-
-            <p class="date">
-              ▣ {{ evento.data.sort_date | date_short }}
-              ·
-              {{ evento.data.time }}
-            </p>
-
+            <p class="date">▣ {{ evento.data.sort_date | date_short }} · {{ evento.data.time }}</p>
             <p>{{ evento.data.excerpt }}</p>
-
-            <a href="{{ evento.url }}">
-              Ver más →
-            </a>
-
+            <a href="{{ evento.url }}">Ver más →</a>
           </article>
-
         {% endif %}
       {% endfor %}
-
-
-      {% if collections.eventos | length == 0 %}
-        <article class="workshop-card workshop-empty">
-          <h3>Próximamente</h3>
-          <p>Estamos preparando nuevas experiencias en Casa Cubo.</p>
-        </article>
-      {% endif %}
-
     </div>
-
-
-    <button
-      class="slider-arrow"
-      type="button"
-      aria-label="Ver todas las experiencias"
-      onclick="window.location.href='/eventos/'"
-    >
-      →
-    </button>
-
+    <p data-event-empty="[data-upcoming-list]" hidden>Estamos preparando nuevas experiencias.</p>
+    <div hidden data-past-list></div>
+    <a class="button button-dark" href="/eventos/">Ver agenda y experiencias anteriores <span>→</span></a>
+    <button class="slider-arrow" aria-label="Ver más eventos" onclick="window.location.href='/eventos/'">→</button>
   </section>
 
-
-  <!-- COMUNIDAD -->
   <section id="nosotros" class="about section-shell">
-
     <div class="about-photo photo-frame">
-      <img
-        src="/assets/img/about.jpg"
-        alt="Espacio creativo de Casa Cubo"
-      >
+      <img src="assets/img/about.jpg" alt="Espacio creativo de Casa Cubo">
     </div>
-
     <div class="about-copy">
-
       <span class="eyebrow">SOBRE CASA CUBO</span>
-
-      <h2>
-        Un lugar para crear nuevos mundos
-      </h2>
-
-      <div class="about-text">
-
-        <p>
-          Hay muchas formas de hacerlo: aprender un oficio, pintar, jugar,
-          reparar, inventar, compartir lo que sabemos, descubrir algo nuevo
-          o simplemente encontrarnos.
-        </p>
-
-        <p>
-          <em>CUBO es ese lugar.</em>
-        </p>
-
-        <p>
-          Un universo de arte, oficios, objetos, talleres, encuentros y
-          experiencias que crece a partir de una comunidad de personas
-          curiosas y creativas.
-        </p>
-
-        <p>
-          Un universo que ya tiene una historia y sigue tomando nuevas formas.
-        </p>
-
-        <p>
-          <em>Crear Nuevos Mundos es parte de ese mundo. CUBO también.</em>
-        </p>
-
-      </div>
-
-      <a class="button button-outline" href="/crear-nuevos-mundos/">
-        Conocé Crear Nuevos Mundos <span>→</span>
-      </a>
-
+      <h2>Más que una tienda,<br>una comunidad creativa</h2>
+      <p>Casa Cubo es un espacio donde el arte, el diseño y la creatividad se encuentran. Organizamos talleres, eventos y experiencias para todas las edades, con materiales incluidos y acompañamiento.</p>
+      <a class="button button-outline" href="#contacto">Conocé nuestra historia <span>→</span></a>
+      <div class="about-doodle">◇<br><em>La creatividad<br>también se<br>comparte ♥</em></div>
     </div>
-
   </section>
 
-
-  <!-- MIRÁ -->
-  <section id="galeria" class="look-section section-shell">
-
-    <div class="look-header">
-      <span class="eyebrow">MIRÁ</span>
-
-      <h2>
-        Cosas que pasan<br>
-        en Casa Cubo
-      </h2>
-
-      <p>
-        Talleres, objetos, encuentros, procesos y algunas cosas
-        difíciles de clasificar.
-      </p>
-
-      <a
-        class="button button-outline"
-        href="#"
-        target="_blank"
-        rel="noopener"
-      >
-        Ver Instagram&nbsp; ◎
-      </a>
+  <section id="galeria" class="instagram section-shell">
+    <div class="instagram-copy">
+      <span class="eyebrow">SEGUINOS EN INSTAGRAM</span>
+      <h2>@casacubo</h2>
+      <p>Compartimos procesos, talleres, obras, ideas y mucho más.</p>
+      <a class="button button-outline" href="#" target="_blank" rel="noopener">Seguinos&nbsp; ◎</a>
     </div>
-
-
-    <div class="look-grid">
-
-      <figure class="look-item look-a">
-        <img
-          src="/assets/img/insta-pinceles.jpg"
-          alt="Materiales y pinceles en Casa Cubo"
-        >
-      </figure>
-
-      <figure class="look-item look-b">
-        <img
-          src="/assets/img/insta-taller.jpg"
-          alt="Taller en Casa Cubo"
-        >
-      </figure>
-
-      <figure class="look-item look-c">
-        <img
-          src="/assets/img/insta-taza.jpg"
-          alt="Objeto realizado en Casa Cubo"
-        >
-      </figure>
-
-      <figure class="look-item look-d">
-        <img
-          src="/assets/img/insta-galeria.jpg"
-          alt="Galería de Casa Cubo"
-        >
-      </figure>
-
-      <figure class="look-item look-e">
-        <img
-          src="/assets/img/insta-plantas.jpg"
-          alt="Plantas y espacio de Casa Cubo"
-        >
-      </figure>
-
-      <figure class="look-item look-f">
-        <img
-          src="/assets/img/workshop-ceramica.jpg"
-          alt="Taller de cerámica"
-        >
-      </figure>
-
-      <figure class="look-item look-g">
-        <img
-          src="/assets/img/workshop-pintura.jpg"
-          alt="Taller de pintura"
-        >
-      </figure>
-
-      <figure class="look-item look-h">
-        <img
-          src="/assets/img/workshop-bicis.jpg"
-          alt="Taller de bicicletas"
-        >
-      </figure>
-
-      <figure class="look-item look-i">
-        <img
-          src="/assets/img/about.jpg"
-          alt="Casa Cubo"
-        >
-      </figure>
-
-      <figure class="look-item look-j">
-        <img
-          src="/assets/img/hero.jpg"
-          alt="Espacio Casa Cubo"
-        >
-      </figure>
-
+    <div class="instagram-grid">
+      <img src="assets/img/insta-pinceles.jpg" alt="Pinceles y materiales">
+      <img src="assets/img/insta-taller.jpg" alt="Actividad en Casa Cubo">
+      <img src="assets/img/insta-taza.jpg" alt="Objeto de Casa Cubo">
+      <img src="assets/img/insta-galeria.jpg" alt="Galería y obras">
+      <img src="assets/img/insta-plantas.jpg" alt="Espacio creativo">
     </div>
-
   </section>
 
-
-  <!-- ESCRIBINOS -->
   <section id="contacto" class="newsletter section-shell">
-
     <div class="newsletter-icon">✉</div>
-
     <div>
       <strong>Suscribite a nuestro newsletter</strong>
       <p>Recibí novedades, talleres, eventos y mucho más.</p>
     </div>
-
     <form id="newsletter-form">
-      <input
-        type="email"
-        placeholder="Tu correo electrónico"
-        required
-        aria-label="Tu correo electrónico"
-      >
-
-      <button type="submit">
-        Suscribirme
-      </button>
+      <input type="email" placeholder="Tu correo electrónico" required aria-label="Tu correo electrónico">
+      <button type="submit">Suscribirme</button>
     </form>
-
-    <div class="newsletter-note">
-      Ideas, proyectos<br>
-      y más en tu mail →
-    </div>
-
+    <div class="newsletter-note">Ideas, proyectos<br>y más en tu mail →</div>
   </section>
-
 </main>
 
-
 <footer class="site-footer">
-
   <div class="footer-main section-shell">
-
     <div class="footer-brand">
-      <div class="brand footer-logo">
-        <img
-          src="https://ik.imagekit.io/fo8ajuwvyo/logocc-blanco.png"
-          alt="Casa Cubo"
-        >
-      </div>
-
-      <p>
-        Arte · Creatividad · Talleres · Comunidad
-      </p>
+      <div class="brand footer-logo"><span class="brand-mark">◇</span><span>CASA<br>CUBO</span></div>
+      <p>Arte · Diseño · Talleres · Comunidad</p>
     </div>
-
-
     <nav class="footer-nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#talleres">Experiencias</a>
-      <a href="#galeria">Mirá</a>
-      <a href="#nosotros">Comunidad</a>
-      <a href="#contacto">Escribinos</a>
+      <a href="#inicio">Inicio</a><a href="#talleres">Talleres</a><a href="#eventos">Eventos</a><a href="#galeria">Galería</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a>
     </nav>
-
-
-    <div class="footer-location">
-      ⌖<br>
-      <strong>Benavidez 111</strong><br>
-      Monte Grande, Buenos Aires
-    </div>
-
-
-    <div class="footer-store">
-      Tienda online<br>
-
-      <a
-        href="https://crearnuevosmundos.empretienda.com.ar/"
-        target="_blank"
-        rel="noopener"
-      >
-        Ir a la tienda ↗
-      </a>
-    </div>
-
+    <div class="footer-location">⌖<br><strong>Benavidez 111</strong><br>Tigre, Buenos Aires</div>
+    <div class="footer-store">La tienda online funciona a través de<br><a href="https://casacubo.empretienda.com.ar/" target="_blank" rel="noopener">Empretienda.com ↗</a></div>
   </div>
-
-
   <div class="footer-bottom section-shell">
-    <span>
-      Términos y condiciones
-      &nbsp; | &nbsp;
-      Privacidad
-    </span>
-
-    <span>
-      Gracias por ser parte ♡
-    </span>
+    <span>Términos y condiciones &nbsp; | &nbsp; Privacidad</span>
+    <span>Gracias por ser parte ♡</span>
   </div>
-
 </footer>
 
-
-
-{% if home.popup and home.popup.enabled %}
-  <div
-    class="site-popup"
-    data-site-popup
-    data-popup-id="{{ home.popup.id or 'general' }}"
-    data-delay="{{ home.popup.delay_seconds or 12 }}"
-    data-repeat-days="{{ home.popup.repeat_days or 7 }}"
-    hidden
-  >
-    <div class="site-popup-backdrop" data-popup-close></div>
-
-    <section class="site-popup-dialog" role="dialog" aria-modal="true" aria-labelledby="site-popup-title">
-      <button class="site-popup-close" type="button" aria-label="Cerrar" data-popup-close>×</button>
-
-      {% if home.popup.image %}
-        <div class="site-popup-image">
-          <img src="{{ home.popup.image }}" alt="">
-        </div>
-      {% endif %}
-
-      <div class="site-popup-copy">
-        <span class="eyebrow">CASA CUBO</span>
-        <h2 id="site-popup-title">{{ home.popup.title }}</h2>
-
-        {% if home.popup.text %}
-          <p>{{ home.popup.text }}</p>
-        {% endif %}
-
-        {% if home.popup.button_text and home.popup.button_link %}
-          <a
-            class="button button-dark site-popup-button"
-            href="{{ home.popup.button_link }}"
-            {% if home.popup.new_tab %}target="_blank" rel="noopener"{% endif %}
-          >
-            {{ home.popup.button_text }} <span>→</span>
-          </a>
-        {% endif %}
-      </div>
-    </section>
-  </div>
-{% endif %}
-
-<a
-  class="whatsapp-float"
-  href="https://wa.me/5491141720467?text=Hola%2C%20vengo%20de%20la%20web%20de%20Casa%20Cubo"
-  target="_blank"
-  rel="noopener"
-  aria-label="Consultar por WhatsApp"
->
-  <svg viewBox="0 0 32 32" aria-hidden="true">
-    <path
-      d="M19.11 17.2c-.28-.14-1.64-.81-1.89-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.21-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.41-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.54-.45-.47-.62-.48h-.53c-.18 0-.48.07-.73.34-.25.28-.96.94-.96 2.28s.98 2.64 1.12 2.82c.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.66.21 1.25.18 1.72.11.52-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"
-    />
-    <path
-      d="M16.03 3C8.84 3 3 8.74 3 15.82c0 2.26.6 4.47 1.74 6.41L3 29l6.96-1.8a13.15 13.15 0 0 0 6.07 1.53h.01C23.22 28.73 29 22.99 29 15.9 29 8.82 23.22 3 16.03 3zm0 23.55h-.01a10.9 10.9 0 0 1-5.56-1.52l-.4-.24-4.13 1.07 1.1-4.01-.26-.41a10.66 10.66 0 0 1-1.64-5.62c0-5.9 4.9-10.7 10.91-10.7 6 0 10.88 4.81 10.88 10.73 0 5.9-4.89 10.7-10.89 10.7z"
-    />
-  </svg>
-</a>
-
-<script src="/js/script.js"></script>
-
+<script src="js/script.js"></script>
+<script src="/js/eventos-auto.js" defer></script>
 </body>
 </html>
