@@ -1,528 +1,91 @@
-{% set eventoFinalizado = (sort_date | isPastEvent) or status == "finalizado" %}
-{% set tieneInscripcion = form_url %}
-{% set tieneContenido = content and content | trim %}
-{% set tieneInfo = (include and include.length) or (bring and bring.length) %}
-
 <!doctype html>
 <html lang="es">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>{{ title }} | Casa Cubo</title>
-
-  <meta
-    name="description"
-    content="{{ excerpt }}"
-  >
-
-  <meta
-    property="og:title"
-    content="{{ title }} | Casa Cubo"
-  >
-
-  <meta
-    property="og:description"
-    content="{{ excerpt }}"
-  >
-
-  {% if image %}
-    <meta
-      property="og:image"
-      content="{{ image }}"
-    >
-  {% endif %}
-
-  <meta
-    property="og:type"
-    content="website"
-  >
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
+  <meta name="description" content="{{ excerpt }}">
+  <meta property="og:title" content="{{ title }} | Casa Cubo">
+  <meta property="og:description" content="{{ excerpt }}">
+  <meta property="og:image" content="{{ image }}">
+  <meta property="og:type" content="website">
   <link rel="stylesheet" href="/css/evento.css">
-
 </head>
-
-
-<body>
-
-
-  <!-- HEADER -->
-
+<body data-event-page data-event-start="{{ sort_date }}" {% if end_date %}data-event-end="{{ end_date }}"{% endif %} data-event-status="{{ status }}">
   <header class="site-header">
-
-    <a
-      class="brand brand-logo"
-      href="/"
-      aria-label="Casa Cubo, inicio"
-    >
-      <img
-        src="https://ik.imagekit.io/fo8ajuwvyo/logocc.png"
-        alt="Casa Cubo"
-      >
-    </a>
-
-
+    <a class="brand" href="/">CASA <span>CUBO</span></a>
     <nav>
-
-      <a href="/">
-        Inicio
-      </a>
-
-      <a href="/eventos/">
-        Eventos
-      </a>
-
-      <a href="/crear-nuevos-mundos/">
-        Crear Nuevos Mundos
-      </a>
-
-      <a
-        href="https://crearnuevosmundos.empretienda.com.ar/"
-        target="_blank"
-        rel="noopener"
-      >
-        Tienda online ↗
-      </a>
-
+      <a href="/eventos/">Eventos</a>
+      <a href="https://casacubo.empretienda.com.ar/" target="_blank" rel="noopener">Tienda online</a>
     </nav>
-
   </header>
 
-
-
   <main>
-
-
-    <!-- HERO -->
-
     <section class="event-hero">
-
-      {% if image %}
-        <div class="hero-image">
-
-          <img
-            src="{{ image }}"
-            alt="{{ title }}"
-          >
-
-        </div>
-      {% endif %}
-
-
+      <div class="hero-image"><img src="{{ image }}" alt="{{ title }}"></div>
       <div class="hero-copy">
-
-        {% if eventoFinalizado %}
-
-          <span class="pill pill-finished">
-            Finalizado
-          </span>
-
-        {% elseif category %}
-
-          <span class="pill">
-            {{ category }}
-          </span>
-
-        {% endif %}
-
-
-        <p class="eyebrow">
-          CASA CUBO / EXPERIENCIAS
-        </p>
-
-
-        <h1>
-          {{ title }}
-        </h1>
-
-
-        {% if excerpt %}
-          <p class="lead">
-            {{ excerpt }}
-          </p>
-        {% endif %}
-
-
+        <span class="pill">{{ category }}</span>
+        <p class="eyebrow">CASA CUBO / EXPERIENCIAS</p>
+        <h1>{{ title }}</h1>
+        <p class="lead">{{ excerpt }}</p>
         <div class="hero-meta">
-
-          <div>
-            <small>CUÁNDO</small>
-
-            <strong>
-              {{ sort_date | date_es }}
-            </strong>
-
-            {% if time %}
-              <span>
-                {{ time }}
-              </span>
-            {% endif %}
-          </div>
-
-
-          {% if location or duration %}
-            <div>
-
-              {% if location %}
-                <small>DÓNDE</small>
-
-                <strong>
-                  {{ location }}
-                </strong>
-              {% endif %}
-
-              {% if duration %}
-                <span>
-                  {{ duration }}
-                </span>
-              {% endif %}
-
-            </div>
-          {% endif %}
-
-
-          {% if price %}
-            <div>
-              <small>VALOR</small>
-
-              <strong>
-                {{ price | money_ar }}
-              </strong>
-            </div>
-          {% endif %}
-
-
-          {% if audience %}
-            <div>
-              <small>PARA QUIÉN</small>
-
-              <strong>
-                {{ audience }}
-              </strong>
-            </div>
-          {% endif %}
-
+          <div><small>CUÁNDO</small><strong>{{ sort_date | date_es }}</strong><span>{{ time }}</span></div>
+          <div><small>DÓNDE</small><strong>{{ location }}</strong><span>{{ duration }}</span></div>
+          <div><small>VALOR</small><strong>{{ price | money_ar }}</strong><span>{{ audience }}</span></div>
         </div>
-
-
-        {% if tieneInscripcion %}
-
-          {% if eventoFinalizado %}
-
-            <span class="cta cta-disabled">
-              Evento finalizado
-            </span>
-
-          {% else %}
-
-            <a
-              class="cta"
-              href="#inscripcion"
-            >
-              Reservar mi lugar
-              <span>↘</span>
-            </a>
-
-          {% endif %}
-
-        {% endif %}
-
+        <a class="cta" data-registration-cta href="#inscripcion">Reservar mi lugar <span>↘</span></a>
       </div>
-
     </section>
 
+    <section class="content-grid">
+      <article class="article-copy">
+        {{ content | safe }}
+      </article>
 
-
-    <!-- CONTENIDO -->
-
-    {% if tieneContenido or tieneInfo %}
-
-      <section class="content-grid">
-
-        {% if tieneContenido %}
-
-          <article class="article-copy">
-            {{ content | safe }}
-          </article>
-
+      <aside class="info-card">
+        <p class="eyebrow">ESTA EXPERIENCIA INCLUYE</p>
+        <ul>
+          {% for item in include %}<li>{{ item }}</li>{% endfor %}
+        </ul>
+        {% if bring and bring.length %}
+        <p class="eyebrow second">TENÉS QUE TRAER</p>
+        <ul>{% for item in bring %}<li>{{ item }}</li>{% endfor %}</ul>
         {% endif %}
+      </aside>
+    </section>
 
+    <section class="instructor-section">
+      <div class="instructor-photo"><img src="{{ instructor_image }}" alt="{{ instructor }}"></div>
+      <div>
+        <p class="eyebrow">QUIÉN GUÍA EL ENCUENTRO</p>
+        <h2>{{ instructor }}</h2>
+        <p>{{ instructor_role }}</p>
+      </div>
+    </section>
 
-        {% if tieneInfo %}
-
-          <aside class="info-card">
-
-            {% if include and include.length %}
-
-              <p class="eyebrow">
-                ESTA EXPERIENCIA INCLUYE
-              </p>
-
-              <ul>
-
-                {% for item in include %}
-                  <li>
-                    {{ item }}
-                  </li>
-                {% endfor %}
-
-              </ul>
-
-            {% endif %}
-
-
-            {% if bring and bring.length %}
-
-              <p class="eyebrow second">
-                TENÉS QUE TRAER
-              </p>
-
-              <ul>
-
-                {% for item in bring %}
-                  <li>
-                    {{ item }}
-                  </li>
-                {% endfor %}
-
-              </ul>
-
-            {% endif %}
-
-          </aside>
-
-        {% endif %}
-
-      </section>
-
-    {% endif %}
-
-
-
-    <!-- INSTRUCTORES -->
-
-    {% if instructors and instructors.length %}
-
-      <section class="instructor-section">
-
+    <section id="inscripcion" class="registration" data-registration-open>
+      <div class="registration-head">
         <div>
-
-          <p class="eyebrow">
-            QUIÉN GUÍA EL ENCUENTRO
-          </p>
-
-
-          {% for instructor in instructors %}
-
-            <div class="instructor-item">
-
-              {% if instructor.image %}
-
-                <div class="instructor-photo">
-
-                  <img
-                    src="{{ instructor.image }}"
-                    alt="{{ instructor.name }}"
-                  >
-
-                </div>
-
-              {% endif %}
-
-
-              <div>
-
-                {% if instructor.name %}
-                  <h2>
-                    {{ instructor.name }}
-                  </h2>
-                {% endif %}
-
-
-                {% if instructor.role %}
-                  <p>
-                    {{ instructor.role }}
-                  </p>
-                {% endif %}
-
-              </div>
-
-            </div>
-
-          {% endfor %}
-
+          <p class="eyebrow">RESERVÁ TU LUGAR</p>
+          <h2>Nos vemos en Casa Cubo.</h2>
         </div>
-
-      </section>
-
-    {% endif %}
-
-
-
-    <!-- INSCRIPCIÓN -->
-
-    {% if tieneInscripcion %}
-
-      {% if eventoFinalizado %}
-
-        <section
-          id="inscripcion"
-          class="registration registration-closed"
-        >
-
-          <div class="registration-head registration-head-closed">
-
-            <div>
-
-              <p class="eyebrow">
-                INSCRIPCIÓN CERRADA
-              </p>
-
-              <h2>
-                Esta experiencia ya finalizó.
-              </h2>
-
-            </div>
-
-
-            <div class="registration-closed-copy">
-
-              <p>
-                Este encuentro ya pasó, pero hay nuevas experiencias
-                sucediendo en Casa Cubo.
-              </p>
-
-              <a
-                class="closed-events-link"
-                href="/eventos/"
-              >
-                Ver próximas experiencias →
-              </a>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-      {% else %}
-
-
-        <section
-          id="inscripcion"
-          class="registration"
-        >
-
-          <div class="registration-head">
-
-            <div>
-
-              <p class="eyebrow">
-                RESERVÁ TU LUGAR
-              </p>
-
-              <h2>
-                Nos vemos en Casa Cubo.
-              </h2>
-
-            </div>
-
-
-            <p>
-              Completá el formulario y tus datos quedarán registrados
-              para este evento.
-            </p>
-
-          </div>
-
-
-          <div class="form-frame">
-
-            <iframe
-              src="{{ form_url }}"
-              title="Formulario de inscripción: {{ title }}"
-              loading="lazy"
-            >
-              Cargando formulario…
-            </iframe>
-
-          </div>
-
-        </section>
-
-      {% endif %}
-
-    {% endif %}
-
-
+        <p>Completá el formulario y tus datos quedarán registrados para este evento.</p>
+      </div>
+      <div class="form-frame">
+        <iframe src="{{ form_url }}" title="Formulario de inscripción: {{ title }}" loading="lazy">Cargando formulario…</iframe>
+      </div>
+    </section>
+    <section class="registration" data-registration-closed hidden>
+      <div class="registration-head"><div><p class="eyebrow">EXPERIENCIA FINALIZADA</p><h2>Este encuentro ya pasó.</h2></div><p>Podés conocer nuestras próximas experiencias en la agenda.</p></div>
+      <p><a class="cta" href="/eventos/">Ver próximas experiencias ↗</a></p>
+    </section>
   </main>
 
-
-
-  <!-- FOOTER -->
-
   <footer class="site-footer">
-
-    <a
-      class="brand brand-logo"
-      href="/"
-      aria-label="Casa Cubo, inicio"
-    >
-      <img
-        src="https://ik.imagekit.io/fo8ajuwvyo/logocc.png"
-        alt="Casa Cubo"
-      >
-    </a>
-
-    <p>
-      Arte · creatividad · talleres · comunidad
-    </p>
-
-    <a href="/eventos/">
-      Ver todos los eventos ↗
-    </a>
-
+    <a class="brand" href="/">CASA <span>CUBO</span></a>
+    <p>Arte · diseño · talleres · comunidad</p>
+    <a href="/eventos/">Ver todos los eventos ↗</a>
   </footer>
-
-
-
-  <!-- WHATSAPP -->
-
-  <a
-    class="whatsapp-float"
-    href="https://wa.me/5491141720467?text=Hola%2C%20vengo%20de%20la%20web%20de%20Casa%20Cubo"
-    target="_blank"
-    rel="noopener"
-    aria-label="Consultar por WhatsApp"
-  >
-
-    <svg
-      viewBox="0 0 32 32"
-      aria-hidden="true"
-    >
-
-      <path
-        d="M19.11 17.2c-.28-.14-1.64-.81-1.89-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.21-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.41-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.54-.45-.47-.62-.48h-.53c-.18 0-.48.07-.73.34-.25.28-.96.94-.96 2.28s.98 2.64 1.12 2.82c.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.66.21 1.25.18 1.72.11.52-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"
-      />
-
-      <path
-        d="M16.03 3C8.84 3 3 8.74 3 15.82c0 2.26.6 4.47 1.74 6.41L3 29l6.96-1.8a13.15 13.15 0 0 0 6.07 1.53h.01C23.22 28.73 29 22.99 29 15.9 29 8.82 23.22 3 16.03 3zm0 23.55h-.01a10.9 10.9 0 0 1-5.56-1.52l-.4-.24-4.13 1.07 1.1-4.01-.26-.41a10.66 10.66 0 0 1-1.64-5.62c0-5.9 4.9-10.7 10.91-10.7 6 0 10.88 4.81 10.88 10.73 0 5.9-4.89 10.7-10.89 10.7z"
-      />
-
-    </svg>
-
-  </a>
-
-
+<script src="/js/eventos-auto.js" defer></script>
 </body>
 </html>
