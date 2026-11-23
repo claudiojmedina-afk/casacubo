@@ -93,7 +93,7 @@ permalink: /
       <a class="button button-dark" href="/eventos/">Ver todos los talleres <span>→</span></a>
     </div>
 
-    <div class="workshop-grid" data-upcoming-list>
+    <div class="workshop-grid" data-home-events>
       {% set proximos = collections.eventos | sort(attribute='data.sort_date') %}
       {% for evento in proximos %}
         {% if evento.data.status == 'publicado' or evento.data.status == 'finalizado' %}
@@ -108,8 +108,7 @@ permalink: /
         {% endif %}
       {% endfor %}
     </div>
-    <p data-event-empty="[data-upcoming-list]" hidden>Estamos preparando nuevas experiencias.</p>
-    <div hidden data-past-list></div>
+    <p data-home-events-empty hidden>Estamos preparando nuevas experiencias.</p>
     <a class="button button-dark" href="/eventos/">Ver agenda y experiencias anteriores <span>→</span></a>
     <button class="slider-arrow" aria-label="Ver más eventos" onclick="window.location.href='/eventos/'">→</button>
   </section>
