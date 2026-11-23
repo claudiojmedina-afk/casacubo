@@ -2076,3 +2076,41 @@ body.popup-open{
 
 }
 
+/* CASA CUBO - CARRUSEL SIN RECORTES EN CELULARES */
+@media screen and (max-width: 650px) {
+
+  .hero .hero-photo.hero-carousel {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+  }
+
+  .hero .hero-carousel-track {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .hero .hero-carousel .hero-slide {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .hero .hero-carousel .hero-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: none !important;
+  }
+
+}
+
+
