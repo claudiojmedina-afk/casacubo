@@ -72,8 +72,13 @@
         <p>Completá el formulario y tus datos quedarán registrados para este evento.</p>
       </div>
       <div class="form-frame">
-        <iframe src="{{ form_url }}" title="Formulario de inscripción: {{ title }}" loading="lazy">Cargando formulario…</iframe>
-      </div>
+  <iframe
+    data-registration-frame
+    data-form-src="{{ form_url }}"
+    title="Formulario de inscripción: {{ title }}"
+    loading="lazy"
+  ></iframe>
+</div>
     </section>
     <section class="registration" data-registration-closed hidden>
       <div class="registration-head"><div><p class="eyebrow">EXPERIENCIA FINALIZADA</p><h2>Este encuentro ya pasó.</h2></div><p>Podés conocer nuestras próximas experiencias en la agenda.</p></div>
