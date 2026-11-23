@@ -1,49 +1,271 @@
-/* Casa Cubo: archivo automático de experiencias (zona horaria Buenos Aires). */
+
+/*
+ * CASA CUBO — Gestión automática de eventos
+ * Zona horaria: America/Argentina/Buenos_Aires
+ */
+
 (function () {
-  function endTimestamp(node) {
-    const value = node.dataset.eventEnd || node.dataset.eventStart;
+  "use strict";
+
+  const ARGENTINA_OFFSET = "-03:00";
+  const UPDATE_INTERVAL = 60000;
+
+  function parseEventDate(value) {
     if (!value) return NaN;
-    const start = Date.parse(value);
-    if (!Number.isFinite(start)) return NaN;
-    if (node.dataset.eventEnd) return start;
-    // Si no hay fecha/hora de cierre, archivar al terminar el día en Buenos Aires.
-    const parts = new Intl.DateTimeFormat('en-US', {timeZone:'America/Argentina/Buenos_Aires',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date(start));
-    const get = type => parts.find(part => part.type === type).value;
-    const date = get('year') + '-' + get('month') + '-' + get('day');
-    return Date.parse(date + 'T23:59:59.999-03:00');
+
+    const text = String(value).trim();
+
+    // Fecha y hora sin zona: interpretar como Buenos Aires.
+    const localDateTime = text.match(
+      /^(\d{4}-\d{2}-\d{2})[T ](\d{2}:\d{2})(?::(\d{2}))?$/
+    );
+
+    if (localDateTime) {
+      return Date.parse(
+        localDateTime[1] +
+        "T" +
+        localDateTime[2] +
+        ":" +
+        (localDateTime[3] || "00") +
+        ARGENTINA_OFFSET
+      );
+    }
+
+    // Fecha sin hora: inicio del día en Buenos Aires.
+    if (/^\d{4}-\d{2}-\d{2}$/.test(text)) {
+      return Date.parse(text + "T00:00:00-03:00");
+    }
+
+    // Fecha con zona horaria explícita.
+    return Date.parse(text);
   }
-  function update() {
+
+  function getArgentinaDateKey(timestamp) {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/Argentina/Buenos_Aires",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(new Date(timestamp));
+
+    const get = (type) =>
+      parts.find((part) => part.type === type).value;
+
+    return (
+      get("year") + "-" +
+      get("month") + "-" +
+      get("day")
+    );
+  }
+
+  function getEventStart(node) {
+    return parseEventDate(node.dataset.eventStart);
+  }
+
+  function getEventEnd(node) {
+    if (node.dataset.eventEnd) {
+      return parseEventDate(node.dataset.eventEnd);
+    }
+
+    const start = getEventStart(node);
+
+    if (!Number.isFinite(start)) {
+      return NaN;
+    }
+
+    // Compatibilidad con eventos sin fecha de cierre.
+    const dateKey = getArgentinaDateKey(start);
+
+    return Date.parse(
+      dateKey + "T23:59:59.999-03:00"
+    );
+  }
+
+  function isArchived(node, now) {
+    if (node.dataset.eventStatus === "finalizado") {
+      return true;
+    }
+
+    const end = getEventEnd(node);
+
+    return Number.isFinite(end) && now >= end;
+  }
+
+  function sortByStart(a, b) {
+    return getEventStart(a) - getEventStart(b);
+  }
+
+  function updateHomepage(now) {
+    const container = document.querySelector(
+      "[data-home-events]"
+    );
+
+    if (!container) return;
+
+    const cards = Array.from(
+      container.querySelectorAll("[data-event-start]")
+    );
+
+    const upcoming = [];
+    const past = [];
+
+    cards.forEach((card) => {
+      if (isArchived(card, now)) {
+        past.push(card);
+      } else {
+        upcoming.push(card);
+      }
+    });
+
+    upcoming.sort(sortByStart);
+    past.sort((a, b) => sortByStart(b, a));
+
+    const selected = upcoming.concat(past).slice(0, 3);
+
+    // Reordenar las tarjetas seleccionadas.
+    selected.forEach((card) => {
+      container.appendChild(card);
+    });
+
+    // Mantener todas las tarjetas en el HTML para que
+    // puedan volver a clasificarse en cada actualización.
+    cards.forEach((card) => {
+      card.hidden = !selected.includes(card);
+    });
+
+    const emptyMessage = document.querySelector(
+      "[data-home-events-empty]"
+    );
+
+    if (emptyMessage) {
+      emptyMessage.hidden = selected.length > 0;
+    }
+  }
+
+  function updateAgenda(now) {
+    const upcomingList = document.querySelector(
+      "[data-upcoming-list]"
+    );
+
+    const pastList = document.querySelector(
+      "[data-past-list]"
+    );
+
+    if (!upcomingList || !pastList) return;
+
+    // La homepage se administra por separado.
+    if (document.querySelector("[data-home-events]")) {
+      return;
+    }
+
+    const cards = Array.from(
+      document.querySelectorAll(
+        "[data-upcoming-list] [data-event-start]," +
+        "[data-past-list] [data-event-start]"
+      )
+    );
+
+    const upcoming = [];
+    const past = [];
+
+    cards.forEach((card) => {
+      if (isArchived(card, now)) {
+        past.push(card);
+      } else {
+        upcoming.push(card);
+      }
+    });
+
+    upcoming.sort(sortByStart);
+    past.sort((a, b) => sortByStart(b, a));
+
+    upcoming.forEach((card) => upcomingList.appendChild(card));
+    past.forEach((card) => pastList.appendChild(card));
+
+    const emptyMessage = document.querySelector(
+      '[data-event-empty="[data-upcoming-list]"]'
+    );
+
+    if (emptyMessage) {
+      emptyMessage.hidden = upcoming.length > 0;
+    }
+
+    const pastSection = document.querySelector(
+      "[data-past-section]"
+    );
+
+    if (pastSection) {
+      pastSection.hidden = past.length === 0;
+    }
+  }
+
+  function updateEventPage(now) {
+    const page = document.querySelector(
+      "[data-event-page]"
+    );
+
+    if (!page) return;
+
+    const archived = isArchived(page, now);
+
+    const open = document.querySelector(
+      "[data-registration-open]"
+    );
+
+    const closed = document.querySelector(
+      "[data-registration-closed]"
+    );
+
+    const cta = document.querySelector(
+      "[data-registration-cta]"
+    );
+
+    if (open) open.hidden = archived;
+    if (closed) closed.hidden = !archived;
+    if (cta) cta.hidden = archived;
+
+    const iframe = document.querySelector(
+      "[data-registration-frame]"
+    );
+
+    if (iframe) {
+      const formUrl = iframe.dataset.formSrc;
+
+      if (!archived && formUrl) {
+        if (!iframe.getAttribute("src")) {
+          iframe.setAttribute("src", formUrl);
+        }
+      } else {
+        iframe.removeAttribute("src");
+      }
+    }
+  }
+
+  function updateEvents() {
     const now = Date.now();
-    const upcoming = document.querySelector('[data-upcoming-list]');
-    const past = document.querySelector('[data-past-list]');
-    document.querySelectorAll('[data-event-start]').forEach(function (node) {
-      const archived = node.dataset.eventStatus === 'finalizado' || now >= endTimestamp(node);
-      if (upcoming && past) {
-        const target = archived ? past : upcoming;
-        if (node.parentElement !== target) target.appendChild(node);
-      }
-      if (node.hasAttribute('data-event-page')) {
-        const open = document.querySelector('[data-registration-open]');
-        const closed = document.querySelector('[data-registration-closed]');
-        if (open) open.hidden = archived;
-        if (closed) closed.hidden = !archived;
-        const cta = document.querySelector('[data-registration-cta]');
-        if (cta) cta.hidden = archived;
-      }
-    });
-    document.querySelectorAll('[data-event-empty]').forEach(function (el) {
-      const list = document.querySelector(el.dataset.eventEmpty);
-      if (list) el.hidden = list.children.length > 0;
-    });
-    document.querySelectorAll('[data-past-section]').forEach(function (el) {
-      const list = el.querySelector('[data-past-list]');
-      if (list) el.hidden = list.children.length === 0;
-    });
+
+    updateHomepage(now);
+    updateAgenda(now);
+    updateEventPage(now);
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', update);
-  else update();
-  document.addEventListener('visibilitychange', function () { if (!document.hidden) update(); });
-  window.addEventListener('pageshow', update);
-  // Mantener actualizado si el usuario deja la pestaña abierta al cambiar el día.
-  setInterval(update, 60000);
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      updateEvents
+    );
+  } else {
+    updateEvents();
+  }
+
+  document.addEventListener(
+    "visibilitychange",
+    function () {
+      if (!document.hidden) updateEvents();
+    }
+  );
+
+  window.addEventListener("pageshow", updateEvents);
+
+  window.setInterval(updateEvents, UPDATE_INTERVAL);
 })();
