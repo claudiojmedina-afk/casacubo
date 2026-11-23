@@ -1,4 +1,11 @@
 {
+  "hero_carousel": [
+    {
+      "new_tab": false,
+      "image": "https://ik.imagekit.io/fo8ajuwvyo/carrousel1.png",
+      "link": "https://crearnuevosmundos.empretienda.com.ar/"
+    }
+  ],
   "popup": {
     "enabled": false,
     "delay_seconds": 10,
