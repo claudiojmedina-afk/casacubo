@@ -12,10 +12,10 @@
     "button_link": "",
     "text": "",
     "new_tab": false,
-    "title": "Domingo 1/11 a las 11h",
-    "button_text": "",
-    "repeat_days": 2,
+    "title": "Visitá nuestra tienda",
+    "button_text": "visitar",
+    "repeat_days": 3,
     "id": "1111",
-    "image": "https://ik.imagekit.io/fo8ajuwvyo/1111.png"
+    "image": "https://ik.imagekit.io/fo8ajuwvyo/carrousel1.png"
   }
 }
