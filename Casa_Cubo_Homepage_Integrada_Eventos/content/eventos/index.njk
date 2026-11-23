@@ -2,7 +2,7 @@
 title: Eventos | Casa Cubo
 permalink: /eventos/
 ---
-{% set eventos = collections.eventos | sort(attribute='data.sort_date') %}
+{% set eventos = collections.eventos | sortByDate %}
 <!doctype html>
 <html lang="es">
 <head>
