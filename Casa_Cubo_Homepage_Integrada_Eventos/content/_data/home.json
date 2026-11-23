@@ -14,8 +14,8 @@
     "new_tab": false,
     "title": "Visitá nuestra tienda",
     "button_text": "visitar",
-    "repeat_days": 3,
+    "repeat_days": 1,
     "id": "1111",
-    "image": "https://ik.imagekit.io/fo8ajuwvyo/carrousel1.png"
+    "image": "https://ik.imagekit.io/fo8ajuwvyo/popup.png"
   }
 }
