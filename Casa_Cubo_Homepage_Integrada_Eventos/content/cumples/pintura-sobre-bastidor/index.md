@@ -3,7 +3,7 @@ title: Pintura Sobre Bastidor
 slug: pintura-bastidor
 status: publicado
 excerpt: Tu evento pintando y creando
-description: Cada invitad@ crea su propia obra en lienzo
+description: Cada invitadx crea su propia obra en lienzo
 age: 6 en adelante
 duration: 2h
 participants: mínimo de 10
@@ -14,16 +14,19 @@ gallery:
   - image: https://ik.imagekit.io/fo8ajuwvyo/cumple-pintura-1.png
   - image: https://ik.imagekit.io/fo8ajuwvyo/cumple-pintura-2.png
 include:
-  - Bastidor
+  - Bastidores
   - Pinturas acrílicas
+  - Delantales
+  - Deco
+  - Souvenirs
 proposal: >-
   Celebramos tu evento o cumpleaños con una propuesta diferente: un encuentro de
-  arte donde cada invitado pinta, explora colores y formas, y se lleva su propia
+  arte donde cada invitadx pinta, explora colores y formas, y se lleva su propia
   obra como recuerdo del día.
 
 
   Menos pantallas, más manos manchadas.
-   Menos a puro, más juego.
+   Menos apuro, más juego.
 
   🌈 Un cumpleaños diferente
 contact_url: https://wa.me/5491141720467
