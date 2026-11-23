@@ -7,7 +7,7 @@
     }
   ],
   "popup": {
-    "enabled": false,
+    "enabled": true,
     "delay_seconds": 10,
     "button_link": "",
     "text": "",
