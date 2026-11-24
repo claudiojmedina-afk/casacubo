@@ -12,13 +12,35 @@
   <link rel="stylesheet" href="/css/evento.css">
 </head>
 <body data-event-page data-event-start="{{ sort_date }}" {% if end_date %}data-event-end="{{ end_date }}"{% endif %} data-event-status="{{ status }}">
-  <header class="site-header">
-    <a class="brand" href="/">CASA <span>CUBO</span></a>
-    <nav>
-      <a href="/eventos/">Eventos</a>
-      <a href="https://casacubo.empretienda.com.ar/" target="_blank" rel="noopener">Tienda online</a>
-    </nav>
-  </header>
+  
+<header class="site-header">
+
+  <a class="brand brand-logo" href="/" aria-label="Casa Cubo, inicio">
+    <img
+      src="/assets/img/logo-cubo.png"
+      alt="Casa Cubo"
+      width="110"
+      height="72"
+      style="display:block; width:110px; height:72px; object-fit:contain;"
+    >
+  </a>
+
+  <nav>
+    <a href="/">Inicio</a>
+    <a href="/eventos/">Eventos</a>
+    <a href="/crear-nuevos-mundos/">Clases</a>
+    <a href="/cumples/">Cumples</a>
+    <a
+      href="https://crearnuevosmundos.empretienda.com.ar/"
+      target="_blank"
+      rel="noopener"
+    >
+      Tienda online ↗
+    </a>
+  </nav>
+
+</header>
+
 
   <main>
     <section class="event-hero">
