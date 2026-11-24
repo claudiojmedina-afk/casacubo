@@ -32,32 +32,51 @@
 
 <body>
 
+
 <header class="site-header">
 
-  <a class="brand brand-logo" href="/">
+  <a class="brand brand-logo" href="/" aria-label="Casa Cubo, inicio">
     <img
-      src="https://ik.imagekit.io/fo8ajuwvyo/logocc.png"
+      src="/assets/img/logo-cubo.png"
       alt="Casa Cubo"
+      width="110"
+      height="72"
     >
   </a>
 
-  <nav class="main-nav">
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="main-nav"
+  >
+    Menú
+  </button>
+
+  <nav id="main-nav" class="main-nav">
 
     <a href="/">Inicio</a>
 
-    <a href="/crear-nuevos-mundos/">
-      Clases
-    </a>
+    <a href="/crear-nuevos-mundos/">Clases</a>
 
-    <a href="/eventos/">
-      Eventos
-    </a>
+    <a href="/eventos/">Eventos</a>
 
-    <a class="active" href="/cumples/">
-      Cumples
-    </a>
+    <a class="active" href="/cumples/">Cumples</a>
 
   </nav>
+
+  <div class="header-actions">
+
+    <a
+      class="store-link"
+      href="https://crearnuevosmundos.empretienda.com.ar/"
+      target="_blank"
+      rel="noopener"
+    >
+      Tienda online ↗
+    </a>
+
+  </div>
 
 </header>
 
