@@ -10,20 +10,28 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
 
+<header class="site-header">
 
-<a class="brand brand-logo" href="/" aria-label="Casa Cubo, inicio">
-  <img
-    src="/assets/img/logo-cubo.png"
-    alt="Casa Cubo"
-    width="110"
-    height="72"
+  <a class="brand brand-logo" href="/" aria-label="Casa Cubo, inicio">
+    <img
+      src="/assets/img/logo-cubo.png"
+      alt="Casa Cubo"
+      width="110"
+      height="72"
+    >
+  </a>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="main-nav"
   >
-</a>
-
-
-  <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menú</button>
+    Menú
+  </button>
 
   <nav id="main-nav" class="main-nav">
     <a class="active" href="#inicio">Inicio</a>
@@ -37,11 +45,19 @@
   <div class="header-actions">
     <a href="#" aria-label="Instagram">◎</a>
     <a href="#" aria-label="Facebook">●</a>
-    <a class="store-link" href="https://crearnuevosmundos.empretienda.com.ar/" target="_blank" rel="noopener">
+
+    <a
+      class="store-link"
+      href="https://crearnuevosmundos.empretienda.com.ar/"
+      target="_blank"
+      rel="noopener"
+    >
       Tienda online ↗
     </a>
   </div>
+
 </header>
+
 
 <main>
   <section id="inicio" class="hero section-shell">
