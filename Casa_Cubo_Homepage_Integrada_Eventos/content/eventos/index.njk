@@ -10,7 +10,8 @@ permalink: /eventos/
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Eventos | Casa Cubo</title>
   <meta name="description" content="Talleres, experiencias y eventos de Casa Cubo.">
-  <link rel="stylesheet" href="/css/evento.css">
+<link rel="stylesheet" href="/css/evento.css">
+<link rel="stylesheet" href="/css/footer.css">
 </head>
 <body class="listing-page">
   <header class="site-header">
@@ -47,7 +48,11 @@ permalink: /eventos/
       <p>Así fueron los encuentros que compartimos en Casa Cubo.</p>
       <div class="event-grid" data-past-list></div>
     </section>
-  </main>
-<script src="/js/eventos-auto.js" defer></script>
+    </main>
+
+  {% include "footer.njk" %}
+
+  <script src="/js/eventos-auto.js" defer></script>
+
 </body>
 </html>
