@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/footer.css">
 </head>
 
 <body>
@@ -321,23 +322,7 @@
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="footer-main section-shell">
-    <div class="footer-brand">
-      <div class="brand footer-logo"><span class="brand-mark">◇</span><span>CASA<br>CUBO</span></div>
-      <p>Arte · Diseño · Talleres · Comunidad</p>
-    </div>
-    <nav class="footer-nav">
-      <a href="#inicio">Inicio</a><a href="#talleres">Talleres</a><a href="#eventos">Eventos</a><a href="#galeria">Galería</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a>
-    </nav>
-    <div class="footer-location">⌖<br><strong>Benavidez 111</strong><br>Monte Grande, Buenos Aires</div>
-    <div class="footer-store">Esta web fue creada por nosotros y ayuda de la ia con mucho amor</div>
-  </div>
-  <div class="footer-bottom section-shell">
-    <span>Términos y condiciones &nbsp; | &nbsp; Privacidad</span>
-    <span>Gracias por ser parte ♡</span>
-  </div>
-</footer>
+{% include "footer.njk" %}
 
 {% if home.popup and home.popup.enabled %}
 <div
