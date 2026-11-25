@@ -1,0 +1,91 @@
+
+/* =========================================
+   CASA CUBO — WHATSAPP GLOBAL
+   ========================================= */
+
+.cc-whatsapp-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 900;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 60px;
+  height: 60px;
+
+  background: #25D366;
+  color: #ffffff;
+
+  border-radius: 50%;
+  text-decoration: none;
+  box-sizing: border-box;
+
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* ICONO */
+
+.cc-whatsapp-float svg {
+  display: block;
+  width: 34px;
+  height: 34px;
+  fill: currentColor;
+}
+
+
+/* INTERACCIÓN */
+
+.cc-whatsapp-float:hover {
+  background: #1fba59;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25);
+}
+
+.cc-whatsapp-float:active {
+  transform: scale(0.95);
+}
+
+.cc-whatsapp-float:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+
+
+/* SMARTPHONES */
+
+@media (max-width: 650px) {
+
+  .cc-whatsapp-float {
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    width: 54px;
+    height: 54px;
+  }
+
+  .cc-whatsapp-float svg {
+    width: 30px;
+    height: 30px;
+  }
+
+}
+
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cc-whatsapp-float {
+    transition: none;
+  }
+
+}
