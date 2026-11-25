@@ -11,6 +11,7 @@
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/css/evento.css">
   <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/whatsapp.css">
 </head>
 <body data-event-page data-event-start="{{ sort_date }}" {% if end_date %}data-event-end="{{ end_date }}"{% endif %} data-event-status="{{ status }}">
   
@@ -110,6 +111,9 @@
   </main>
 
   {% include "footer.njk" %}
+
+ {% include "whatsapp.njk" %}
+
 <script src="/js/eventos-auto.js" defer></script>
 </body>
 </html>
