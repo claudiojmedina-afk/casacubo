@@ -186,3 +186,31 @@
   }
 
 }
+
+/* AJUSTES FINALES DEL FOOTER */
+
+.cc-footer-logo {
+  margin-bottom: 4px;
+}
+
+@media (min-width: 1101px) {
+
+  .cc-footer-location,
+  .cc-footer-credits {
+    align-self: stretch;
+  }
+
+}
+
+.cc-footer-bottom {
+  padding-right: 80px;
+}
+
+@media (max-width: 650px) {
+
+  .cc-footer-bottom {
+    padding-right: 0;
+    padding-bottom: 65px;
+  }
+
+}
