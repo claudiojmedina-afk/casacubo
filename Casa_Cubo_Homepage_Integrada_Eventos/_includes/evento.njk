@@ -10,6 +10,7 @@
   <meta property="og:image" content="{{ image }}">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/css/evento.css">
+  <link rel="stylesheet" href="/css/footer.css">
 </head>
 <body data-event-page data-event-start="{{ sort_date }}" {% if end_date %}data-event-end="{{ end_date }}"{% endif %} data-event-status="{{ status }}">
   
@@ -108,11 +109,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <a class="brand" href="/">CASA <span>CUBO</span></a>
-    <p>Arte · diseño · talleres · comunidad</p>
-    <a href="/eventos/">Ver todos los eventos ↗</a>
-  </footer>
+  {% include "footer.njk" %}
 <script src="/js/eventos-auto.js" defer></script>
 </body>
 </html>
