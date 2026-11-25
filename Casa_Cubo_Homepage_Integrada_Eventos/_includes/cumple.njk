@@ -27,6 +27,7 @@
 
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/whatsapp.css">
 
 </head>
 
@@ -307,21 +308,15 @@
 
     </div>
 
-    <a
-      class="button button-dark"
-      href="{{ contact_url or 'https://wa.me/5491141720467' }}"
-      target="_blank"
-      rel="noopener"
-    >
-      Consultar disponibilidad →
-    </a>
-
+    
   </section>
 
 </main>
 
 
 {% include "footer.njk" %}
+
+{% include "whatsapp.njk" %}
 
 
 <script>
