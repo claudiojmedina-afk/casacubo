@@ -1,18 +1,24 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title }} | Casa Cubo</title>
   <meta name="description" content="{{ excerpt }}">
+
+  <link rel="canonical" href="https://casacubo.com.ar{{ page.url }}">
+
   <meta property="og:title" content="{{ title }} | Casa Cubo">
   <meta property="og:description" content="{{ excerpt }}">
   <meta property="og:image" content="{{ image }}">
   <meta property="og:type" content="website">
+
   <link rel="stylesheet" href="/css/evento.css">
   <link rel="stylesheet" href="/css/footer.css">
   <link rel="stylesheet" href="/css/whatsapp.css">
 </head>
+
 <body data-event-page data-event-start="{{ sort_date }}" {% if end_date %}data-event-end="{{ end_date }}"{% endif %} data-event-status="{{ status }}">
   
 <header class="site-header">
