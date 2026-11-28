@@ -1,4 +1,6 @@
 
+<link rel="stylesheet" href="/css/cookie-consent.css">
+
 <footer class="cc-footer">
 
   <div class="cc-footer-main">
@@ -92,6 +94,16 @@
 
       <a href="/privacidad/">Política de privacidad</a>
 
+      <span aria-hidden="true">|</span>
+
+      <button
+        type="button"
+        id="cc-cookie-settings"
+        aria-controls="cc-cookie-banner"
+      >
+        Preferencias de cookies
+      </button>
+
     </div>
 
     <p>Gracias por ser parte ♡</p>
@@ -99,3 +111,45 @@
   </div>
 
 </footer>
+
+
+<!-- CONSENTIMIENTO DE COOKIES -->
+
+<section
+  id="cc-cookie-banner"
+  aria-labelledby="cc-cookie-title"
+  aria-describedby="cc-cookie-description"
+  hidden
+>
+
+  <h2 id="cc-cookie-title">
+    Tu privacidad importa.
+  </h2>
+
+  <p id="cc-cookie-description">
+    Utilizamos cookies analíticas para conocer cómo
+    navegás por Casa Cubo y mejorar nuestro sitio web.
+    Vos decidís si querés aceptarlas.
+    Podés cambiar tu decisión en cualquier momento
+    desde el pie de página.
+  </p>
+
+  <a href="/privacidad/">
+    Política de privacidad
+  </a>
+
+  <div class="cc-cookie-actions">
+
+    <button type="button" id="cc-cookie-reject">
+      Rechazar
+    </button>
+
+    <button type="button" id="cc-cookie-accept">
+      Aceptar
+    </button>
+
+  </div>
+
+</section>
+
+<script src="/js/cookie-consent.js" defer></script>
